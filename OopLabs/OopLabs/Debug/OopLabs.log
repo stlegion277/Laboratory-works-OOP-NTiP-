@@ -1,0 +1,7 @@
+﻿  stdafx.cpp
+  OopLabs.cpp
+c:\users\admin\documents\visual studio 2015\projects\ooplabs\ooplabs\ooplabs.cpp(164): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+c:\users\admin\documents\visual studio 2015\projects\ooplabs\ooplabs\ooplabs.cpp(167): warning C4244: =: преобразование "float" в "int", возможна потеря данных
+c:\users\admin\documents\visual studio 2015\projects\ooplabs\ooplabs\ooplabs.cpp(173): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+  OopLabs.vcxproj -> c:\users\admin\documents\visual studio 2015\Projects\OopLabs\Debug\OopLabs.exe
+  OopLabs.vcxproj -> c:\users\admin\documents\visual studio 2015\Projects\OopLabs\Debug\OopLabs.pdb (Full PDB)
