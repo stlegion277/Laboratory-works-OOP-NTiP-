@@ -1,7 +1,6 @@
-﻿  stdafx.cpp
-  OopLabs.cpp
-c:\git\laboratory-works-oop-ntip-\ooplabs\ooplabs\ooplabs.cpp(164): warning C4244: =: преобразование "int" в "float", возможна потеря данных
-c:\git\laboratory-works-oop-ntip-\ooplabs\ooplabs\ooplabs.cpp(167): warning C4244: =: преобразование "float" в "int", возможна потеря данных
-c:\git\laboratory-works-oop-ntip-\ooplabs\ooplabs\ooplabs.cpp(173): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+﻿  Functions.cpp
+c:\git\laboratory-works-oop-ntip-\ooplabs\ooplabs\functions.cpp(142): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+c:\git\laboratory-works-oop-ntip-\ooplabs\ooplabs\functions.cpp(144): warning C4244: =: преобразование "float" в "int", возможна потеря данных
+c:\git\laboratory-works-oop-ntip-\ooplabs\ooplabs\functions.cpp(147): warning C4244: =: преобразование "int" в "float", возможна потеря данных
   OopLabs.vcxproj -> C:\Git\Laboratory-works-OOP-NTiP-\OopLabs\Debug\OopLabs.exe
   OopLabs.vcxproj -> C:\Git\Laboratory-works-OOP-NTiP-\OopLabs\Debug\OopLabs.pdb (Full PDB)
