@@ -6,8 +6,6 @@ void HelloWorld()
 	printf("Hello, World!\n");
 
 }
-
-
 void NumbersSumm()
 {
 	int a;
@@ -18,7 +16,6 @@ void NumbersSumm()
 	printf("\n Summ of a and b equals %d\n", a + b);
 
 }
-
 void NumbersDivision()
 {
 	int a = 5;
@@ -29,8 +26,6 @@ void NumbersDivision()
 	printf("Integer variables division: %d \n", a / b);
 
 }
-
-
 void ReadingInput()
 {
 	int a;
@@ -43,8 +38,6 @@ void ReadingInput()
 	printf(" \n Summ of %d and %d equals %d \n", a, b, a + b);
 
 }
-
-
 void PointerExample()
 {
 	int value;
@@ -59,8 +52,6 @@ void PointerExample()
 
 
 }
-
-
 int ExampleIf()
 {
 	int a;
@@ -77,7 +68,6 @@ int ExampleIf()
 
 	return 0;
 }
-
 void ExampleElseIf()
 {
 	int a;
@@ -96,8 +86,6 @@ void ExampleElseIf()
 		printf("\n Value %d doesn`t multiply 5 or 2! \n", a);
 	}
 }
-
-
 void PredfixCycle()
 {
 	int a = 0;
@@ -107,7 +95,6 @@ void PredfixCycle()
 		a++;
 	}
 }
-
 void PostfixCycle()
 {
 	int a = 0;
@@ -118,7 +105,6 @@ void PostfixCycle()
 	} while (a < 5);
 
 }
-
 void IterativeCycle()
 {
 	int a = 10;
@@ -133,7 +119,6 @@ void IterativeCycle()
 		printf("Iteration #%d Value is %d \n", i, a);
 	}
 }
-
 void ConvertingTypes()
 {
 	int a = 5;
@@ -150,7 +135,6 @@ void ConvertingTypes()
 	printf("Value of z is %f \n", z);
 
 }
-
 void BreakExample()
 {
 	int a = 10;
