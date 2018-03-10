@@ -1,9 +1,0 @@
-﻿  Main.cpp
-c:\users\admin\documents\visual studio 2015\projects\ooplabs2\ooplabs2\main.cpp(11): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
-  Functions.cpp
-  Создание кода...
-c:\users\admin\documents\visual studio 2015\projects\ooplabs2\ooplabs2\functions.cpp(86): warning C4715: KEK::GetRoots: значение возвращается не при всех путях выполнения
-c:\users\admin\documents\visual studio 2015\projects\ooplabs2\ooplabs2\functions.cpp(109): warning C4715: KEK::GetRoots2: значение возвращается не при всех путях выполнения
-c:\users\admin\documents\visual studio 2015\projects\ooplabs2\ooplabs2\functions.cpp(121): warning C4715: KEK::GetPower: значение возвращается не при всех путях выполнения
-  OOPLabs2.vcxproj -> C:\Users\Admin\documents\visual studio 2015\Projects\OOPLabs2\Debug\OOPLabs2.exe
-  OOPLabs2.vcxproj -> C:\Users\Admin\documents\visual studio 2015\Projects\OOPLabs2\Debug\OOPLabs2.pdb (Partial PDB)
