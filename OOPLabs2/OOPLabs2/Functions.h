@@ -2,7 +2,7 @@
 #include "CheckSymbol.h"
 
 
-namespace KEK
+namespace Lab2
 {
 	
 

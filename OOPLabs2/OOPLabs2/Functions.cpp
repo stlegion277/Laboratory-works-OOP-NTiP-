@@ -2,7 +2,7 @@
 #include "Functions.h"
 using namespace std;
 
-namespace KEK
+namespace Lab2
 {	int globalVariable = 10;
 	void PrintHelloWorld()
 	{
@@ -69,6 +69,7 @@ namespace KEK
 		if (squareRoot > 0) {
 			*x1 = (-b + squareRoot) / (2 * a);
 			*x2 = (-b - squareRoot) / (2 * a);
+			cout << "Two roots found\n";
 			cout << "First root" << *x1 << endl;
 			cout << "Second root" << *x2 << endl;
 			return 0;
@@ -92,6 +93,7 @@ namespace KEK
 		if (squareRoot > 0) {
 			x3 = (-b + squareRoot) / (2 * a);
 			x4 = (-b - squareRoot) / (2 * a);
+			cout << "Two roots found\n";
 			cout << "First root" << x3 << endl;
 			cout << "Second root" << x4 << endl;
 			return 0;

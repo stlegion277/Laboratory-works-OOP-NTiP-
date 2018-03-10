@@ -1,12 +1,7 @@
 
 #include "Functions.h"
 using namespace std;
-using namespace KEK;
-
-
-
-
-
+using namespace Lab2;
 int main()
 {	srand(time(NULL));
 	int sizeArr = 5;
@@ -14,7 +9,6 @@ int main()
 	int m;
 	bool menu = 1;
 	int default = 10000;
-
 	cout << "1. First task\n";
 	cout << "2. Second task\n";
 	cout << "3. Third task\n";
@@ -37,28 +31,21 @@ int main()
 			break;
 		case 1:
 			PrintHelloWorld();
-			
 			m = CheckSymbol();
 			break;
-
 		case 2:
 			cout << MakeCalculation(2,2);
-			
 			m = CheckSymbol();
 			break;
 		case 3:
-
 			cout << "Result of division = " << Divide(2, 2);
-			
 			m = CheckSymbol();
 			break;
-
 		case 4:
 		{
 			double* x1 = new double;
 			double* x2 = new double;
 			GetRoots(1, 3, 2, x1, x2);
-			
 			m = CheckSymbol();
 			break;
 		}
