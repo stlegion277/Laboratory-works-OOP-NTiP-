@@ -1,7 +1,8 @@
 #pragma once
 #include "Functions.h"
 using namespace std;
-
+//TODO: Внимательно прочитайте стандарт оформления кода RSDN https://rsdn.org/article/mag/200401/codestyle.XML
+//TODO: и приведите свой код в соответстие со стандартом
 namespace Lab2
 {	int globalVariable = 10;
 	void PrintHelloWorld()
@@ -85,6 +86,9 @@ namespace Lab2
 			return 2;
 		}
 	}
+	//TODO: Зачем тут делать именование х3 и х4? Это всё те же х1 и х2.
+	//TODO: Также неудачное именвание. Функции различаются передачей по ссылке и указателю, 
+	//TODO: что можно было отразить в названии функции
 	int GetRoots2(int a, int b, int c, double& x3, double& x4)
 	{
 		double discriminant = b*b - (4 * a * c);
@@ -151,7 +155,8 @@ namespace Lab2
 			arr2[i] = new int[sizeArr];
 			resultArray[i] = new int[sizeArr];
 		}
-
+//TODO: В тексте много дублирования кода
+					//TODO: Уменьшите дублирование.
 		for (int i = 0; i < sizeArr; i++)
 			for (int j = 0; j < sizeArr; j++)
 				arr[i][j] = rand() % 20;

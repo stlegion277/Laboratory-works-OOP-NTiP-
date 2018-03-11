@@ -1,14 +1,20 @@
 
 #include "Functions.h"
 using namespace std;
+//TODO: Внимательно прочитайте стандарт оформления кода RSDN https://rsdn.org/article/mag/200401/codestyle.XML
+//TODO: и приведите свой код в соответстие со стандартом
 using namespace Lab2;
 int main()
 {	srand(time(NULL));
+//TODO: Почему это всё находится за основной логикой с case-ами?
 	int sizeArr = 5;
 	int** arr = MultiplyMatrix(sizeArr);
 	int m;
+	//TODO: Присваивание 1 булю - плохая практика. Буль - это true и false, а не 1 и 0.
 	bool menu = 1;
+	//TODO: Эта переменная не используется
 	int default = 10000;
+	//TODO: Меню не информативно, что за таски - я не помню по памяти, лучше расшифровать
 	cout << "1. First task\n";
 	cout << "2. Second task\n";
 	cout << "3. Third task\n";
@@ -20,6 +26,7 @@ int main()
 	cout << "9. Ninth task\n";
 	cout << "0 Exit\n ";
 	cout << "Enter number of function to start\n ";
+	//TODO: CheckSymbol дублируется во всех case-ах, это избыточно.
 	m = CheckSymbol();
 	while (menu == 1)
 	{

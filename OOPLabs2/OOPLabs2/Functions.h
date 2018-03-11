@@ -4,7 +4,8 @@
 
 namespace Lab2
 {
-	
+//TODO: Внимательно прочитайте стандарт оформления кода RSDN https://rsdn.org/article/mag/200401/codestyle.XML
+//TODO: и приведите свой код в соответстие со стандартом	
 
 void PrintHelloWorld();
 void GlobalPlusTwo();
