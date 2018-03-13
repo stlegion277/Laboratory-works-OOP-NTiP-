@@ -4,7 +4,8 @@ using namespace std;
 //TODO: Внимательно прочитайте стандарт оформления кода RSDN https://rsdn.org/article/mag/200401/codestyle.XML
 //TODO: и приведите свой код в соответстие со стандартом
 namespace Lab2
-{	int globalVariable = 10;
+{
+	int globalVariable = 10;
 	void PrintHelloWorld()
 	{
 		cout << "Hello World!\n";
@@ -63,7 +64,7 @@ namespace Lab2
 		return result;
 		system("pause");
 	}
-	int GetRoots(int a, int b, int c, double* x1, double* x2)
+	int GetRootsPointer(int a, int b, int c, double* x1, double* x2)
 	{
 		double discriminant = b*b - (4 * a * c);
 		double squareRoot = sqrt(discriminant);
@@ -89,17 +90,17 @@ namespace Lab2
 	//TODO: Зачем тут делать именование х3 и х4? Это всё те же х1 и х2.
 	//TODO: Также неудачное именвание. Функции различаются передачей по ссылке и указателю, 
 	//TODO: что можно было отразить в названии функции
-	int GetRoots2(int a, int b, int c, double& x3, double& x4)
+	int GetRootsReference(int a, int b, int c, double& x1, double& x2)
 	{
 		double discriminant = b*b - (4 * a * c);
 		double squareRoot = sqrt(discriminant);
 
 		if (squareRoot > 0) {
-			x3 = (-b + squareRoot) / (2 * a);
-			x4 = (-b - squareRoot) / (2 * a);
+			x1 = (-b + squareRoot) / (2 * a);
+			x2 = (-b - squareRoot) / (2 * a);
 			cout << "Two roots found\n";
-			cout << "First root" << x3 << endl;
-			cout << "Second root" << x4 << endl;
+			cout << "First root" << x1 << endl;
+			cout << "Second root" << x2 << endl;
 			return 0;
 		}
 		if (squareRoot < 0) {
@@ -107,9 +108,9 @@ namespace Lab2
 			return 1;
 		}
 		if (squareRoot == 0) {
-			x3 = (-b) / (2 * a);
-			x4 = NULL;
-			cout << "Only one root " << x3;
+			x1 = (-b) / (2 * a);
+			x2 = NULL;
+			cout << "Only one root " << x1;
 			return 2;
 		}
 	}
@@ -155,8 +156,8 @@ namespace Lab2
 			arr2[i] = new int[sizeArr];
 			resultArray[i] = new int[sizeArr];
 		}
-//TODO: В тексте много дублирования кода
-					//TODO: Уменьшите дублирование.
+		//TODO: В тексте много дублирования кода
+		//TODO: Уменьшите дублирование.
 		for (int i = 0; i < sizeArr; i++)
 			for (int j = 0; j < sizeArr; j++)
 				arr[i][j] = rand() % 20;
