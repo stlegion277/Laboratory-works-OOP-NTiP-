@@ -1,0 +1,4 @@
+﻿  Lab3.cpp
+c:\users\admin\documents\visual studio 2015\projects\objectorientedprogramminglabs\objectorientedprogramminglabs\lab3.cpp(119): warning C4715: Lab3::FindSubString: значение возвращается не при всех путях выполнения
+  ObjectOrientedProgrammingLabs.vcxproj -> C:\Users\Admin\documents\visual studio 2015\Projects\ObjectOrientedProgrammingLabs\Debug\ObjectOrientedProgrammingLabs.exe
+  ObjectOrientedProgrammingLabs.vcxproj -> C:\Users\Admin\documents\visual studio 2015\Projects\ObjectOrientedProgrammingLabs\Debug\ObjectOrientedProgrammingLabs.pdb (Partial PDB)
