@@ -2,6 +2,7 @@
 using namespace std;
 
 namespace Lab3
+	//TODO: Каждая сущность должны быть в разных файлах
 {	enum Sex { Male, Female };
 	struct Person {
 		char Surname[40];

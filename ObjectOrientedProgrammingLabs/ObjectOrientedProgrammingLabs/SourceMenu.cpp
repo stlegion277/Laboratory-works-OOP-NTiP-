@@ -7,6 +7,7 @@
 int main()
 {
 	srand(time(0));
+	//TODO: Неправильное именование
 	int n;
 	while (true)
 	{

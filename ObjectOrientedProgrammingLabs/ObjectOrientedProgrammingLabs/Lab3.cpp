@@ -23,6 +23,7 @@ namespace Lab3
 		cout << "Write sex 0 - Male 1 - Female\n";
 		int maleFemale;
 		cin >> maleFemale;
+		//TODO: Неправильно использовать числовые константы, если есть перчисление.
 		if (maleFemale == 0 && maleFemale == 1)
 		{
 			switch (maleFemale)
@@ -38,7 +39,7 @@ namespace Lab3
 			}
 		}
 		return newPerson;
-	}
+	}//TODO: Передавать по значению - не оптимально
 	void PrintPerson(Person person)
 	{
 		cout << "Sex = " <<person.Sex ;
@@ -121,7 +122,7 @@ namespace Lab3
 	{
 		char* stringMassive = string;
 		while (*string != '\0')
-		{
+		{//TODO: Использование прямых ASCII символов плохо читеается.
 			if (int(*string) >= 97 && int(*string) <= 122)
 			{
 				*string = char(*string - 32);
@@ -137,7 +138,7 @@ namespace Lab3
 	{
 		char* stringMassive = string;
 		while (*string != '\0')
-		{
+		{//TODO: Использование прямых ASCII символов плохо читеается.
 			if (int(*string) <= 90 && int(*string) >= 65)
 			{
 				*string = char(*string + 32);
@@ -149,6 +150,7 @@ namespace Lab3
 		}
 		return string;
 	}
+	//TODO: Работает некорректно
 	char* ReplaceTabsOnSpaces(char* string)
 	{
 		char* newString = new char[90];
@@ -159,7 +161,8 @@ namespace Lab3
 		{
 			tabulationPointer++;
 			if (string[i] == '\t')
-			{	
+			{	//TODO: Гвоздями прибита цифра 4 - это не правильно, 
+				//TODO: табуляция может быть как больше четырёх, так и меньше четырёх символов
 				for (int i = tabulationPointer; i < tabulationPointer + 4; i++)
 				{
 					newString[counter++] = ':';
@@ -174,6 +177,7 @@ namespace Lab3
 		newString[counter] = '\0';
 		return newString;
 	}
+	//TODO: Работает некорректно
 	char* ReplaceSpacesOnTabs(char* string)
 	{
 		char* newString = new char[200];
@@ -206,7 +210,7 @@ namespace Lab3
 		return newString;
 	}
 	void SplitFileName(char* source, char* path, char* name, char* extension)
-	{
+	{//TODO: В коде не должны оставляться подобные комментарии!
 		/*int k = GetLength(source - 1);
 		int i = GetLength(source - 1);
 		int pointer;
@@ -297,6 +301,7 @@ namespace Lab3
 		cout << "10. Work with person structure\n";
 		cout << "0 Exit\n ";
 		cout << "Enter number of function to start\n ";
+		//TODO: Плохое именование
 		int m;
 		bool menu = true;
 		while (menu == true)
@@ -315,7 +320,7 @@ namespace Lab3
 					break;
 			    }
 				case ConcatenateEnum:
-				{
+				{//TODO: Длинная строка - плохо читаемый код
 					char* testMassiveConcatenate = Concatenate(new char[20]{ 'K','E','K','\0' }, new char[20]{ 'L','O','L','\0' });
 					for (int i = 0; i < 20; i++)
 					{
@@ -355,6 +360,8 @@ namespace Lab3
 				}
 				case SplitFileNameEnum:
 				{
+					//TODO: Задавайте строки по-человечески, а не по-символьно!
+					//TODO: Длинная строка - плохо читаемый код
 					char source[50] = { 'd',':','\\','f','o','l','d','e','r','\\','f','i','l','e','.','e','x','e','\0' };
 					char path[30];
 					char extension[5];
@@ -384,7 +391,7 @@ namespace Lab3
 					Person Data = InputPerson();
 					PrintPerson(Data);
 					break;
-				}
+				}//TODO: Нарушение форматирование по RSDN
 				default: cout << "Enter number of function to start ";
 					break;
 					}
