@@ -1,14 +1,10 @@
 #pragma once
+#include "Person.h"
 using namespace std;
 
 namespace Lab3
 	//TODO: Каждая сущность должны быть в разных файлах
-{	enum Sex { Male, Female };
-	struct Person {
-		char Surname[40];
-		char Name[20];
-		Sex Sex;
-	};
+{	//исправил
 	int GetLength(char * string);
 	char *Concatenate(char* string1, char* string2);
 	char* GetSubString(char* string, int startIndex, int charCount);
@@ -18,7 +14,7 @@ namespace Lab3
 	char* ReplaceTabsOnSpaces(char* string);
 	char* ReplaceSpacesOnTabs(char* string);
 	void SplitFileName(char* source, char* path, char* name, char* extension);
-	void PrintPerson(Person person);
+	void PrintPerson(Person& person);
 	Person InputPerson();
 	int Lab3();
 }
