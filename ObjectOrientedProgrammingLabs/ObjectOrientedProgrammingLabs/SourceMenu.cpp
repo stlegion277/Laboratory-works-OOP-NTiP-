@@ -8,7 +8,7 @@ int main()
 {
 	srand(time(0));
 	//TODO: Неправильное именование
-	int n;
+	int numberMenu;
 	while (true)
 	{
 		cout << endl
@@ -17,9 +17,9 @@ int main()
 		<< "3 Lab 3" << endl
 		<< "0 Exit" << endl
 		<< "Choose wisely: ";
-		n = CheckSymbol();
+		numberMenu = CheckSymbol();
 		system("cls");
-		switch (n)
+		switch (numberMenu)
 		{
 		case 1:
 			Lab1(); break;
