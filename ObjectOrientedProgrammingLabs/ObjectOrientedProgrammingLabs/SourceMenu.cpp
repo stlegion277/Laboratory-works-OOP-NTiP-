@@ -7,7 +7,6 @@
 int main()
 {
 	srand(time(0));
-	//TODO: Неправильное именование
 	int numberMenu;
 	while (true)
 	{
@@ -20,7 +19,7 @@ int main()
 		numberMenu = CheckSymbol();
 		system("cls");
 		switch (numberMenu)
-		{
+		{//TODO: Неправильное форматирование
 		case 1:
 			Lab1(); break;
 		case 2:

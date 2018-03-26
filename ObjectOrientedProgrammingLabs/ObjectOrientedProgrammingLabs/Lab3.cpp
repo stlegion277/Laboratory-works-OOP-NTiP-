@@ -15,7 +15,7 @@ namespace Lab3
 			length++;
 		}
 		return length;
-	}
+	} //TODO: Между методами должны быть пустые строки
 	Lab3::Person InputPerson()
 	{
 		Person newPerson;
@@ -26,13 +26,13 @@ namespace Lab3
 		cout << "Write sex 1 - Male 0 - Female\n";
 		int maleFemale;
 		cin >> maleFemale;
-		//TODO: Неправильно использовать числовые константы, если есть перчисление.
-		//исправил
+		
 		do
 		{
 			maleFemale = CheckSymbol();
 		} 
 		while ((maleFemale < 0) && (maleFemale > 1));
+		//TODO: Неправильное форматирование
 			switch (maleFemale)
 			{
 				case 1:
@@ -45,8 +45,8 @@ namespace Lab3
 					break;
 			}
 		return newPerson;
-	}//TODO: Передавать по значению - не оптимально
-	//исправил
+	}
+
 	void PrintPerson(Person& person)
 	{
 		cout << "Sex = \n" << person.Sex ;
@@ -129,8 +129,7 @@ namespace Lab3
 	{
 		char* stringMassive = string;
 		while (*string != '\0')
-		{//TODO: Использование прямых ASCII символов плохо читеается.
-			//исправил
+		{
 			if (int(*string) > 'a' && int(*string) < 'a')
 			{
 				*string = char(*string - 32);
@@ -146,8 +145,7 @@ namespace Lab3
 	{
 		char* stringMassive = string;
 		while (*string != '\0')
-		{//TODO: Использование прямых ASCII символов плохо читеается.
-			//исправил
+		{
 			if (int(*string) > 'A' && int(*string) < 'Z')
 			{
 				*string = char(*string + 32);
@@ -159,8 +157,7 @@ namespace Lab3
 		}
 		return string;
 	}
-	//TODO: Работает некорректно
-	//исправил
+	
 	char* ReplaceTabsOnSpaces(char* string)
 	{
 		char* newString = new char[90];
@@ -169,9 +166,7 @@ namespace Lab3
 		for (int i = 0; i < GetLength(newString); counter++)
 		{
 			if (string[i] == '\t')
-			{	//TODO: Гвоздями прибита цифра 4 - это не правильно, 
-				//TODO: табуляция может быть как больше четырёх, так и меньше четырёх символов
-				//исправил
+			{	
 				if (counter % 4 != 0)
 				{
 					newString[counter] = ':';
@@ -191,8 +186,7 @@ namespace Lab3
 		newString[counter++] = '\0';
 		return newString;
 	}
-	//TODO: Работает некорректно
-	//исправил
+	
 	char* ReplaceSpacesOnTabs(char* string)
 	{
 		char* newString = new char[200];
@@ -230,8 +224,7 @@ namespace Lab3
 		return newString;
 	}
 	void SplitFileName(char* source, char* path, char* name, char* extension)
-	{//TODO: В коде не должны оставляться подобные комментарии!
-		//исправил
+	{
 		int dotPointer = 0;
 		int slashPointer = 0;
 		for (int i = GetLength(source); i >= 0; i--)
@@ -295,8 +288,7 @@ namespace Lab3
 		cout << "10. Work with person structure\n";
 		cout << "0 Exit\n ";
 		cout << "Enter number of function to start\n ";
-		//TODO: Плохое именование
-		//исправил
+		
 		int menuNumber;
 		bool menu = true;
 		while (menu == true)
@@ -315,8 +307,7 @@ namespace Lab3
 					break;
 			    }
 				case ConcatenateEnum:
-				{//TODO: Длинная строка - плохо читаемый код
-					//исправил
+				{
 					char* testMassiveConcatenate = Concatenate(new char[20]{ 'K','E','K','\0' }, 
 					new char[20]{ 'L','O','L','\0' });
 					for (int i = 0; i < 20; i++)
@@ -357,9 +348,9 @@ namespace Lab3
 				}
 				case SplitFileNameEnum:
 				{
-					//TODO: Задавайте строки по-человечески, а не по-символьно!
-					//TODO: Длинная строка - плохо читаемый код
-					//исправил
+					//TODO: Добавьте в проверку следующие варианты
+					// "d:\\f old er\\file.exe"
+					// "d:\\f old er\\file.exe.txt.cmd"
 					char source[50] = { "d:\\folder\\file.exe" };
 					char path[30];
 					char extension[5];
@@ -373,14 +364,27 @@ namespace Lab3
 				}
 				case ReplaceTabsOnSpacesEnum:
 				{
+					//TODO: Плохо, что я за вас должен дописывать все тестовые случаи!
 					char* testMassiveReplaceTabsOnSpaces = (char*)"Cake\tis\ta lie!";
-					cout << ReplaceTabsOnSpaces(testMassiveReplaceTabsOnSpaces);
+					cout << ReplaceTabsOnSpaces(testMassiveReplaceTabsOnSpaces) << endl;
+					testMassiveReplaceTabsOnSpaces = (char*)"Cake\t\tis a lie!";
+					cout << ReplaceTabsOnSpaces(testMassiveReplaceTabsOnSpaces) << endl;
+					testMassiveReplaceTabsOnSpaces = (char*)"\tCake is \tlie!";
+					cout << ReplaceTabsOnSpaces(testMassiveReplaceTabsOnSpaces) << endl;
 					break;
 				}
 				case ReplaceSpacesOnTabsEnum:
 				{
-					char* testMassiveReplaceSpacesOnTabs = (char*)" Cake::::is::::a:lie";
-					cout << ReplaceSpacesOnTabs(testMassiveReplaceSpacesOnTabs);
+					//TODO: Плохо, что я за вас должен дописывать все тестовые случаи!
+					//TODO: Сейчас алгоритм отрабатывает некорректно
+					char* testMassiveReplaceSpacesOnTabs = (char*)"Cake::::is::a:lie!";
+					cout << ReplaceSpacesOnTabs(testMassiveReplaceSpacesOnTabs) << endl;
+					testMassiveReplaceSpacesOnTabs = (char*)"Cake::::is::::a:lie!";
+					cout << ReplaceSpacesOnTabs(testMassiveReplaceSpacesOnTabs) << endl;
+					testMassiveReplaceSpacesOnTabs = (char*)"Cake:is:a:::::::lie!";
+					cout << ReplaceSpacesOnTabs(testMassiveReplaceSpacesOnTabs) << endl;
+					testMassiveReplaceSpacesOnTabs = (char*)"Cake:is::a:lie!";
+					cout << ReplaceSpacesOnTabs(testMassiveReplaceSpacesOnTabs) << endl;
 					break;
 				}
 				case PersonStructEnum:
@@ -391,6 +395,7 @@ namespace Lab3
 					break;
 				}//TODO: Нарушение форматирование по RSDN
 				//исправил
+				//TODO: Нет!
 				default: 
 					cout << "Enter number of function to start ";
 					break;

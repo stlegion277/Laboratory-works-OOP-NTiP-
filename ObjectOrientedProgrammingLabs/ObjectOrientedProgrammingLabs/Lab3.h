@@ -3,8 +3,7 @@
 using namespace std;
 
 namespace Lab3
-	//TODO: Каждая сущность должны быть в разных файлах
-{	//исправил
+{	
 	int GetLength(char * string);
 	char *Concatenate(char* string1, char* string2);
 	char* GetSubString(char* string, int startIndex, int charCount);
