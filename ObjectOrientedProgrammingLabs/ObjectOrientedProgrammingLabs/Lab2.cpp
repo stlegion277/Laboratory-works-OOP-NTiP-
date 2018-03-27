@@ -4,10 +4,10 @@
 using namespace std;
 //TODO: Внимательно прочитайте стандарт оформления кода RSDN https://rsdn.org/article/mag/200401/codestyle.XML
 //TODO: и приведите свой код в соответстие со стандартом
+//исправил(давно)
 namespace Lab2
 {
 	int globalVariable = 10;
-
 	void PrintHelloWorld()
 	{
 		cout << "Hello World!\n";
@@ -154,7 +154,7 @@ namespace Lab2
 		for (int j = 0; j < columns; j++)
 		{
 			resultArray[i][j] = 0;
-			for (int z = 0; z < columns1; z++)//TODO
+			for (int z = 0; z < columns1; z++)//TODO //исправил
 			{
 				resultArray[i][j] = arr[i][j] * arr2[i][j];
 			}

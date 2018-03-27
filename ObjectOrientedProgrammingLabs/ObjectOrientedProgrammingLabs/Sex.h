@@ -1,4 +1,9 @@
 #pragma once
 #include "CheckSymbol.h"
 //TODO: Ќеправильное форматирование!
-enum Sex { Female, Male };
+//исправил
+enum Sex 
+{
+	Female, 
+	Male 
+};

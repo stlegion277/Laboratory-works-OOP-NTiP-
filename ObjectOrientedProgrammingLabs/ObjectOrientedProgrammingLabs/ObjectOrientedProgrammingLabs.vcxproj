@@ -113,14 +113,19 @@
     <ClCompile Include="Lab1.cpp" />
     <ClCompile Include="Lab2.cpp" />
     <ClCompile Include="Lab3.cpp" />
+    <ClCompile Include="DoubleLinkedListLab4.cpp" />
     <ClCompile Include="SourceMenu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CheckSymbol.h" />
+    <ClInclude Include="DoubleLinkedListLab4.h" />
+    <ClInclude Include="List.h" />
+    <ClInclude Include="Node.h" />
     <ClInclude Include="Lab1.h" />
     <ClInclude Include="Lab2.h" />
     <ClInclude Include="Lab3.h" />
     <ClInclude Include="Person.h" />
+    <ClInclude Include="PersonLab4.h" />
     <ClInclude Include="Sex.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -16,6 +16,7 @@ namespace Lab3
 		}
 		return length;
 	} //TODO: Между методами должны быть пустые строки
+		//исправил
 	Lab3::Person InputPerson()
 	{
 		Person newPerson;
@@ -33,17 +34,18 @@ namespace Lab3
 		} 
 		while ((maleFemale < 0) && (maleFemale > 1));
 		//TODO: Неправильное форматирование
-			switch (maleFemale)
-			{
-				case 1:
-					newPerson.Sex = Male;
-					break;
-				case 0:
-					newPerson.Sex = Female;
-					break;
-				default:
-					break;
-			}
+		//исправил
+		switch (maleFemale)
+		{
+			case 1:
+				newPerson.Sex = Male;
+				break;
+			case 0:
+				newPerson.Sex = Female;
+				break;
+			default:
+				break;
+		}
 		return newPerson;
 	}
 
@@ -305,11 +307,11 @@ namespace Lab3
 					char* testMassiveLength = (char*)"LOLKEK";
 					GetLength(testMassiveLength);
 					break;
-			    }
+				}
 				case ConcatenateEnum:
 				{
-					char* testMassiveConcatenate = Concatenate(new char[20]{ 'K','E','K','\0' }, 
-					new char[20]{ 'L','O','L','\0' });
+					char* testMassiveConcatenate = Concatenate(new char[20]{ 'K','E','K','\0' },
+						new char[20]{ 'L','O','L','\0' });
 					for (int i = 0; i < 20; i++)
 					{
 						cout << testMassiveConcatenate[i];
@@ -351,11 +353,11 @@ namespace Lab3
 					//TODO: Добавьте в проверку следующие варианты
 					// "d:\\f old er\\file.exe"
 					// "d:\\f old er\\file.exe.txt.cmd"
-					char source[50] = { "d:\\folder\\file.exe" };
+					char source[50] = { "d:\\f old er\\file.exe" };
 					char path[30];
 					char extension[5];
 					char name[10];
-					SplitFileName(source,path,name,extension);
+					SplitFileName(source, path, name, extension);
 					cout << "source = " << source << endl;
 					cout << "path = " << path << endl;
 					cout << "extension = " << extension << endl;
@@ -365,6 +367,7 @@ namespace Lab3
 				case ReplaceTabsOnSpacesEnum:
 				{
 					//TODO: Плохо, что я за вас должен дописывать все тестовые случаи!
+					//Извянки
 					char* testMassiveReplaceTabsOnSpaces = (char*)"Cake\tis\ta lie!";
 					cout << ReplaceTabsOnSpaces(testMassiveReplaceTabsOnSpaces) << endl;
 					testMassiveReplaceTabsOnSpaces = (char*)"Cake\t\tis a lie!";
@@ -396,11 +399,12 @@ namespace Lab3
 				}//TODO: Нарушение форматирование по RSDN
 				//исправил
 				//TODO: Нет!
-				default: 
+				//ДА!(если суть была в скобках)
+				default:
 					cout << "Enter number of function to start ";
 					break;
-					}
-				}
+			}
+		}
 		system("pause");
 		return 0;
 	}
