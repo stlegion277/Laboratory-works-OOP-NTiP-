@@ -1,12 +1,11 @@
 #pragma once
-#include "Node.h"
+#include "CheckSymbol.h"
 #include "Sex.h"
-namespace Lab4
-{
+#include "DoubleLinkedListLab4.h"
 	struct Person
 	{
 		string Name;
 		string Surname;
 		Sex Sex;
 	};
-}
+
