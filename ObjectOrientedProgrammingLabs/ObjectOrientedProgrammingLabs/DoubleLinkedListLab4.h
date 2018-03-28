@@ -5,7 +5,7 @@
 #include "List.h"
 #include "Sex.h"
 namespace Lab4
-{ 
+{ //TODO: Форматирование
 void AddHead(List* list);
 void AddInEnd(List* list);
 void Show(List* list);

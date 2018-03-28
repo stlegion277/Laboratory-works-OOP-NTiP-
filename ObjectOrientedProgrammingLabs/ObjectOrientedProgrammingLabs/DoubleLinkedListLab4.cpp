@@ -19,7 +19,7 @@ namespace Lab4
 		newPerson.Surname = surnames[surname];
 		newPerson.Sex = Male;
 		return newPerson;
-	}
+	}//TODO: Тут и ниже пустые строки после методов
 	void PrintPerson(Person& newPerson)
 	{
 		system("color 01");
@@ -42,7 +42,7 @@ namespace Lab4
 			list->head = list->tail = tempList;
 		}
 	}
-	void AddInEnd(List* list)
+	void AddInEnd(List* list)//TODO: Форматирование не по RSDN тут и ниже
 {
 	Node *tempList = new Node; 
 	tempList->data = MakeRandomPerson(); 
@@ -73,7 +73,7 @@ namespace Lab4
 		{
 			case 0:
 				cout << "Sex = Female \n";
-				cout << "-----------------------------------------------\n";
+				cout << "-----------------------------------------------\n"; //TODO: Зачем это здесь (стока ниже)?
 				Female;
 				break;
 			case 1:
@@ -85,7 +85,7 @@ namespace Lab4
 		tempList = tempList->next;
 	}
 
-}
+}//TODO: Неправильное именование, т.к. гет может быть и по похожему элементу из коллекции
 	Node* Get(int index, List* list)
 {	
 	Node* tempList = list->head;
@@ -108,7 +108,7 @@ namespace Lab4
 		tempList = tempList->next;
 	}
 	cout << "Index = " << index;
-}
+}//TODO: Зачем тут нода?
 	void Remove(int index, List* list, Node* node)
 {
 	Node* tempList = list->head;
@@ -132,7 +132,7 @@ namespace Lab4
 		delete tempList;
 	}
 	else if (list->head != NULL)
-	{
+	{//TODO: Дублируется ниже
 		tempList->prev->next = tempList->next;
 		tempList->next->prev = tempList->prev;
 		delete tempList;
@@ -188,7 +188,7 @@ namespace Lab4
 				cout << "Adding at tail " << endl;
 				AddInEnd(list);
 			}
-			else if (index > tempPosition + 1)
+			else if (index > tempPosition + 1)//TODO: Всё что под if-ом в скобочки
 				cout << " Position is out of list's limits " << endl;
 			else
 			{
@@ -232,6 +232,7 @@ namespace Lab4
 	cout << "5. Insert element by index\n";
 	cout << "6. Clear the list\n";
 	cout << "0 Exit\n ";
+	//TODO: Именование
 	int m;
 	int index = 0;
 	bool menu = true;
@@ -245,7 +246,7 @@ namespace Lab4
 				menu = 0;
 				break;
 			case Add:
-			{
+			{//TODO: Зачем тут явно прописывать Lab4 - можно же сократить.
 				Lab4::AddInEnd(list);
 				Lab4::Show(list);
 				break;
