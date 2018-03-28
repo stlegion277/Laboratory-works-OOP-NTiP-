@@ -20,6 +20,7 @@ namespace Lab4
 		newPerson.Sex = Male;
 		return newPerson;
 	}//TODO: Тут и ниже пустые строки после методов
+	//исправил
 	void PrintPerson(Person& newPerson)
 	{
 		system("color 01");
@@ -27,6 +28,7 @@ namespace Lab4
 		cout << " Surname" << newPerson.Surname;
 		cout << "Sex" << newPerson.Sex;
 	}
+
 	void AddHead(List* list)
 	{
 		Node* tempList = new Node;
@@ -42,118 +44,130 @@ namespace Lab4
 			list->head = list->tail = tempList;
 		}
 	}
-	void AddInEnd(List* list)//TODO: Форматирование не по RSDN тут и ниже
-{
-	Node *tempList = new Node; 
-	tempList->data = MakeRandomPerson(); 
-	if (list->head == NULL)
+
+	void AddInEnd(List* list)//TODO: Форматирование не по RSDN тут и ниже	//исправил
 	{
-		list->head = list->tail = tempList;
-	}
-	else
-	{	
-		tempList->prev = list->tail;
-		list->tail->next = tempList;
-		list->tail = tempList;
-	}
-}
-	void Show(List* list)
-{
-	Node *tempList = list->tail;
-	tempList = list->head;
-	if (list->head == NULL)
-	{
-		cout << "List is empty!";
-	}
-	while (tempList != NULL)
-	{
-		cout << "Name = " << tempList->data.Name << "\n";
-		cout << "Surname = " << tempList->data.Surname << "\n";
-		switch (tempList->data.Sex)
+		Node *tempList = new Node; 
+		tempList->data = MakeRandomPerson(); 
+		if (list->head == NULL)
 		{
-			case 0:
-				cout << "Sex = Female \n";
-				cout << "-----------------------------------------------\n"; //TODO: Зачем это здесь (стока ниже)?
-				Female;
-				break;
-			case 1:
-				cout << "Sex = Male \n";
-				cout << "-----------------------------------------------\n";
-				Male;
-				break;
+			list->head = list->tail = tempList;
 		}
-		tempList = tempList->next;
+		else
+		{	
+			tempList->prev = list->tail;
+			list->tail->next = tempList;
+			list->tail = tempList;
+		}
 	}
 
-}//TODO: Неправильное именование, т.к. гет может быть и по похожему элементу из коллекции
-	Node* Get(int index, List* list)
-{	
-	Node* tempList = list->head;
-	if (list->head == NULL)
+	void Show(List* list)
 	{
-		cout << "List is empty!" << endl;
-		return NULL;
-	}
-	if (index < 0)
-	{
-		cout << "Wrong index";
-		return NULL;
-	}
-	for (int i = 0; i <= index; i++)
-	{
-		if (i == index)
+		Node *tempList = list->tail;
+		tempList = list->head;
+		if (list->head == NULL)
 		{
-			return tempList;
+			cout << "List is empty!";
+			return;
 		}
-		tempList = tempList->next;
+		while (tempList != NULL)
+		{
+			cout << "Name = " << tempList->data.Name << "\n";
+			cout << "Surname = " << tempList->data.Surname << "\n";
+			switch (tempList->data.Sex)
+			{
+				case 0:
+					cout << "Sex = Female \n";
+					cout << "-----------------------------------------------\n"; 
+					//TODO: Зачем это здесь (стока ниже)? 					
+					// разделять элементы списка (для читаемости)
+					Female;
+					break;
+				case 1:
+					cout << "Sex = Male \n";
+					cout << "-----------------------------------------------\n";
+					Male;
+					break;
+			}
+			tempList = tempList->next;
+		}
 	}
-	cout << "Index = " << index;
-}//TODO: Зачем тут нода?
-	void Remove(int index, List* list, Node* node)
-{
-	Node* tempList = list->head;
-	if ((list->head == NULL) || (list->tail == NULL))
+	//TODO: Неправильное именование, т.к. гет может быть и по похожему элементу из коллекции //исправил
+	Node* GetIndex(int index, List* list)
+	{	
+		Node* tempList = list->head;
+		if (list->head == NULL)
+		{
+			cout << "List is empty!" << endl;
+			return NULL;
+		}
+		if (index < 0)
+		{
+			cout << "Wrong index";
+			return NULL;
+		}
+		for (int i = 0; i <= index; i++)
+		{
+			if (i == index)
+			{
+				return tempList;
+			}
+			tempList = tempList->next;
+		}
+		cout << "Index = " << index;
+	}//TODO: Зачем тут нода?
+		//исправил
+	void Remove(int index, List* list)
 	{
-		cout << "List is empty! " << endl;
-		return;
-	}
-	if (index < 0)
-	{
-		return;
-	}
-	for (int i = 0; i < index; i++)
-	{
-		tempList = tempList->next;
-	}
-	if (tempList == list->head)
-	{
-		list->head->next = list->head;
-		list->head->prev = NULL;
-		delete tempList;
-	}
-	else if (list->head != NULL)
-	{//TODO: Дублируется ниже
+		Node* tempList = list->head;
+		if ((list->head == NULL) || (list->tail == NULL))
+		{
+			cout << "List is empty! " << endl;
+			return;
+		}
+		if (index < 0)
+		{
+			return;
+		}
+		for (int i = 0; i < index; i++)
+		{
+			tempList = tempList->next;
+		}
+		if (tempList == list->head)
+		{
+			list->head->next = list->head;
+			list->head->prev = NULL;
+			delete tempList;
+			return;
+		}
+		//else if (list->head != NULL)
+		//{//TODO: Дублируется ниже
+		//	tempList->prev->next = tempList->next;
+		//	tempList->next->prev = tempList->prev;
+		//	delete tempList;
+		//	return;
+	//	}
+		if (tempList == list->tail)
+		{
+			list->tail->prev = list->tail;
+			list->tail->next = NULL;
+			delete tempList;
+			return;
+		}
+		/*else if (list->tail != NULL)
+		{
+			tempList->prev->next = tempList->next;
+			tempList->next->prev = tempList->prev;
+			delete tempList;
+		}*/
+		if (tempList != NULL)
 		tempList->prev->next = tempList->next;
 		tempList->next->prev = tempList->prev;
 		delete tempList;
-		return;
 	}
-	if (tempList == list->tail)
-	{
-		list->tail->prev = list->tail;
-		list->tail->next = NULL;
-		delete tempList;
-	}
-	else if (list->tail != NULL)
-	{
-		tempList->prev->next = tempList->next;
-		tempList->next->prev = tempList->prev;
-		delete tempList;
-	}
-	
-}
+
 	void Insert(int index, List* list, Person & person)
-{
+	{
 		if ((index == 0) && (list->head == NULL))
 		{
 			AddInEnd(list);
@@ -188,8 +202,10 @@ namespace Lab4
 				cout << "Adding at tail " << endl;
 				AddInEnd(list);
 			}
-			else if (index > tempPosition + 1)//TODO: Всё что под if-ом в скобочки
+			else if (index > tempPosition + 1)
+			{//TODO: Всё что под if-ом в скобочки
 				cout << " Position is out of list's limits " << endl;
+			}
 			else
 			{
 				tempPrev->next = newNode;
@@ -197,7 +213,8 @@ namespace Lab4
 				cout << "Element added at position: " << index << endl;
 			}
 		}
-}
+	}
+
 	void Clear(List* list)
 	{
 		Node* tempList = new Node;
@@ -211,86 +228,89 @@ namespace Lab4
 		list->tail = NULL;
 		list->head = list->tail;
 	}
+
 	int Lab4()
-{	
-	List *list = new List;
-	Node* tempList = new Node;
-	enum MenuEnum
-	{
-		Add = 1,
-		Show,
-		Get,
-		Remove,
-		Insert,
-		Clear
-	};
-	system("color f1");
-	cout << "1. Add in double linked list\n";
-	cout << "2. Show double linked list\n";
-	cout << "3. Get element by index\n";
-	cout << "4. Remove element by index\n";
-	cout << "5. Insert element by index\n";
-	cout << "6. Clear the list\n";
-	cout << "0 Exit\n ";
-	//TODO: Именование
-	int m;
-	int index = 0;
-	bool menu = true;
-	while (menu == true)
-	{
-		cout << "Enter number of a function to start\n ";
-		m = CheckSymbol();
-		switch (m)
+	{	
+		List *list = new List;
+		Node* tempList = new Node;
+		enum MenuEnum
 		{
-			case 0:
-				menu = 0;
-				break;
-			case Add:
-			{//TODO: Зачем тут явно прописывать Lab4 - можно же сократить.
-				Lab4::AddInEnd(list);
-				Lab4::Show(list);
-				break;
-			}
-			case Show:
+			AddEnum = 1,
+			ShowEnum,
+			GetIndexEnum,
+			RemoveEnum,
+			InsertEnum,
+			ClearEnum
+		};
+		system("color f1");
+		cout << "1. Add in double linked list\n";
+		cout << "2. Show double linked list\n";
+		cout << "3. Get element by index\n";
+		cout << "4. Remove element by index\n";
+		cout << "5. Insert element by index\n";
+		cout << "6. Clear the list\n";
+		cout << "0 Exit\n ";
+		//TODO: Именование
+		//исправил (изза косяка с заливом осталась старая менюшка поэтому не бейте((()
+		int menuNumber;
+		int index = 0;
+		bool menu = true;
+		while (menu == true)
+		{
+			cout << "Enter number of a function to start\n ";
+			menuNumber = CheckSymbol();
+			switch (menuNumber)
 			{
-				Lab4::Show(list);
-				break;
+				case 0:
+					menu = 0;
+					break;
+				case AddEnum:
+				{//TODO: Зачем тут явно прописывать Lab4 - можно же сократить. //исправил
+					AddInEnd(list);
+					Show(list);
+					break;
+				}
+				case ShowEnum:
+				{
+					Show(list);
+					break;
+				}
+				case GetIndexEnum:
+				{
+					cout << "Enter index of element you want to get" << endl;
+					index = CheckSymbol();
+					Node* temp = GetIndex(index, list);
+					cout << &temp;
+					break;
+				}
+				case RemoveEnum:
+				{
+					cout << "Enter an index of element you want to remove " << endl;
+					index = CheckSymbol();
+					Remove(index, list);
+					Show(list);
+					break;
+				}
+				case InsertEnum:
+				{
+					cout << "Enter an element index" << endl;
+					index = CheckSymbol();
+					Insert(index, list, Lab4::MakeRandomPerson());
+					Show(list);
+					break;
+				}
+				case ClearEnum:
+				{
+					Lab4::Clear(list);
+					cout << "List is empty now!" << endl;
+					break;
+				}
+				default: cout << "Enter number of function to start ";
+					break;
+				}
 			}
-			case Get:
-			{
-				cout << "Enter index of element you want to get" << endl;
-				index = CheckSymbol();
-				Node* temp = Lab4::Get(index, list);
-				cout << &temp;
-				break;
-			}
-			case Remove:
-			{
-				cout << "Enter an index of element you want to remove " << endl;
-				index = CheckSymbol();
-				Lab4::Remove(index, list, tempList);
-				Lab4::Show(list);
-				break;
-			}
-			case Insert:
-			{
-				cout << "Enter an element index" << endl;
-				index = CheckSymbol();
-				Lab4::Insert(index, list, Lab4::MakeRandomPerson());
-				Lab4::Show(list);
-				break;
-			}
-			case Clear:
-			{
-				Lab4::Clear(list);
-				cout << "List is empty now!" << endl;
-				break;
-			}
-			default: cout << "Enter number of function to start ";
-				break;
-			}
+		system("pause");
+		return 0;
 		}
-	system("pause");
-	return 0;
-	}
 }
+	

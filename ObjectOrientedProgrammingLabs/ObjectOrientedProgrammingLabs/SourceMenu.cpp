@@ -8,7 +8,7 @@
 int main()
 {
 	srand(time(0));
-	int n;
+	int menuNumber;
 	while (true)
 	{
 		cout << endl
@@ -18,9 +18,9 @@ int main()
 		<< "4 Lab 4" << endl
 		<< "0 Exit" << endl
 		<< "Choose wisely: ";
-		n = CheckSymbol();
+		menuNumber = CheckSymbol();
 		system("cls");
-		switch (n)
+		switch (menuNumber)
 		{
 			case 1:
 				Lab1(); break;

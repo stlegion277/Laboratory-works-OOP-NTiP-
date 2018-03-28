@@ -1,10 +1,10 @@
 #pragma once
 //TODO: Зачем тут эти подключения?
-#include "CheckSymbol.h"
+//исправил
 #include "Sex.h"
-#include "DoubleLinkedListLab4.h"
 	//TODO: Неправильное форматирование по RSDN
 //TODO:Зачем создавать ещё одну персону?
+//они отличаются между собой 
 	struct Person
 	{
 		string Name;
