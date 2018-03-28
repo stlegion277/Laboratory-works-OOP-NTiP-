@@ -193,36 +193,40 @@ namespace Lab3
 	{
 		char* newString = new char[200];
 		int counter = 0;
-		int j = 0;
-		int k = 0;
-		int twoDotsPointer = 1;
+		bool tabulationTrigger = false;
+		int twoDotsPointer = 0;
 		for (int i = 0; i < GetLength(string); i++)
 		{
-			twoDotsPointer = i;
-			if (string[twoDotsPointer] == ':')
+			if (string[i] == ':')
 			{
-				for (int i = twoDotsPointer; i < twoDotsPointer + 1; i++)
+				twoDotsPointer = i;
+				for (;string[twoDotsPointer] == ':'; )
 				{
-					if (i % 4 == 0)
+					if ((twoDotsPointer + 1) % 4 == 0)
 					{
-						newString[counter++] = 'T';
-						twoDotsPointer += 3;
-						i += 3;
+						tabulationTrigger = true;
+						break;
 					}
+				twoDotsPointer++;
 				}
-				if ((twoDotsPointer % 4 != 0) && (twoDotsPointer == ':'))
+				if (tabulationTrigger)
 				{
-					newString[counter] = string[i];
+					i = twoDotsPointer;
+					newString[counter] = 'T';
+					tabulationTrigger = false;
 					counter++;
+				}
+				else
+				{
+					newString[counter++] = string[i];
 				}
 			}
 			else
 			{
-				newString[counter] = string[i];
-				counter++;
+				newString[counter++] = string[i];
 			}
 		}
-		newString[counter] = '\0';
+		newString[counter++] = '\0';
 		return newString;
 	}
 	void SplitFileName(char* source, char* path, char* name, char* extension)
@@ -353,7 +357,7 @@ namespace Lab3
 					//TODO: Добавьте в проверку следующие варианты
 					// "d:\\f old er\\file.exe"
 					// "d:\\f old er\\file.exe.txt.cmd"
-					char source[50] = { "d:\\f old er\\file.exe" };
+					char source[50] = { "d:\\f old er\\file.txt.cmd" };
 					char path[30];
 					char extension[5];
 					char name[10];
@@ -368,11 +372,11 @@ namespace Lab3
 				{
 					//TODO: Плохо, что я за вас должен дописывать все тестовые случаи!
 					//Извянки
-					char* testMassiveReplaceTabsOnSpaces = (char*)"Cake\tis\ta lie!";
+					char* testMassiveReplaceTabsOnSpaces = (char*)" Cake\tis\ta lie!";
 					cout << ReplaceTabsOnSpaces(testMassiveReplaceTabsOnSpaces) << endl;
-					testMassiveReplaceTabsOnSpaces = (char*)"Cake\t\tis a lie!";
+					testMassiveReplaceTabsOnSpaces = (char*)" Cake\t\tis a lie!";
 					cout << ReplaceTabsOnSpaces(testMassiveReplaceTabsOnSpaces) << endl;
-					testMassiveReplaceTabsOnSpaces = (char*)"\tCake is \tlie!";
+					testMassiveReplaceTabsOnSpaces = (char*)" \tCake is \tlie!";
 					cout << ReplaceTabsOnSpaces(testMassiveReplaceTabsOnSpaces) << endl;
 					break;
 				}
