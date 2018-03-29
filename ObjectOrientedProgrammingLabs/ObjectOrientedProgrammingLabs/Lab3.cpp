@@ -132,7 +132,7 @@ namespace Lab3
 		char* stringMassive = string;
 		while (*string != '\0')
 		{
-			if (int(*string) > 'a' && int(*string) < 'a')
+			if (int(*string) > 'a' && int(*string) < 'z')
 			{
 				*string = char(*string - 32);
 			}
@@ -233,7 +233,7 @@ namespace Lab3
 	{
 		int dotPointer = 0;
 		int slashPointer = 0;
-		for (int i = GetLength(source); i >= 0; i--)
+		for (int i = 0; source[i] != '\0'; i++)
 		{
 			if (source[i] == '.')
 			{
@@ -299,8 +299,8 @@ namespace Lab3
 		bool menu = true;
 		while (menu == true)
 		{
-			menuNumber = CheckSymbol();
 			cout << "Enter number of function to start\n ";
+			menuNumber = CheckSymbol();
 			switch (menuNumber)
 			{
 				case 0:
@@ -357,6 +357,7 @@ namespace Lab3
 					//TODO: Добавьте в проверку следующие варианты
 					// "d:\\f old er\\file.exe"
 					// "d:\\f old er\\file.exe.txt.cmd"
+					//исправил косяк с двумя разрешениями
 					char source[50] = { "d:\\f old er\\file.txt.cmd" };
 					char path[30];
 					char extension[5];
@@ -384,6 +385,7 @@ namespace Lab3
 				{
 					//TODO: Плохо, что я за вас должен дописывать все тестовые случаи!
 					//TODO: Сейчас алгоритм отрабатывает некорректно
+					//исправил
 					char* testMassiveReplaceSpacesOnTabs = (char*)"Cake::::is::a:lie!";
 					cout << ReplaceSpacesOnTabs(testMassiveReplaceSpacesOnTabs) << endl;
 					testMassiveReplaceSpacesOnTabs = (char*)"Cake::::is::::a:lie!";
@@ -398,7 +400,7 @@ namespace Lab3
 				{
 					cout << "Person structure\n  ";
 					Person Data = InputPerson();
-					//PrintPerson(Data);
+					PrintPerson(Data);
 					break;
 				}
 				default:

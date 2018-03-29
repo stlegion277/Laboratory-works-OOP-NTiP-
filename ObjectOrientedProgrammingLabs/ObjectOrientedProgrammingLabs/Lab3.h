@@ -14,7 +14,7 @@ namespace Lab3
 	char* ReplaceTabsOnSpaces(char* string);
 	char* ReplaceSpacesOnTabs(char* string);
 	void SplitFileName(char* source, char* path, char* name, char* extension);
-	void PrintPerson(Person person);
+	void PrintPerson(Person& person);
 	Person InputPerson();
 	int Lab3();
 }

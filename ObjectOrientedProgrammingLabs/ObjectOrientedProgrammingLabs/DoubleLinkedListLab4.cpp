@@ -1,15 +1,20 @@
 #pragma once
 #include "DoubleLinkedListLab4.h"
 #include "CheckSymbol.h"
+
 using namespace std;
+
 namespace Lab4
 {
 	Person MakeRandomPerson()
 	{
-		string names[] = {
+		string names[] = 
+		{
 			"Mark", "Ben", "Bob", "Kurt", "Stewart" ,"John", "Frank" ,"Bryan","Kek"
 		};
-		string surnames[] = { "Rothwell", "Jenson", "White", "Shraider",
+		string surnames[] = 
+		{ 
+			"Rothwell", "Jenson", "White", "Shraider",
 			"Cranston", "Gray", "Zimmer", "Clinton", "Cheburek"
 		};
 		int name = rand() % 8;
@@ -19,9 +24,9 @@ namespace Lab4
 		newPerson.Surname = surnames[surname];
 		newPerson.Sex = Male;
 		return newPerson;
-	}//TODO: Тут и ниже пустые строки после методов
-	//исправил
-	void PrintPerson(Person& newPerson)
+	}
+
+	void PrintPerson(const Person &newPerson)
 	{
 		system("color 01");
 		cout << "Name " << newPerson.Name;
@@ -45,7 +50,7 @@ namespace Lab4
 		}
 	}
 
-	void AddInEnd(List* list)//TODO: Форматирование не по RSDN тут и ниже	//исправил
+	void AddInEnd(List* list)
 	{
 		Node *tempList = new Node; 
 		tempList->data = MakeRandomPerson(); 
@@ -61,7 +66,7 @@ namespace Lab4
 		}
 	}
 
-	void Show(List* list)
+	void Show(List* list, Node* node)
 	{
 		Node *tempList = list->tail;
 		tempList = list->head;
@@ -72,27 +77,23 @@ namespace Lab4
 		}
 		while (tempList != NULL)
 		{
-			cout << "Name = " << tempList->data.Name << "\n";
+			cout << "Name = " << tempList->data.Name << "\n"; // в дате ничего нет
 			cout << "Surname = " << tempList->data.Surname << "\n";
 			switch (tempList->data.Sex)
 			{
-				case 0:
+				case Female:
 					cout << "Sex = Female \n";
 					cout << "-----------------------------------------------\n"; 
-					//TODO: Зачем это здесь (стока ниже)? 					
-					// разделять элементы списка (для читаемости)
-					Female;
 					break;
-				case 1:
+				case Male:
 					cout << "Sex = Male \n";
 					cout << "-----------------------------------------------\n";
-					Male;
 					break;
 			}
 			tempList = tempList->next;
 		}
 	}
-	//TODO: Неправильное именование, т.к. гет может быть и по похожему элементу из коллекции //исправил
+
 	Node* GetIndex(int index, List* list)
 	{	
 		Node* tempList = list->head;
@@ -115,8 +116,8 @@ namespace Lab4
 			tempList = tempList->next;
 		}
 		cout << "Index = " << index;
-	}//TODO: Зачем тут нода?
-		//исправил
+	}
+
 	void Remove(int index, List* list)
 	{
 		Node* tempList = list->head;
@@ -160,10 +161,13 @@ namespace Lab4
 			tempList->next->prev = tempList->prev;
 			delete tempList;
 		}*/
-		if (tempList != NULL)
-		tempList->prev->next = tempList->next;
-		tempList->next->prev = tempList->prev;
-		delete tempList;
+		if (tempList != NULL)//TODO
+		{
+			tempList->prev->next = tempList->next;
+			tempList->next->prev = tempList->prev;
+			delete tempList;
+		}
+		
 	}
 
 	void Insert(int index, List* list, Person & person)
@@ -203,7 +207,7 @@ namespace Lab4
 				AddInEnd(list);
 			}
 			else if (index > tempPosition + 1)
-			{//TODO: Всё что под if-ом в скобочки
+			{
 				cout << " Position is out of list's limits " << endl;
 			}
 			else
@@ -250,8 +254,7 @@ namespace Lab4
 		cout << "5. Insert element by index\n";
 		cout << "6. Clear the list\n";
 		cout << "0 Exit\n ";
-		//TODO: Именование
-		//исправил (изза косяка с заливом осталась старая менюшка поэтому не бейте((()
+		
 		int menuNumber;
 		int index = 0;
 		bool menu = true;
@@ -265,14 +268,14 @@ namespace Lab4
 					menu = 0;
 					break;
 				case AddEnum:
-				{//TODO: Зачем тут явно прописывать Lab4 - можно же сократить. //исправил
+				{
 					AddInEnd(list);
-					Show(list);
+					Show(list,tempList);
 					break;
 				}
 				case ShowEnum:
 				{
-					Show(list);
+					Show(list, tempList);
 					break;
 				}
 				case GetIndexEnum:
@@ -288,7 +291,7 @@ namespace Lab4
 					cout << "Enter an index of element you want to remove " << endl;
 					index = CheckSymbol();
 					Remove(index, list);
-					Show(list);
+					Show(list,tempList);
 					break;
 				}
 				case InsertEnum:
@@ -296,7 +299,7 @@ namespace Lab4
 					cout << "Enter an element index" << endl;
 					index = CheckSymbol();
 					Insert(index, list, Lab4::MakeRandomPerson());
-					Show(list);
+					Show(list, tempList);
 					break;
 				}
 				case ClearEnum:
@@ -313,4 +316,3 @@ namespace Lab4
 		return 0;
 		}
 }
-	
