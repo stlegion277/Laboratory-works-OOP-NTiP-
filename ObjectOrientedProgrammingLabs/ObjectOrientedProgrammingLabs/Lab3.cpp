@@ -15,8 +15,8 @@ namespace Lab3
 			length++;
 		}
 		return length;
-	} //TODO: Между методами должны быть пустые строки
-		//исправил
+	} 
+
 	Lab3::Person InputPerson()
 	{
 		Person newPerson;
@@ -25,18 +25,18 @@ namespace Lab3
 		cout << "Write surname ";
 		cin >> newPerson.Surname;
 		cout << "Write sex 1 - Male 0 - Female\n";
+		//TODO: Некорректный тип - почему не перечисление и именование maleFemale - это же просто пол
 		int maleFemale;
 		cin >> maleFemale;
 		
 		do
 		{
 			maleFemale = CheckSymbol();
-		} 
+		} //TODO: Есть перечисление, не используйте int
 		while ((maleFemale < 0) && (maleFemale > 1));
-		//TODO: Неправильное форматирование
-		//исправил
+		
 		switch (maleFemale)
-		{
+		{//TODO: Лучше по порядку от 0. В case можно сразу писать перечисления.
 			case 1:
 				newPerson.Sex = Male;
 				break;
@@ -54,7 +54,7 @@ namespace Lab3
 		cout << "Sex = \n" << person.Sex ;
 		cout << "Name = \n" << person.Name;
 		cout << "Surname = \n" << person.Surname;
-	}
+	}//TODO: Пустая строка
 	char* Concatenate(char* string1, char* string2)
 	{
 		char *newChar = new char[200];
@@ -90,7 +90,7 @@ namespace Lab3
 			stringMassive[counter] = '\0';
 			return stringMassive;
 		}
-	}
+	}//TODO: Пустая строк
 	int	FindSubString(char* string, char* substring)
 	{
 		int counter = 0;
@@ -228,12 +228,12 @@ namespace Lab3
 		}
 		newString[counter++] = '\0';
 		return newString;
-	}
+	}//TODO: Пустая строка
 	void SplitFileName(char* source, char* path, char* name, char* extension)
 	{
 		int dotPointer = 0;
 		int slashPointer = 0;
-		for (int i = GetLength(source); i >= 0; i--)
+		for (int i = 0; source[i] != '\0'; i++)
 		{
 			if (source[i] == '.')
 			{
@@ -246,7 +246,7 @@ namespace Lab3
 			{
 				slashPointer = i;
 			}
-		}
+		}//TODO: Ниже три дублирования
 		int j = 0;
 		for (int i = dotPointer; i < GetLength(source); i++, j++) 
 		{
@@ -373,6 +373,7 @@ namespace Lab3
 					//TODO: Плохо, что я за вас должен дописывать все тестовые случаи!
 					//Извянки
 					char* testMassiveReplaceTabsOnSpaces = (char*)" Cake\tis\ta lie!";
+					char* testMassiveReplaceTabsOnSpaces = (char*)"Cake\tis\ta lie!";
 					cout << ReplaceTabsOnSpaces(testMassiveReplaceTabsOnSpaces) << endl;
 					testMassiveReplaceTabsOnSpaces = (char*)" Cake\t\tis a lie!";
 					cout << ReplaceTabsOnSpaces(testMassiveReplaceTabsOnSpaces) << endl;
@@ -400,10 +401,7 @@ namespace Lab3
 					Person Data = InputPerson();
 					PrintPerson(Data);
 					break;
-				}//TODO: Нарушение форматирование по RSDN
-				//исправил
-				//TODO: Нет!
-				//ДА!(если суть была в скобках)
+				}
 				default:
 					cout << "Enter number of function to start ";
 					break;

@@ -1,7 +1,7 @@
 #pragma once
+//TODO: Зачем тут включение чексимвола?
 #include "CheckSymbol.h"
-//TODO: Неправильное форматирование!
-//исправил
+
 enum Sex 
 {
 	Female, 

@@ -3,7 +3,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <string>
-#include <Windows.h>
+#include "Windows.h"
 using namespace std;
 inline int CheckSymbol()
 {//TODO: Внимательно прочитайте стандарт оформления кода RSDN https://rsdn.org/article/mag/200401/codestyle.XML
@@ -11,10 +11,11 @@ inline int CheckSymbol()
 	//исправил
 	string n;
 	int m;
-	do{
+	do
+	{
 		cin >> n;
 		m = atoi(n.c_str());
-	  }
+	}
 	while (m == 0 && m < 0);
 	return m;
 }
