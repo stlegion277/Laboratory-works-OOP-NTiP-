@@ -1,7 +1,10 @@
 ﻿#pragma once
 #include "Lab3.h"
 #include "CheckSymbol.h"
+#include "Person.h"
+#include "Sex.h"
 using namespace std;
+
 namespace Lab3
 {
 	int GetLength(char * string)
@@ -12,7 +15,8 @@ namespace Lab3
 			length++;
 		}
 		return length;
-	}
+	} //TODO: Между методами должны быть пустые строки
+		//исправил
 	Lab3::Person InputPerson()
 	{
 		Person newPerson;
@@ -20,30 +24,36 @@ namespace Lab3
 		cin >> newPerson.Name;
 		cout << "Write surname ";
 		cin >> newPerson.Surname;
-		cout << "Write sex 0 - Male 1 - Female\n";
+		cout << "Write sex 1 - Male 0 - Female\n";
 		int maleFemale;
 		cin >> maleFemale;
-		if (maleFemale == 0 && maleFemale == 1)
+		
+		do
 		{
-			switch (maleFemale)
-			{
+			maleFemale = CheckSymbol();
+		} 
+		while ((maleFemale < 0) && (maleFemale > 1));
+		//TODO: Неправильное форматирование
+		//исправил
+		switch (maleFemale)
+		{
 			case 1:
-				cout << "MALE "; 
+				newPerson.Sex = Male;
 				break;
-			case 2:
-				cout << "FEMALE";
+			case 0:
+				newPerson.Sex = Female;
 				break;
 			default:
 				break;
-			}
 		}
 		return newPerson;
 	}
-	void PrintPerson(Person person)
+
+	void PrintPerson(Person& person)
 	{
-		cout << "Sex = " <<person.Sex ;
-		cout << "Name = " << person.Name;
-		cout << "Surname = " << person.Surname;
+		cout << "Sex = \n" << person.Sex ;
+		cout << "Name = \n" << person.Name;
+		cout << "Surname = \n" << person.Surname;
 	}
 	char* Concatenate(char* string1, char* string2)
 	{
@@ -122,7 +132,7 @@ namespace Lab3
 		char* stringMassive = string;
 		while (*string != '\0')
 		{
-			if (int(*string) >= 97 && int(*string) <= 122)
+			if (int(*string) > 'a' && int(*string) < 'a')
 			{
 				*string = char(*string - 32);
 			}
@@ -138,7 +148,7 @@ namespace Lab3
 		char* stringMassive = string;
 		while (*string != '\0')
 		{
-			if (int(*string) <= 90 && int(*string) >= 65)
+			if (int(*string) > 'A' && int(*string) < 'Z')
 			{
 				*string = char(*string + 32);
 			}
@@ -149,99 +159,113 @@ namespace Lab3
 		}
 		return string;
 	}
+	
 	char* ReplaceTabsOnSpaces(char* string)
 	{
 		char* newString = new char[90];
-		int index = 0;
-		int counter = 0;
-		int tabulationPointer = 0;
-		for (int i = 0; i < GetLength(newString); i++)
+		int counter = 1;
+		int j = 0;
+		for (int i = 0; i < GetLength(newString); counter++)
 		{
-			tabulationPointer++;
 			if (string[i] == '\t')
 			{	
-				for (int i = tabulationPointer; i < tabulationPointer + 4; i++)
+				if (counter % 4 != 0)
 				{
-					newString[counter++] = ':';
-				}	
-			}
-			else
-			{
-				newString[counter] = string[i];
-				counter++;
-			}
-		}
-		newString[counter] = '\0';
-		return newString;
-	}
-	char* ReplaceSpacesOnTabs(char* string)
-	{
-		char* newString = new char[200];
-		int counter = 0;
-		int j = 0;
-		int k = 0;
-		int twoDotsPointer = 0;
-		for (int i = 0; i < GetLength(string); i++)
-		{
-			twoDotsPointer = i;
-			if (string[twoDotsPointer] == ':')
-			{
-				for (int i = twoDotsPointer; i < twoDotsPointer + 1  ; i++)
+					newString[counter] = ':';
+				}
+				else
 				{
-					if (j != 0 )
-					{
-						break;
-					}
-					newString[counter++] = '\t';
-					j++;
+					newString[counter] = ':';
+					i++;
 				}
 			}
 			else
 			{
 				newString[counter] = string[i];
-				counter++;
+				i++;
 			}
 		}
-		newString[counter] = '\0';
+		newString[counter++] = '\0';
+		return newString;
+	}
+	
+	char* ReplaceSpacesOnTabs(char* string)
+	{
+		char* newString = new char[200];
+		int counter = 0;
+		bool tabulationTrigger = false;
+		int twoDotsPointer = 0;
+		for (int i = 0; i < GetLength(string); i++)
+		{
+			if (string[i] == ':')
+			{
+				twoDotsPointer = i;
+				for (;string[twoDotsPointer] == ':'; )
+				{
+					if ((twoDotsPointer + 1) % 4 == 0)
+					{
+						tabulationTrigger = true;
+						break;
+					}
+				twoDotsPointer++;
+				}
+				if (tabulationTrigger)
+				{
+					i = twoDotsPointer;
+					newString[counter] = 'T';
+					tabulationTrigger = false;
+					counter++;
+				}
+				else
+				{
+					newString[counter++] = string[i];
+				}
+			}
+			else
+			{
+				newString[counter++] = string[i];
+			}
+		}
+		newString[counter++] = '\0';
 		return newString;
 	}
 	void SplitFileName(char* source, char* path, char* name, char* extension)
 	{
-		int dotPointer;
-		int slashPointer;
-		int endOfStringPointer;
-		for (int i = GetLength(source - 1); i >= 0; i--)
+		int dotPointer = 0;
+		int slashPointer = 0;
+		for (int i = GetLength(source); i >= 0; i--)
 		{
 			if (source[i] == '.')
 			{
 				dotPointer = i;
-			}
-			if (source[i] == '\0')
-			{
-				endOfStringPointer = i;
 			}
 		}
 		for (int i = 0; source[i] != '\0'; i++)
 		{
 			if (source[i] == '\\')
 			{
-				slashPointer = i + 1;
+				slashPointer = i;
 			}
 		}
-		for (int j = endOfStringPointer; j >= dotPointer; j--)
-		{
-			extension[j] = source[j];
-		}
 		int j = 0;
-		for (int j = dotPointer; j >= slashPointer; j--)
+		for (int i = dotPointer; i < GetLength(source); i++, j++) 
 		{
-			name[j] = source[j];
+			extension[j] = source[i];
 		}
+		extension[j++] = '\0';
 		j = 0;
-		for (int j = slashPointer; j < source[0]; j--)
+		for (int i = slashPointer; i < dotPointer; i++, j++)
 		{
-			path[j] = source[j];
+			name[j] = source[i];
 		}
+		name[j++] = '\0';
+		j = 0;
+		for (int i = 0; i < slashPointer; i++, j++)
+		{
+			path[j] = source[i];
+
+		}
+		path[j++] = '\0';
 	}
 	int Lab3()
 	{
@@ -270,13 +294,14 @@ namespace Lab3
 		cout << "10. Work with person structure\n";
 		cout << "0 Exit\n ";
 		cout << "Enter number of function to start\n ";
-		int m;
+		
+		int menuNumber;
 		bool menu = true;
 		while (menu == true)
 		{
-			m = CheckSymbol();
+			menuNumber = CheckSymbol();
 			cout << "Enter number of function to start\n ";
-			switch (m)
+			switch (menuNumber)
 			{
 				case 0:
 					menu = 0;
@@ -286,11 +311,11 @@ namespace Lab3
 					char* testMassiveLength = (char*)"LOLKEK";
 					GetLength(testMassiveLength);
 					break;
-			    }
+				}
 				case ConcatenateEnum:
 				{
-					char* testMassiveConcatenate = Concatenate(new char[20]{ 'K','E','K','\0' }, 
-					new char[20]{ 'L','O','L','\0' });
+					char* testMassiveConcatenate = Concatenate(new char[20]{ 'K','E','K','\0' },
+						new char[20]{ 'L','O','L','\0' });
 					for (int i = 0; i < 20; i++)
 					{
 						cout << testMassiveConcatenate[i];
@@ -329,41 +354,58 @@ namespace Lab3
 				}
 				case SplitFileNameEnum:
 				{
-					char source[50] = { "d:\\folder\\file.exe" };
+					//TODO: Добавьте в проверку следующие варианты
+					// "d:\\f old er\\file.exe"
+					// "d:\\f old er\\file.exe.txt.cmd"
+					char source[50] = { "d:\\f old er\\file.txt.cmd" };
 					char path[30];
 					char extension[5];
 					char name[10];
-					SplitFileName(source,path,name,extension);
-					cout << "source" << source << endl;
-					cout << "path" << path << endl;
+					SplitFileName(source, path, name, extension);
+					cout << "source = " << source << endl;
+					cout << "path = " << path << endl;
 					cout << "extension = " << extension << endl;
 					cout << "name = " << name << endl;
 					break;
 				}
 				case ReplaceTabsOnSpacesEnum:
 				{
-					char* testMassiveReplaceTabsOnSpaces = (char*)"Cake\t\tis a lie!";
-					cout << ReplaceTabsOnSpaces(testMassiveReplaceTabsOnSpaces);
+					//TODO: Плохо, что я за вас должен дописывать все тестовые случаи!
+					//Извянки
+					char* testMassiveReplaceTabsOnSpaces = (char*)" Cake\tis\ta lie!";
+					cout << ReplaceTabsOnSpaces(testMassiveReplaceTabsOnSpaces) << endl;
+					testMassiveReplaceTabsOnSpaces = (char*)" Cake\t\tis a lie!";
+					cout << ReplaceTabsOnSpaces(testMassiveReplaceTabsOnSpaces) << endl;
+					testMassiveReplaceTabsOnSpaces = (char*)" \tCake is \tlie!";
+					cout << ReplaceTabsOnSpaces(testMassiveReplaceTabsOnSpaces) << endl;
 					break;
 				}
 				case ReplaceSpacesOnTabsEnum:
 				{
-					char* testMassiveReplaceSpacesOnTabs = (char*)"Cake::::is::a:lie";
-					cout << ReplaceSpacesOnTabs(testMassiveReplaceSpacesOnTabs);
+					//TODO: Плохо, что я за вас должен дописывать все тестовые случаи!
+					//TODO: Сейчас алгоритм отрабатывает некорректно
+					char* testMassiveReplaceSpacesOnTabs = (char*)"Cake::::is::a:lie!";
+					cout << ReplaceSpacesOnTabs(testMassiveReplaceSpacesOnTabs) << endl;
+					testMassiveReplaceSpacesOnTabs = (char*)"Cake::::is::::a:lie!";
+					cout << ReplaceSpacesOnTabs(testMassiveReplaceSpacesOnTabs) << endl;
+					testMassiveReplaceSpacesOnTabs = (char*)"Cake:is:a:::::::lie!";
+					cout << ReplaceSpacesOnTabs(testMassiveReplaceSpacesOnTabs) << endl;
+					testMassiveReplaceSpacesOnTabs = (char*)"Cake:is::a:lie!";
+					cout << ReplaceSpacesOnTabs(testMassiveReplaceSpacesOnTabs) << endl;
 					break;
 				}
 				case PersonStructEnum:
 				{
 					cout << "Person structure\n  ";
 					Person Data = InputPerson();
-					PrintPerson(Data);
+					//PrintPerson(Data);
 					break;
 				}
-				default: 
+				default:
 					cout << "Enter number of function to start ";
 					break;
-					}
-				}
+			}
+		}
 		system("pause");
 		return 0;
 	}
