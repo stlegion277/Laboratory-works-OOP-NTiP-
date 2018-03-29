@@ -231,13 +231,14 @@ namespace Lab3
 	}
 	void SplitFileName(char* source, char* path, char* name, char* extension)
 	{
-		int dotPointer = 0;
+		int dotPointerExtension = 0;
+		int dotPointerFile = 0;
 		int slashPointer = 0;
-		for (int i = GetLength(source); i >= 0; i--)
+		for (int i = 0; source[i] != '\0'; i++)
 		{
 			if (source[i] == '.')
 			{
-				dotPointer = i;
+				dotPointerExtension = i;
 			}
 		}
 		for (int i = 0; source[i] != '\0'; i++)
@@ -247,14 +248,22 @@ namespace Lab3
 				slashPointer = i;
 			}
 		}
+		for (int i = 0; source[i] != '\0'; i++)
+		{
+			if (source[i] == '.')
+			{
+				dotPointerFile = i;
+				break;
+			}
+		}
 		int j = 0;
-		for (int i = dotPointer; i < GetLength(source); i++, j++) 
+		for (int i = dotPointerExtension; i < GetLength(source); i++, j++) 
 		{
 			extension[j] = source[i];
 		}
 		extension[j++] = '\0';
 		j = 0;
-		for (int i = slashPointer; i < dotPointer; i++, j++)
+		for (int i = slashPointer + 1; i < dotPointerFile; i++, j++)
 		{
 			name[j] = source[i];
 		}
@@ -357,6 +366,7 @@ namespace Lab3
 					//TODO: Добавьте в проверку следующие варианты
 					// "d:\\f old er\\file.exe"
 					// "d:\\f old er\\file.exe.txt.cmd"
+					//исправил
 					char source[50] = { "d:\\f old er\\file.txt.cmd" };
 					char path[30];
 					char extension[5];
@@ -384,6 +394,7 @@ namespace Lab3
 				{
 					//TODO: Плохо, что я за вас должен дописывать все тестовые случаи!
 					//TODO: Сейчас алгоритм отрабатывает некорректно
+					//исправил
 					char* testMassiveReplaceSpacesOnTabs = (char*)"Cake::::is::a:lie!";
 					cout << ReplaceSpacesOnTabs(testMassiveReplaceSpacesOnTabs) << endl;
 					testMassiveReplaceSpacesOnTabs = (char*)"Cake::::is::::a:lie!";
