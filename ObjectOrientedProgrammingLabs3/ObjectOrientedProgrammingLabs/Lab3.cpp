@@ -15,8 +15,8 @@ namespace Lab3
 			length++;
 		}
 		return length;
-	} //TODO: Между методами должны быть пустые строки
-		//исправил
+	} 
+
 	Lab3::Person InputPerson()
 	{
 		Person newPerson;
@@ -33,8 +33,7 @@ namespace Lab3
 			maleFemale = CheckSymbol();
 		} 
 		while ((maleFemale < 0) && (maleFemale > 1));
-		//TODO: Неправильное форматирование
-		//исправил
+		
 		switch (maleFemale)
 		{
 			case 1:
@@ -54,7 +53,7 @@ namespace Lab3
 		cout << "Sex = \n" << person.Sex ;
 		cout << "Name = \n" << person.Name;
 		cout << "Surname = \n" << person.Surname;
-	}
+	}//TODO: Исправили отсутствие пустой строки в одном месте, а в остальных?
 	char* Concatenate(char* string1, char* string2)
 	{
 		char *newChar = new char[200];
@@ -380,8 +379,6 @@ namespace Lab3
 				}
 				case ReplaceTabsOnSpacesEnum:
 				{
-					//TODO: Плохо, что я за вас должен дописывать все тестовые случаи!
-					//Извянки
 					char* testMassiveReplaceTabsOnSpaces = (char*)" Cake\tis\ta lie!";
 					cout << ReplaceTabsOnSpaces(testMassiveReplaceTabsOnSpaces) << endl;
 					testMassiveReplaceTabsOnSpaces = (char*)" Cake\t\tis a lie!";
@@ -392,9 +389,6 @@ namespace Lab3
 				}
 				case ReplaceSpacesOnTabsEnum:
 				{
-					//TODO: Плохо, что я за вас должен дописывать все тестовые случаи!
-					//TODO: Сейчас алгоритм отрабатывает некорректно
-					//исправил
 					char* testMassiveReplaceSpacesOnTabs = (char*)"Cake::::is::a:lie!";
 					cout << ReplaceSpacesOnTabs(testMassiveReplaceSpacesOnTabs) << endl;
 					testMassiveReplaceSpacesOnTabs = (char*)"Cake::::is::::a:lie!";
@@ -411,10 +405,7 @@ namespace Lab3
 					Person Data = InputPerson();
 					PrintPerson(Data);
 					break;
-				}//TODO: Нарушение форматирование по RSDN
-				//исправил
-				//TODO: Нет!
-				//ДА!(если суть была в скобках)
+				}
 				default:
 					cout << "Enter number of function to start ";
 					break;

@@ -19,8 +19,7 @@ int main()
 		numberMenu = CheckSymbol();
 		system("cls");
 		switch (numberMenu)
-		{//TODO: Ќеправильное форматирование
-			//исправил
+		{
 			case 1:
 				Lab1();
 				break;

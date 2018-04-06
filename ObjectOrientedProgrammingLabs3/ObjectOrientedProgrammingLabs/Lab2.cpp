@@ -5,6 +5,7 @@ using namespace std;
 //TODO: Внимательно прочитайте стандарт оформления кода RSDN https://rsdn.org/article/mag/200401/codestyle.XML
 //TODO: и приведите свой код в соответстие со стандартом
 //исправил(давно)
+//TODO: Нет, пробелы между функциями...
 namespace Lab2
 {
 	int globalVariable = 10;
@@ -43,7 +44,7 @@ namespace Lab2
 				return value1 - value2;
 			case '+':
 				return value1 + value2;
-				break;//TODO //исправил
+				break;//TODO //исправил //TODO: Что исправили? break так и остались стоять...
 			case '*':
 				return value1 * value2;
 				break;
@@ -154,7 +155,7 @@ namespace Lab2
 		for (int j = 0; j < columns; j++)
 		{
 			resultArray[i][j] = 0;
-			for (int z = 0; z < columns1; z++)//TODO //исправил
+			for (int z = 0; z < columns1; z++)
 			{
 				resultArray[i][j] = arr[i][j] * arr2[i][j];
 			}
@@ -265,6 +266,7 @@ namespace Lab2
 			}
 			case 8:
 			{
+				//TODO: RSDN!!!
 				int rows, columns;
 				int rows1, columns1;
 				cout << "Enter a number of rows int matrix A\n";
@@ -296,7 +298,7 @@ namespace Lab2
 				GlobalPlusTwo();
 				GlobalMultiplyThree();
 				GlobalEqualsOne();
-				break;
+				break;//TODO: Форматирование!
 			default: cout << "Enter number of function to start ";
 				break;
 				}

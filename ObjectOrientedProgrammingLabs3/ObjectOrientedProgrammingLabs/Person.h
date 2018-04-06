@@ -5,8 +5,6 @@
 
 namespace Lab3
 {
-	//TODO: Ќеправильное форматирование!
-	//исправил
 	struct Person 
 	{
 		char Surname[40];

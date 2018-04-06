@@ -9,6 +9,7 @@ inline int CheckSymbol()
 {//TODO: Внимательно прочитайте стандарт оформления кода RSDN https://rsdn.org/article/mag/200401/codestyle.XML
  //TODO: и приведите свой код в соответстие со стандартом
 	//исправил
+	//TODO: Нифига! Именование, отступы и всякое такое.
 	string n;
 	int m;
 	do{
