@@ -148,7 +148,7 @@ namespace Lab4
 			delete tempList;
 			return;
 		}
-		if (tempList != NULL)//TODO: Дублирование //исправил (заменил код)
+		if (tempList != NULL)
 		{
 			tempList->prev->next = tempList->next;
 			tempList->next->prev = tempList->prev;

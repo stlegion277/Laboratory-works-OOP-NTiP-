@@ -35,6 +35,6 @@ int main()
 			default:
 				cout << "Enter correct number"; break;
 			}
-		}
+		}//TODO: Форматирование!
 			return 0;
 }

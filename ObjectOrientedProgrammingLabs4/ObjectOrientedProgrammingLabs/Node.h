@@ -4,8 +4,7 @@
 namespace Lab4
 {
 	struct Node
-	{//TODO: Зачем тут эти комментарии?
-		//исправил (остались еще со структур данных)
+	{//TODO: Именование не по RSDN
 		Person data;	
 		Node* next = NULL; 
 		Node* prev = NULL; 

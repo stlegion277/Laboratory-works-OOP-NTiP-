@@ -29,7 +29,9 @@ namespace Lab4
 		cout << "0 Exit\n ";
 		int menuNumber;
 		int index;
+		//TODO: Плохое именование переменной
 		bool menu = true;
+		//TODO: Можно не писать
 		while (menu == true)
 		{
 			cout << "1. Add in double linked list\n";
@@ -91,7 +93,7 @@ namespace Lab4
 					break;
 				}
 			}
-		system("pause");
+		system("pause");//TODO: Форматирование!
 		return 0;
 		}
 }

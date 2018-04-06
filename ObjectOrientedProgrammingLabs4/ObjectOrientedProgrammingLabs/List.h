@@ -5,7 +5,7 @@
 namespace Lab4
 {
 	struct List
-	{
+	{//TODO: Именование не по RSDN.
 		Node* head = NULL;
 		Node* tail = NULL;
 	};
