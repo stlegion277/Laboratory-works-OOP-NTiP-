@@ -12,7 +12,7 @@ namespace Lab2
 	int GetRootsReference(int a, int b, int c, double& x3, double& x4);
 	int GetPower(int base, int power);
 	void BubbleSort(int intArray[5]);
-	//TODO: Именование входных переменных - отстой!
+	//TODO: Именование входных переменных - отстой!//Это же к читаемости относится нет?
 	int** MultiplyMatrix(int rows, int columns1, int rows1, int columns, 
 		int** resultArray, int** arr, int** arr1);
 	int Lab2();

@@ -10,12 +10,13 @@ inline int CheckSymbol()
  //TODO: и приведите свой код в соответстие со стандартом
 	//исправил
 	//TODO: Нифига! Именование, отступы и всякое такое.
-	string n;
-	int m;
-	do{
-		cin >> n;
-		m = atoi(n.c_str());
+	string inputData; //n inputdata
+	int outputData; //m outputdata
+	do
+	  {
+		cin >> inputData;
+		outputData = atoi(inputData.c_str());
 	  }
-	while (m == 0 && m < 0);
-	return m;
+	while (outputData == 0 && outputData < 0);
+	return outputData;
 }

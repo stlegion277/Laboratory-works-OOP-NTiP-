@@ -53,7 +53,8 @@ namespace Lab3
 		cout << "Sex = \n" << person.Sex ;
 		cout << "Name = \n" << person.Name;
 		cout << "Surname = \n" << person.Surname;
-	}//TODO: Исправили отсутствие пустой строки в одном месте, а в остальных?
+	}//TODO: Исправили отсутствие пустой строки в одном месте, а в остальных? //исправил
+
 	char* Concatenate(char* string1, char* string2)
 	{
 		char *newChar = new char[200];
@@ -71,6 +72,7 @@ namespace Lab3
 		newChar[counter] = '\0';
 		return newChar;
 	}
+
 	char* GetSubString(char* string, int startIndex, int charCount)
 	{
 		char* stringMassive = new char[123];
@@ -90,6 +92,7 @@ namespace Lab3
 			return stringMassive;
 		}
 	}
+
 	int	FindSubString(char* string, char* substring)
 	{
 		int counter = 0;
@@ -126,6 +129,7 @@ namespace Lab3
 			return -1;
 		}
 	}
+
 	char* UpperCase(char* string)
 	{
 		char* stringMassive = string;
@@ -142,6 +146,7 @@ namespace Lab3
 		}
 		return string;
 	}
+
 	char* LowerCase(char* string)
 	{
 		char* stringMassive = string;
@@ -228,6 +233,7 @@ namespace Lab3
 		newString[counter++] = '\0';
 		return newString;
 	}
+
 	void SplitFileName(char* source, char* path, char* name, char* extension)
 	{
 		int dotPointerExtension = 0;
@@ -275,6 +281,7 @@ namespace Lab3
 		}
 		path[j++] = '\0';
 	}
+
 	int Lab3()
 	{
 		enum MenuEnum
