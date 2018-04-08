@@ -19,21 +19,14 @@ namespace Lab4
 			InsertEnum,
 			ClearEnum
 		};
-		system("color f1");
-		cout << "1. Add in double linked list\n";
-		cout << "2. Show double linked list\n";
-		cout << "3. Get element by index\n";
-		cout << "4. Remove element by index\n";
-		cout << "5. Insert element by index\n";
-		cout << "6. Clear the list\n";
-		cout << "0 Exit\n ";
 		int menuNumber;
 		int index;
-		//TODO: Плохое именование переменной
-		bool menu = true;
-		//TODO: Можно не писать
-		while (menu == true)
+		//TODO: Плохое именование переменной//исправил (не знал как назвать)
+		bool menuExit = true;
+		//TODO: Можно не писать//сделал
+		while (menuExit)
 		{
+			system("color f1");
 			cout << "1. Add in double linked list\n";
 			cout << "2. Show double linked list\n";
 			cout << "3. Get element by index\n";
@@ -46,7 +39,7 @@ namespace Lab4
 			switch (menuNumber)
 			{
 				case 0:
-					menu = 0;
+					menuExit = 0;
 					break;
 				case AddEnum:
 				{
@@ -91,9 +84,9 @@ namespace Lab4
 				}
 				default: cout << "Enter number of function to start ";
 					break;
-				}
 			}
-		system("pause");//TODO: Форматирование!
-		return 0;
 		}
+		system("pause");//TODO: Форматирование!//Сделал!
+		return 0;
+	}
 }

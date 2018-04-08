@@ -294,7 +294,6 @@ namespace Lab3
 		cout << "10. Work with person structure\n";
 		cout << "0 Exit\n ";
 		cout << "Enter number of function to start\n ";
-		
 		int menuNumber;
 		bool menu = true;
 		while (menu == true)

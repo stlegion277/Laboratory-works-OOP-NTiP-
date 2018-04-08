@@ -23,18 +23,23 @@ int main()
 		switch (menuNumber)
 		{
 			case 1:
-				Lab1(); break;
+				Lab1(); 
+				break;
 			case 2:
-				Lab2::Lab2(); break;
+				Lab2::Lab2(); 
+				break;
 			case 3:
-				Lab3::Lab3(); break;
+				Lab3::Lab3();
+				break;
 			case 4:
-				Lab4::Lab4(); break;
+				Lab4::Lab4(); 
+				break;
 			case 0:
 				return 0;
 			default:
-				cout << "Enter correct number"; break;
-			}
-		}//TODO: Форматирование!
+				cout << "Enter correct number";
+				break;
+		}
+	}//TODO: Форматирование!//сделал!
 			return 0;
 }

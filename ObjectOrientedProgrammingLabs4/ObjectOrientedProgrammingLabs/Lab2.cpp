@@ -2,8 +2,10 @@
 #include "Lab2.h"
 #include "CheckSymbol.h"
 using namespace std;
+
 //TODO: Внимательно прочитайте стандарт оформления кода RSDN https://rsdn.org/article/mag/200401/codestyle.XML
 //TODO: и приведите свой код в соответстие со стандартом
+//сделал (два раза еще в той лабе)
 namespace Lab2
 {
 	int globalVariable = 10;
@@ -12,21 +14,25 @@ namespace Lab2
 	{
 		cout << "Hello World!\n";
 	}
+
 	void GlobalPlusTwo()
 	{
 		globalVariable += 2;
 		cout << "  global variable =  " << globalVariable;
 	}
+
 	void GlobalMultiplyThree()
 	{
 		globalVariable *= 3;
 		cout << "  global variable =  " << globalVariable;
 	}
+
 	void GlobalEqualsOne()
 	{
 		globalVariable = 1;
 		cout << "  global variable =  " << globalVariable;
 	}
+
 	double MakeCalculation(int value1, int value2)
 	{
 		char key;
@@ -42,22 +48,19 @@ namespace Lab2
 			case '-':
 				return value1 - value2;
 			case '+':
-				return value1 + value2;
-				break;//TODO //исправил
+				return value1 + value2;//TODO //исправил
 			case '*':
 				return value1 * value2;
-				break;
 			case '/':
 				return value1 / value2;
-				break;
 			case '%':
 				return value1 % value2;
-				break;
 			default:
 				return 0;
 				break;
 		}
 	}
+
 	int Divide(int dividend, int divisor)
 	{
 		int result;
@@ -65,6 +68,7 @@ namespace Lab2
 		return result;
 		system("pause");
 	}
+
 	int GetRootsPointer(int a, int b, int c, double* x1, double* x2)
 	{
 		double discriminant = b * b - (4 * a * c);
@@ -91,6 +95,7 @@ namespace Lab2
 			return 2;
 		}
 	}
+
 	int GetRootsReference(int a, int b, int c, double& x1, double& x2)
 	{
 		double discriminant = b*b - (4 * a * c);
@@ -115,6 +120,7 @@ namespace Lab2
 			return 2;
 		}
 	}
+
 	int GetPower(int base, int power)
 	{
 		if (power == 0) return 1;
@@ -127,6 +133,7 @@ namespace Lab2
 			return (1 / (base*GetPower(base, power - 1)));
 		}
 	}
+
 	void BubbleSort(int intArray[5])
 	{
 		int tmp;
@@ -146,32 +153,34 @@ namespace Lab2
 			intArray[i] = tmp;
 		}
 	}
+
 	int** MultiplyMatrix(int columns, int rows, int columns1, int rows1, 
 		int** resultArray, int** arr, int** arr2)
-{
-	for (int i = 0; i < rows; i++)
 	{
-		for (int j = 0; j < columns; j++)
+		for (int i = 0; i < rows; i++)
 		{
-			resultArray[i][j] = 0;
-			for (int z = 0; z < columns1; z++)//TODO
+			for (int j = 0; j < columns; j++)
 			{
-				resultArray[i][j] = arr[i][j] * arr2[i][j];
+				resultArray[i][j] = 0;
+				for (int z = 0; z < columns1; z++)//TODO//сделал
+				{
+					resultArray[i][j] = arr[i][j] * arr2[i][j];
+				}
+			}
+		}
+			return resultArray;
+	}
+
+	void FillMatrix(int rows, int columns, int** arr)
+	{
+		for (int i = 0; i < rows; i++)
+		{
+			for (int j = 0; j < columns; j++)
+			{
+				arr[i][j] = rand() % 20;
 			}
 		}
 	}
-		return resultArray;
-}
-	void FillMatrix(int rows, int columns, int** arr)
-{
-	for (int i = 0; i < rows; i++)
-	{
-		for (int j = 0; j < columns; j++)
-		{
-			arr[i][j] = rand() % 20;
-		}
-	}
-}
 	void MakeMatrix(int rows, int columns,  int ** arr)
 	{
 		for (int i = 0; i < rows; i++)
@@ -179,6 +188,7 @@ namespace Lab2
 			arr[i] = new int[columns];
 		}
 	}
+
 	void PrintMatrix(int** arr, int columns, int rows)
 	{
 		for (int i = 0; i < columns; i++)
@@ -190,6 +200,7 @@ namespace Lab2
 			cout << endl;
 		}
 	}
+
 	void DeleteMatrix(int sizeArr, int** arr)
 	{
 		for (int i = 0; i < sizeArr; i++)
