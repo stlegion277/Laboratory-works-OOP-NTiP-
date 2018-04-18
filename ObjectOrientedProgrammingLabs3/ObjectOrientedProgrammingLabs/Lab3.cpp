@@ -53,7 +53,7 @@ namespace Lab3
 		cout << "Sex = \n" << person.Sex ;
 		cout << "Name = \n" << person.Name;
 		cout << "Surname = \n" << person.Surname;
-	}//TODO: Исправили отсутствие пустой строки в одном месте, а в остальных? //исправил
+	}
 
 	char* Concatenate(char* string1, char* string2)
 	{
@@ -369,10 +369,6 @@ namespace Lab3
 				}
 				case SplitFileNameEnum:
 				{
-					//TODO: Добавьте в проверку следующие варианты
-					// "d:\\f old er\\file.exe"
-					// "d:\\f old er\\file.exe.txt.cmd"
-					//исправил
 					char source[50] = { "d:\\f old er\\file.txt.cmd" };
 					char path[30];
 					char extension[5];

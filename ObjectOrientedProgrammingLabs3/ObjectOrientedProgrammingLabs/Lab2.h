@@ -13,6 +13,10 @@ namespace Lab2
 	int GetPower(int base, int power);
 	void BubbleSort(int intArray[5]);
 	//TODO: Именование входных переменных - отстой!//Это же к читаемости относится нет?
+	//TODO: Да, к читаемости
+	//Почему есть rows и rows1, а где rows0? Это же первая и вторая матрица и её строки и столбцы, поэтому
+	//firstMatrixRowsCount
+	//secondMatrixRowsCount и т.д.
 	int** MultiplyMatrix(int rows, int columns1, int rows1, int columns, 
 		int** resultArray, int** arr, int** arr1);
 	int Lab2();

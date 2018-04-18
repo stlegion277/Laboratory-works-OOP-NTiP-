@@ -2,11 +2,7 @@
 #include "Lab2.h"
 #include "CheckSymbol.h"
 using namespace std;
-//TODO: Внимательно прочитайте стандарт оформления кода RSDN https://rsdn.org/article/mag/200401/codestyle.XML
-//TODO: и приведите свой код в соответстие со стандартом
-//исправил(давно)
-//TODO: Нет, пробелы между функциями...
-//исправил
+
 namespace Lab2
 {
 	int globalVariable = 10;
@@ -50,6 +46,7 @@ namespace Lab2
 		case '+':
 			return value1 + value2;
 			//TODO //исправил //TODO: Что исправили? break так и остались стоять...//теперь точно исправил!!
+			//TODO: Нет... В default!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		case '*':
 			return value1 * value2;
 		case '/':
@@ -279,6 +276,10 @@ namespace Lab2
 				case 8:
 				{
 					//TODO: RSDN!!!//исправил (если это именование)
+					//TODO: Да, именование, нет не исправили
+					//Почему есть rows и rows1, а где rows0? Это же первая и вторая матрица и её строки и столбцы, поэтому
+					//firstMatrixRowsCount
+					//secondMatrixRowsCount и т.д.
 					int rows;
 					int columns;
 					int rows1;
@@ -313,12 +314,12 @@ namespace Lab2
 					GlobalPlusTwo();
 					GlobalMultiplyThree();
 					GlobalEqualsOne();
-					break;//TODO: Форматирование!//исправил(скобочки)
+					break;
 				default: cout << "Enter number of function to start ";
 					break;
 			}
-				system("pause");
-				return 0;
+			system("pause");
+			return 0;
 		}
 	}
 }
