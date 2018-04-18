@@ -16,17 +16,13 @@ namespace Lab5
 
 	void Person::SetName(char nameTemp[arraySize])
 	{
-		//TODO:Проверять входные параметры
-		//исправил
 		for (int i = 0; i < strlen(nameTemp); i++)
 		{
 			if (!isdigit(nameTemp[i]) && !isspace(nameTemp[i]))
 			{
 				strcpy_s(Name, arraySize, nameTemp);
-			}
-				
-		}
-		
+			}				
+		}		
 	}
 
 	void Person::SetSurname(char surnameTemp[arraySize])
@@ -37,8 +33,7 @@ namespace Lab5
 			{
 				strcpy_s(Surname, arraySize, surnameTemp);
 			}
-		}
-		
+		}		
 	}
 
 	void Person::SetAge(int age)

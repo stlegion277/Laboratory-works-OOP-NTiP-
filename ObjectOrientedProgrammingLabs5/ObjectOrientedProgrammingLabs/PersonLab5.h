@@ -19,7 +19,8 @@ namespace Lab5
 			int GetAge();
 			Sex GetSex();
 			bool operator==(const Person& right);
-		private:			
+		private:		
+			//TODO: Именование не по RSDN!
 			char Name[arraySize];
 			char Surname[arraySize];
 			int Age;

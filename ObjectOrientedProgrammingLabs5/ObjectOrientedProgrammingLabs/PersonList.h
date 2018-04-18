@@ -11,6 +11,9 @@ namespace Lab5
 		public:
 			PersonList(); 
 			~PersonList();
+			//TODO: Почему CheckPerson?
+			//TODO: Именование входного параметра не по RSDN
+			//TODO: Зачем это публично?
 			char* CheckPerson(char Name[Person::arraySize]);
 			void ReadPerson();
 			void Add(Person* person);

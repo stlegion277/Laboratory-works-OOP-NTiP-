@@ -19,8 +19,7 @@ namespace Lab5
 			};
 			const int initialsRand = 8;
 			const int ageRand = 90;
-			//TODO: Вынести магические числа в константы
-			//исправил (Вроде)
+
 			int name = rand() % initialsRand;
 			int surname = rand() % initialsRand;
 			int tempAge = rand() % ageRand;

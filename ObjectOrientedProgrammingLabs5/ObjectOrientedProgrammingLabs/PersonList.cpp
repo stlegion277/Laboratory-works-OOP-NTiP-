@@ -20,7 +20,7 @@ namespace Lab5
 			_head = _tail = tempList;
 		}
 	}
-
+	//TODO: Зачем столько пустых строк?
 	
 
 	void PersonList::Remove(Person* person)
@@ -62,7 +62,7 @@ namespace Lab5
 		}
 
 	void PersonList::RemoveByIndex(int index)
-	{
+	{//TODO: А зачем давать возможность удаления по отрицательному индексу, если можно использовать беззнаковое число
 		Person* person = Find(index);
 		Remove(person);
 	}
@@ -135,7 +135,7 @@ namespace Lab5
 	}
 
 	Person* PersonList::Find(int index)
-	{
+	{//TODO: А зачем давать возможность поиска по отрицательному индексу, если можно использовать беззнаковое число
 		if (index < 0)
 		{
 			return nullptr;
@@ -175,8 +175,9 @@ namespace Lab5
 		int tempAge = 0;
 		Sex tempSex;
 		int sexChoice;
+		//TODO: Именование не отражает назначения
 		bool phrase = true;
-
+		//TODO: Ниже два дубля. Исправьте.
 		while(phrase)
 		{
 			cout << "Enter person's name" << endl;
@@ -209,7 +210,7 @@ namespace Lab5
 		} 
 		while ((sexChoice < 0) && (sexChoice > 1));
 		switch (sexChoice)
-		{
+		{//TODO: Не по RSDN! 
 		case 1:
 			tempSex = Male;
 			break;
@@ -221,7 +222,7 @@ namespace Lab5
 		}
 		this->Add(new Person(tempName, tempSurname, tempAge, tempSex));
 	}
-	
+	//TODO: Зачем пустой конструктор?
 	PersonList::PersonList()
 	{
 
@@ -231,7 +232,7 @@ namespace Lab5
 	{
 		Clear();
 	}
-
+	//TODO: Почему CheckPerson?
 	char* PersonList::CheckPerson(char tempName[Person::arraySize])
 	{
 		bool checkName = true;

@@ -12,7 +12,9 @@ namespace Lab5
 		Lab5::PersonList* tempList = new Lab5::PersonList();
 		int menuNumber;
 		int index;
+		//TODO: Именование не отражает назначения
 		bool menu = true;
+		//TODO: Можно не сравнивать
 		while (menu == true)
 		{
 			cout << "1. Add in double linked list\n";
@@ -90,6 +92,7 @@ namespace Lab5
 				}
 				case 7:
 				{
+					//TODO: Косячно обрабатывает ввод.
 					cout << "Add your own person to the list" << endl;
 					tempList->ReadPerson();
 
