@@ -21,8 +21,6 @@ namespace Lab5
 		}
 	}
 	//TODO: Зачем столько пустых строк?
-	
-
 	void PersonList::Remove(Person* person)
 	{
 			PersonListItem* tempList = _head;
@@ -211,14 +209,14 @@ namespace Lab5
 		while ((sexChoice < 0) && (sexChoice > 1));
 		switch (sexChoice)
 		{//TODO: Не по RSDN! 
-		case 1:
-			tempSex = Male;
-			break;
-		case 0:
-			tempSex = Female;
-			break;
-		default:
-			break;
+			case 1:
+				tempSex = Male;
+				break;
+			case 0:
+				tempSex = Female;
+				break;
+			default:
+				break;
 		}
 		this->Add(new Person(tempName, tempSurname, tempAge, tempSex));
 	}
@@ -240,7 +238,7 @@ namespace Lab5
 		{
 			if (isdigit(tempName[i]) || isspace(tempName[i]))
 			{
-				ReadPerson();
+				ReadPerson();  //зацикливается
 				break;
 			}
 		}
