@@ -6,12 +6,12 @@ using namespace std;
 namespace Lab5
 {
 	//TODO:RSDN
-	Person::Person(char Name[arraySize], char Surname[arraySize], int Age, enum Sex Sex)
+	Person::Person(char _name[arraySize], char _surname[arraySize], int _age, enum Sex _sex)
 	{
-		SetName(Name);
-		SetSurname(Surname);
-		SetAge(Age);
-		SetSex(Sex);
+		SetName(_name);
+		SetSurname(_surname);
+		SetAge(_age);
+		SetSex(_sex);
 	}
 
 	void Person::SetName(char nameTemp[arraySize])
@@ -20,7 +20,7 @@ namespace Lab5
 		{
 			if (!isdigit(nameTemp[i]) && !isspace(nameTemp[i]))
 			{
-				strcpy_s(Name, arraySize, nameTemp);
+				strcpy_s(_name, arraySize, nameTemp);
 			}				
 		}		
 	}
@@ -31,7 +31,7 @@ namespace Lab5
 		{
 			if (!isdigit(surnameTemp[i]) || !isspace(surnameTemp[i]))
 			{
-				strcpy_s(Surname, arraySize, surnameTemp);
+				strcpy_s(_surname, arraySize, surnameTemp);
 			}
 		}		
 	}
@@ -40,39 +40,39 @@ namespace Lab5
 	{
 		if (age >= 0)
 		{
-			Age = age;
+			_age = age;
 		}
 	}
 
 	void Person::SetSex(enum Sex sex)
 	{
-		Sex = sex;
+		_sex = sex;
 	}
 
 	char* Person::GetName()
 	{
-		return Name;
+		return _name;
 	}
 	
 	char* Person::GetSurname()
 	{
-		return Surname;
+		return _surname;
 	}
 
 	int Person::GetAge()
 	{
-		return Age;
+		return _age;
 	}
 
 	Sex Person::GetSex()
 	{
-		return Sex;
+		return _sex;
 	}
 
 	bool Person::operator==(const Person& right)
 	{
-		return(!strcmp(Name, right.Name) &&
-			!strcmp(Surname, right.Surname) &&
-			Age == right.Age && Sex == right.Sex);
+		return(!strcmp(_name, right._name) &&
+			!strcmp(_surname, right._surname) &&
+			_age == right._age && _sex == right._sex);
 	}
 }

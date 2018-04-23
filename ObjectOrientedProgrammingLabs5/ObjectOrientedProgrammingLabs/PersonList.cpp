@@ -40,14 +40,12 @@ namespace Lab5
 						_head = _head->Next;
 						break;
 					}
-
 					if (_tail == tempList)
 					{
 						_tail->Prev->Next = nullptr;
 						_tail = _tail->Prev;
 						break;
 					}
-
 					if (_head != tempList && _tail != tempList)
 					{
 						tempList->Prev->Next = tempList->Next;
@@ -59,8 +57,9 @@ namespace Lab5
 			}
 		}
 
-	void PersonList::RemoveByIndex(int index)
+	void PersonList::RemoveByIndex(unsigned int index)
 	{//TODO: А зачем давать возможность удаления по отрицательному индексу, если можно использовать беззнаковое число
+		//сделал
 		Person* person = Find(index);
 		Remove(person);
 	}
@@ -132,8 +131,9 @@ namespace Lab5
 		}
 	}
 
-	Person* PersonList::Find(int index)
+	Person* PersonList::Find(unsigned int index)
 	{//TODO: А зачем давать возможность поиска по отрицательному индексу, если можно использовать беззнаковое число
+		//сделал
 		if (index < 0)
 		{
 			return nullptr;
@@ -174,24 +174,22 @@ namespace Lab5
 		Sex tempSex;
 		int sexChoice;
 		//TODO: Именование не отражает назначения
-		bool phrase = true;
+		//сделал
+		bool phraseCheckFlag = true;
 		//TODO: Ниже два дубля. Исправьте.
-		while(phrase)
+		while (phraseCheckFlag)
 		{
 			cout << "Enter person's name" << endl;
 			cin >> tempName;
-			phrase = !CheckPerson(tempName);
+			phraseCheckFlag = !CheckPersonNameSurname(tempName);
 		}
-		phrase = true;
-
-		while (phrase)
+		phraseCheckFlag = true;
+		while (phraseCheckFlag)
 		{
 			cout << "Enter person's surname" << endl;
 			cin >> tempSurname;
-			phrase = !CheckPerson(tempSurname);
+			phraseCheckFlag = !CheckPersonNameSurname(tempSurname);
 		}
-
-		
 		do
 		{
 			cout << "Enter person's age" << endl;
@@ -209,11 +207,12 @@ namespace Lab5
 		while ((sexChoice < 0) && (sexChoice > 1));
 		switch (sexChoice)
 		{//TODO: Не по RSDN! 
-			case 1:
-				tempSex = Male;
-				break;
+			//сделал
 			case 0:
 				tempSex = Female;
+				break;
+			case 1:
+				tempSex = Male;
 				break;
 			default:
 				break;
@@ -221,28 +220,24 @@ namespace Lab5
 		this->Add(new Person(tempName, tempSurname, tempAge, tempSex));
 	}
 	//TODO: Зачем пустой конструктор?
-	PersonList::PersonList()
-	{
-
-	}
-
+	//убрал
 	PersonList::~PersonList()
 	{
 		Clear();
 	}
 	//TODO: Почему CheckPerson?
-	char* PersonList::CheckPerson(char tempName[Person::arraySize])
+	//сделал
+	bool PersonList::CheckPersonNameSurname(char tempName[Person::arraySize])
 	{
-		bool checkName = true;
+		bool checkNameSurname = true;
 		for (int i = 0; i < strlen(tempName); i++)
 		{
-			if (isdigit(tempName[i]) || isspace(tempName[i]))
+			if ((isdigit(tempName[i])) || (isspace(tempName[i])))
 			{
-				ReadPerson();  //зацикливается
+				checkNameSurname = false;
 				break;
 			}
 		}
-		return tempName;
-		
+		return checkNameSurname;
 	}
 }

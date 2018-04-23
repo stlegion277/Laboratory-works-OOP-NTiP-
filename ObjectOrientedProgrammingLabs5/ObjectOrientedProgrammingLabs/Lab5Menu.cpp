@@ -13,9 +13,11 @@ namespace Lab5
 		int menuNumber;
 		int index;
 		//TODO: Именование не отражает назначения
-		bool menu = true;
+		//сделал
+		bool menuExit = true;
 		//TODO: Можно не сравнивать
-		while (menu == true)
+		//сделал
+		while (menuExit)
 		{
 			cout << "1. Add in double linked list\n";
 			cout << "2. Show double linked list\n";
@@ -30,11 +32,12 @@ namespace Lab5
 			switch (menuNumber)
 			{
 				case 0:
-					menu = 0;
+					menuExit = 0;
 					break;
 				case 1:
 				{
 					//TODO: Добавить ручной ввод
+					//сделано же
 					tempList->Add(Lab5::PersonTools::MakeRandomPerson());
 					tempList->Show();
 					break;
@@ -93,6 +96,7 @@ namespace Lab5
 				case 7:
 				{
 					//TODO: Косячно обрабатывает ввод.
+					//исправил
 					cout << "Add your own person to the list" << endl;
 					tempList->ReadPerson();
 

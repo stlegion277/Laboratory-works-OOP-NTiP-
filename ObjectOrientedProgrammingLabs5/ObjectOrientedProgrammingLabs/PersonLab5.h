@@ -21,9 +21,10 @@ namespace Lab5
 			bool operator==(const Person& right);
 		private:		
 			//TODO: Именование не по RSDN!
-			char Name[arraySize];
-			char Surname[arraySize];
-			int Age;
-			Sex Sex;
+			//сделал
+			char _name[arraySize];   
+			char _surname[arraySize];  
+			int _age;
+			Sex _sex;
 	};
 }
