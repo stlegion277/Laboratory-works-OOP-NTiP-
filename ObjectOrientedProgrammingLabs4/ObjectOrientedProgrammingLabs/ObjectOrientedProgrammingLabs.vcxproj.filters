@@ -53,9 +53,6 @@
     <ClInclude Include="List.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
-    <ClInclude Include="PersonLab4.h">
-      <Filter>Заголовочные файлы</Filter>
-    </ClInclude>
     <ClInclude Include="Sex.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>

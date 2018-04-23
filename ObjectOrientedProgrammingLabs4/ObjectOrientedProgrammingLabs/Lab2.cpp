@@ -276,8 +276,10 @@ namespace Lab2
 			}
 			case 8:
 			{
-				int rows, columns;
-				int rows1, columns1;
+				int rows;
+				int	columns;
+				int rows1;
+				int columns1;
 				cout << "Enter a number of rows int matrix A\n";
 				cin >> rows;
 				cout << "Enter a number of columns in matrix A\n";

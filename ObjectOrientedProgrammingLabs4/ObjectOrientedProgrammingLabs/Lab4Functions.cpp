@@ -7,11 +7,11 @@ namespace Lab4
 {
 	Person MakeRandomPerson()
 	{
-		string names[] =
+		const char* names[] =
 		{
 			"Mark", "Ben", "Bob", "Kurt", "Stewart" ,"John", "Frank" ,"Bryan","Kek"
 		};
-		string surnames[] =
+		const char* surnames[] =
 		{
 			"Rothwell", "Jenson", "White", "Shraider",
 			"Cranston", "Gray", "Zimmer", "Clinton", "Cheburek"
@@ -19,8 +19,8 @@ namespace Lab4
 		int name = rand() % 8;
 		int surname = rand() % 8;
 		Person newPerson;
-		newPerson.Name = names[name];
-		newPerson.Surname = surnames[surname];
+		strcpy_s(newPerson.Name,names[name]);
+		strcpy_s(newPerson.Surname, surnames[surname]);
 		newPerson.Sex = Male;
 		return newPerson;
 	}

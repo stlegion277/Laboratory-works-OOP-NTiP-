@@ -1,7 +1,7 @@
 #pragma once
 #include "CheckSymbol.h"
 #include "Node.h"
-#include "PersonLab4.h"
+#include "Person.h"
 #include "List.h"
 #include "Sex.h"
 

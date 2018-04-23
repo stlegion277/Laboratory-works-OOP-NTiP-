@@ -174,31 +174,44 @@ using namespace std;
 					menu = 0;
 					break;
 				case 1:
-					HelloWorld(); break;
+					HelloWorld(); 
+					break;
 				case 2:
-					NumbersSumm(); break;
+					NumbersSumm(); 
+					break;
 				case 3:
-					NumbersDivision(); break;
+					NumbersDivision(); 
+					break;
 				case 4:
-					ReadingInput(); break;
+					ReadingInput();
+					break;
 				case 5:
-					PointerExample(); break;
+					PointerExample(); 
+					break;
 				case 6:
-					ExampleIf(); break;
+					ExampleIf();
+					break;
 				case 7:
-					ExampleElseIf(); break;
+					ExampleElseIf();
+					break;
 				case 8:
-					ExampleElseIf(); break;
+					ExampleElseIf();
+					break;
 				case 9:
-					PredfixCycle(); break;
+					PredfixCycle(); 
+					break;
 				case 10:
-					PostfixCycle(); break;
+					PostfixCycle(); 
+					break;
 				case 11:
-					IterativeCycle(); break;
+					IterativeCycle(); 
+					break;
 				case 12:
-					ConvertingTypes(); break;
+					ConvertingTypes(); 
+					break;
 				case 13:
-					BreakExample(); break;
+					BreakExample(); 
+					break;
 				default: cout << "Enter number of function to start ";
 					break;
 			}

@@ -1,8 +1,6 @@
 ﻿#pragma once
 #include "Lab3.h"
 #include "CheckSymbol.h"
-#include "Person.h"
-#include "Sex.h"
 using namespace std;
 
 namespace Lab3
@@ -17,7 +15,7 @@ namespace Lab3
 		return length;
 	} //TODO: Между методами должны быть пустые строки
 		//исправил
-	Lab3::Person InputPerson()
+	Person InputPerson()
 	{
 		Person newPerson;
 		cout << "Write name\n ";
