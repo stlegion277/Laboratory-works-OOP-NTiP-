@@ -17,7 +17,8 @@ namespace Lab2
 	//Почему есть rows и rows1, а где rows0? Это же первая и вторая матрица и её строки и столбцы, поэтому
 	//firstMatrixRowsCount
 	//secondMatrixRowsCount и т.д.
-	int** MultiplyMatrix(int rows, int columns1, int rows1, int columns, 
-		int** resultArray, int** arr, int** arr1);
+	//сделал
+	int** MultiplyMatrix(int firstMatrixRowsCount, int secondMatrixColumnsCount, int secondMatrixRowsCount,
+		int firstMatrixColumnsCount, int** resultArray, int** arr, int** arr1);
 	int Lab2();
 }

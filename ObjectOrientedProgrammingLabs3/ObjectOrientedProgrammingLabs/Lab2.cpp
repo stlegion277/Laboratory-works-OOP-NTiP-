@@ -41,21 +41,22 @@ namespace Lab2
 		}
 		switch (key)
 		{
-		case '-':
-			return value1 - value2;
-		case '+':
-			return value1 + value2;
-			//TODO //исправил //TODO: Что исправили? break так и остались стоять...//теперь точно исправил!!
-			//TODO: Нет... В default!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-		case '*':
-			return value1 * value2;
-		case '/':
-			return value1 / value2;
-		case '%':
-			return value1 % value2;
-		default:
-			return 0;
-			break;
+			case '-':
+				return value1 - value2;
+			case '+':
+				return value1 + value2;
+				//TODO //исправил //TODO: Что исправили? break так и остались стоять...//теперь точно исправил!!
+				//TODO: Нет... В default!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+				//исправил
+				//
+			case '*':
+				return value1 * value2;
+			case '/':
+				return value1 / value2;
+			case '%':
+				return value1 % value2;
+			default:
+				return 0;
 		}
 	}
 
@@ -280,31 +281,33 @@ namespace Lab2
 					//Почему есть rows и rows1, а где rows0? Это же первая и вторая матрица и её строки и столбцы, поэтому
 					//firstMatrixRowsCount
 					//secondMatrixRowsCount и т.д.
-					int rows;
-					int columns;
-					int rows1;
-					int columns1;
+					//исправил
+					int firstMatrixRowsCount; //rows
+					int firstMatrixColumnsCount; //columns
+					int secondMatrixRowsCount;  //rows 1
+					int secondMatrixColumnsCount; //columns 1
 					cout << "Enter a number of rows int matrix A\n";
-					cin >> rows;
+					cin >> firstMatrixRowsCount;
 					cout << "Enter a number of columns in matrix A\n";
-					cin >> columns;
+					cin >> firstMatrixColumnsCount;
 					cout << "Enter a number of rows in matix B\n";
-					cin >> rows1;
+					cin >> secondMatrixRowsCount;
 					cout << " Enter a number of rows in matrix B\n";
-					cin >> columns1;
-					if (columns == rows1)
+					cin >> secondMatrixColumnsCount;
+					if (firstMatrixColumnsCount == secondMatrixRowsCount)
 					{
-						int rowsRes = rows;
-						int columnsRes = columns1;
-						int** arr = new int *[rows];
-						int** arr1 = new int *[rows1];
+						int rowsRes = firstMatrixRowsCount;
+						int columnsRes = secondMatrixColumnsCount;
+						int** arr = new int *[firstMatrixRowsCount];
+						int** arr1 = new int *[secondMatrixRowsCount];
 						int** resultArray = new int *[rowsRes];
-						MakeMatrix(rows, columns, arr);
-						MakeMatrix(rows1, columns1, arr1);
+						MakeMatrix(firstMatrixRowsCount, firstMatrixColumnsCount, arr);
+						MakeMatrix(secondMatrixRowsCount, secondMatrixColumnsCount, arr1);
 						MakeMatrix(rowsRes, columnsRes, resultArray);
-						FillMatrix(rows, columns, arr);
-						FillMatrix(rows1, columns1, arr1);
-						MultiplyMatrix(rows, columns1, rows1, columns, resultArray, arr, arr1);
+						FillMatrix(firstMatrixRowsCount, firstMatrixColumnsCount, arr);
+						FillMatrix(secondMatrixRowsCount, secondMatrixColumnsCount, arr1);
+						MultiplyMatrix(firstMatrixRowsCount, secondMatrixColumnsCount, secondMatrixRowsCount,
+							firstMatrixColumnsCount, resultArray, arr, arr1);
 						PrintMatrix(resultArray, columnsRes, rowsRes);
 						cout << "Result";
 						break;
