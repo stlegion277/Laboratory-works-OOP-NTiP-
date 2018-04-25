@@ -13,8 +13,8 @@ namespace Lab3
 			length++;
 		}
 		return length;
-	} //TODO: Между методами должны быть пустые строки
-		//исправил
+	} 
+
 	Person InputPerson()
 	{
 		Person newPerson;
@@ -31,8 +31,7 @@ namespace Lab3
 			maleFemale = CheckSymbol();
 		} 
 		while ((maleFemale < 0) && (maleFemale > 1));
-		//TODO: Неправильное форматирование
-		//исправил
+
 		switch (maleFemale)
 		{
 			case 1:
@@ -368,8 +367,6 @@ namespace Lab3
 				}
 				case ReplaceTabsOnSpacesEnum:
 				{
-					//TODO: Плохо, что я за вас должен дописывать все тестовые случаи!
-					//Извянки
 					char* testMassiveReplaceTabsOnSpaces = (char*)" Cake\tis\ta lie!";
 					cout << ReplaceTabsOnSpaces(testMassiveReplaceTabsOnSpaces) << endl;
 					testMassiveReplaceTabsOnSpaces = (char*)" Cake\t\tis a lie!";
@@ -380,9 +377,6 @@ namespace Lab3
 				}
 				case ReplaceSpacesOnTabsEnum:
 				{
-					//TODO: Плохо, что я за вас должен дописывать все тестовые случаи!
-					//TODO: Сейчас алгоритм отрабатывает некорректно
-					//исправил
 					char* testMassiveReplaceSpacesOnTabs = (char*)"Cake::::is::a:lie!";
 					cout << ReplaceSpacesOnTabs(testMassiveReplaceSpacesOnTabs) << endl;
 					testMassiveReplaceSpacesOnTabs = (char*)"Cake::::is::::a:lie!";

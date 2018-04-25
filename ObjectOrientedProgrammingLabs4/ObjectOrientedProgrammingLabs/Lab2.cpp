@@ -6,6 +6,7 @@ using namespace std;
 //TODO: ¬нимательно прочитайте стандарт оформлени€ кода RSDN https://rsdn.org/article/mag/200401/codestyle.XML
 //TODO: и приведите свой код в соответстие со стандартом
 //сделал (два раза еще в той лабе)
+//TODO: ’оть три. ƒолжны смерджить в одну, чтобы не было путаницы.
 namespace Lab2
 {
 	int globalVariable = 10;
@@ -48,7 +49,7 @@ namespace Lab2
 			case '-':
 				return value1 - value2;
 			case '+':
-				return value1 + value2;//TODO //исправил
+				return value1 + value2;
 			case '*':
 				return value1 * value2;
 			case '/':
@@ -162,7 +163,7 @@ namespace Lab2
 			for (int j = 0; j < columns; j++)
 			{
 				resultArray[i][j] = 0;
-				for (int z = 0; z < columns1; z++)//TODO//сделал
+				for (int z = 0; z < columns1; z++)
 				{
 					resultArray[i][j] = arr[i][j] * arr2[i][j];
 				}
