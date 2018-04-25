@@ -45,10 +45,6 @@ namespace Lab2
 				return value1 - value2;
 			case '+':
 				return value1 + value2;
-				//TODO //исправил //TODO: Что исправили? break так и остались стоять...//теперь точно исправил!!
-				//TODO: Нет... В default!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-				//исправил
-				//
 			case '*':
 				return value1 * value2;
 			case '/':
@@ -282,6 +278,8 @@ namespace Lab2
 					//firstMatrixRowsCount
 					//secondMatrixRowsCount и т.д.
 					//исправил
+					//TODO: Нет, не исправили. Во-первых - нахрена ниже комментарии с таким описанием?
+					//TODO: Во-вторых - 12 строк ниже и опять, arr и arr1... Ну какого?...
 					int firstMatrixRowsCount; //rows
 					int firstMatrixColumnsCount; //columns
 					int secondMatrixRowsCount;  //rows 1

@@ -18,6 +18,7 @@ namespace Lab2
 	//firstMatrixRowsCount
 	//secondMatrixRowsCount и т.д.
 	//сделал
+	//TODO: Не сделали. Писал раньше про arr и arr1.
 	int** MultiplyMatrix(int firstMatrixRowsCount, int secondMatrixColumnsCount, int secondMatrixRowsCount,
 		int firstMatrixColumnsCount, int** resultArray, int** arr, int** arr1);
 	int Lab2();
