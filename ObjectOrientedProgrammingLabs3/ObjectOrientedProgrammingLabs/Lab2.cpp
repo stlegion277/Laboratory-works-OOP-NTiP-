@@ -280,10 +280,11 @@ namespace Lab2
 					//исправил
 					//TODO: Нет, не исправили. Во-первых - нахрена ниже комментарии с таким описанием?
 					//TODO: Во-вторых - 12 строк ниже и опять, arr и arr1... Ну какого?...
-					int firstMatrixRowsCount; //rows
-					int firstMatrixColumnsCount; //columns
-					int secondMatrixRowsCount;  //rows 1
-					int secondMatrixColumnsCount; //columns 1
+					//сделал
+					int firstMatrixRowsCount; 
+					int firstMatrixColumnsCount; 
+					int secondMatrixRowsCount;  
+					int secondMatrixColumnsCount; 
 					cout << "Enter a number of rows int matrix A\n";
 					cin >> firstMatrixRowsCount;
 					cout << "Enter a number of columns in matrix A\n";
@@ -296,16 +297,16 @@ namespace Lab2
 					{
 						int rowsRes = firstMatrixRowsCount;
 						int columnsRes = secondMatrixColumnsCount;
-						int** arr = new int *[firstMatrixRowsCount];
-						int** arr1 = new int *[secondMatrixRowsCount];
+						int** firstArray = new int *[firstMatrixRowsCount]; 
+						int** secondArray = new int *[secondMatrixRowsCount]; 
 						int** resultArray = new int *[rowsRes];
-						MakeMatrix(firstMatrixRowsCount, firstMatrixColumnsCount, arr);
-						MakeMatrix(secondMatrixRowsCount, secondMatrixColumnsCount, arr1);
+						MakeMatrix(firstMatrixRowsCount, firstMatrixColumnsCount, firstArray);
+						MakeMatrix(secondMatrixRowsCount, secondMatrixColumnsCount, secondArray);
 						MakeMatrix(rowsRes, columnsRes, resultArray);
-						FillMatrix(firstMatrixRowsCount, firstMatrixColumnsCount, arr);
-						FillMatrix(secondMatrixRowsCount, secondMatrixColumnsCount, arr1);
+						FillMatrix(firstMatrixRowsCount, firstMatrixColumnsCount, firstArray);
+						FillMatrix(secondMatrixRowsCount, secondMatrixColumnsCount, secondArray);
 						MultiplyMatrix(firstMatrixRowsCount, secondMatrixColumnsCount, secondMatrixRowsCount,
-							firstMatrixColumnsCount, resultArray, arr, arr1);
+							firstMatrixColumnsCount, resultArray, firstArray, secondArray);
 						PrintMatrix(resultArray, columnsRes, rowsRes);
 						cout << "Result";
 						break;
