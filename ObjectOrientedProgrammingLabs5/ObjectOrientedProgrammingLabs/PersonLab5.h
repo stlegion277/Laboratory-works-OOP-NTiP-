@@ -8,6 +8,7 @@ namespace Lab5
 	{
 		public:
 			static const int arraySize = 255;
+			//TODO: RSDN!
 			Person(char Name[arraySize], char Surname[arraySize], int Age, Sex Sex);
 			void SetName(char nameTemp[arraySize]);
 			void SetSurname(char surnameTemp[arraySize]);
@@ -20,8 +21,6 @@ namespace Lab5
 			Sex GetSex();
 			bool operator==(const Person& right);
 		private:		
-			//TODO: Именование не по RSDN!
-			//сделал
 			char _name[arraySize];   
 			char _surname[arraySize];  
 			int _age;

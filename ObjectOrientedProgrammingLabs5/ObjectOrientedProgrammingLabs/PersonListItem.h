@@ -10,8 +10,6 @@ namespace Lab5
 		public:
 			PersonListItem(Person* person)
 			{
-				//TODO: Проерка на входные данные
-				//сделал
 				if (_value != nullptr)
 				{
 					_value = person;

@@ -7,6 +7,7 @@ namespace Lab5
 {
 	//TODO:RSDN
 	//сделал
+	//TODO: Как именуются передаваемые в метод параметры?
 	Person::Person(char _name[arraySize], char _surname[arraySize], int _age, enum Sex _sex)
 	{
 		SetName(_name);

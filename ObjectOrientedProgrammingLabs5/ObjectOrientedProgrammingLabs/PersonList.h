@@ -9,13 +9,9 @@ namespace Lab5
 	class PersonList
 	{
 		public:
+			//TODO: Зачем пустой конструктор?
 			PersonList() {};
 			~PersonList();
-			//TODO: Почему CheckPerson?
-			//TODO: Именование входного параметра не по RSDN
-			//TODO: Зачем это публично?
-			//сделал
-			
 			void ReadPerson();
 			void Add(Person* person);
 			void Remove(Person* person);

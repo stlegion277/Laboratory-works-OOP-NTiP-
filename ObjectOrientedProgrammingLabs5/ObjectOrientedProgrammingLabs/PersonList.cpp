@@ -20,8 +20,7 @@ namespace Lab5
 			_head = _tail = tempList;
 		}
 	}
-	//TODO: Зачем столько пустых строк?
-	//сделал
+
 	void PersonList::Remove(Person* person)
 	{
 			PersonListItem* tempList = _head;
@@ -59,8 +58,7 @@ namespace Lab5
 		}
 
 	void PersonList::RemoveByIndex(unsigned int index)
-	{//TODO: А зачем давать возможность удаления по отрицательному индексу, если можно использовать беззнаковое число
-		//сделал
+	{
 		Person* person = Find(index);
 		Remove(person);
 	}
@@ -133,8 +131,7 @@ namespace Lab5
 	}
 
 	Person* PersonList::Find(unsigned int index)
-	{//TODO: А зачем давать возможность поиска по отрицательному индексу, если можно использовать беззнаковое число
-		//сделал
+	{
 		if (index < 0)
 		{
 			return nullptr;
@@ -174,8 +171,6 @@ namespace Lab5
 		int tempAge = 0;
 		Sex tempSex;
 		int sexChoice;
-		//TODO: Именование не отражает назначения
-		//сделал
 		bool phraseCheckFlag = true;
 		//TODO: Ниже два дубля. Исправьте.
 		while (phraseCheckFlag)
@@ -204,11 +199,10 @@ namespace Lab5
 			cout << "Please enter person's sex" << endl;
 			cout << "0 - Female, 1 - Male" << endl;
 			sexChoice = CheckSymbol();
-		} 
+		} //TODO: Комментарий к коду ниже - вроде и перечисления есть, а используете как раньше цифры...
 		while ((sexChoice < 0) && (sexChoice > 1));
 		switch (sexChoice)
-		{//TODO: Не по RSDN! 
-			//сделал
+		{
 			case 0:
 				tempSex = Female;
 				break;
@@ -220,14 +214,15 @@ namespace Lab5
 		}
 		this->Add(new Person(tempName, tempSurname, tempAge, tempSex));
 	}
-	//TODO: Зачем пустой конструктор?
-	//убрал
+
 	PersonList::~PersonList()
 	{
 		Clear();
 	}
 	//TODO: Почему CheckPerson?
 	//сделал
+	//TODO: Всё ещё с именованием вопросы - думайте абстрактнее. 
+	//TODO: Это метод проверки строки на заглавную букву в начале, а не на имя/фамилию
 	bool PersonList::CheckPersonNameSurname(char tempName[Person::arraySize])
 	{
 		bool checkNameSurname = true;
