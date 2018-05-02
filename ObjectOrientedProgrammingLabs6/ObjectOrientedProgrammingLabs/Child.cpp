@@ -4,7 +4,7 @@
 namespace Lab6
 {
 	
-
+	//TODO: Пустой деструктор, т.к. некорректно сделали все строки в программе (статическими)
 	Child::~Child()
 	{
 
@@ -13,6 +13,7 @@ namespace Lab6
 	Child::Child(char name[Person::arraySize], char surname[Person::arraySize], int age,
 		enum Sex sex, Person * Mother, Person * Father, char school[arraySize])
 	{
+		//TODO: Много дублирования
 		SetName(name);
 		SetSurname(surname);
 		SetAge(age);
@@ -20,7 +21,7 @@ namespace Lab6
 		SetMother(Mother);
 		SetFather(Father);
 	}
-
+	//TODO: RSDN!
 	void Child::SetMother(Person * Mother)
 	{
 		_mother = Mother;
@@ -139,7 +140,7 @@ namespace Lab6
 		{
 			tempFather = nullptr;
 		}
-		
+		//TODO: Используете int вместо перечисления - не правильно.
 		if (tempSex == 0)
 		{
 			strcpy_s(tempName, femaleChildNames[rand() % initialsRand]);

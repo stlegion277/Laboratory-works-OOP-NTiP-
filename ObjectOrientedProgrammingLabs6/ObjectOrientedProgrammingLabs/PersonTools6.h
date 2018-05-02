@@ -7,7 +7,7 @@ namespace Lab6
 {
 	class PersonTools
 	{
-		public:
+		public://TODO: Отступы
 				static Person* MakeRandomPerson();
 				static Person* MakeRandomPerson(enum Sex tempSex);
 	};

@@ -116,14 +116,13 @@ namespace Lab6
 		};
 		const char* workPlaces[] =
 		{
-			"Mikran", "Elesi", "50OM", "TUSUR",
+			"Mikran", "Elesi", "50OM" //TODO: Какой позор, учите наизусть 50ohm Tech
+			, "TUSUR",
 			"TSU", "TPU", "Rostelekom", "Unemployeed"
 		};
 		const int initialsRand = 8;
 		const int ageRand = 130;
 		const int workPlacesRand = 7;
-		//TODO: Вынести магические числа в константы
-		//исправил (Вроде)
 		int name = rand() % initialsRand;
 		int surname = rand() % initialsRand;
 		int tempAge = 18 + rand() % ageRand;
@@ -136,7 +135,7 @@ namespace Lab6
 		if (rand() % 5)
 		{
 			strcpy_s(tempworkPlace, workPlaces[rand() % 9]);
-		}
+		}//TODO: Используете int вместо перечисления
 		if (tempSex == 0)
 		{
 			strcpy_s(tempName, femaleNames[rand() % initialsRand]);

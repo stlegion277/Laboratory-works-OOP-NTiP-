@@ -155,6 +155,7 @@ namespace Lab6
 	void PersonList::ShowNodeInConsole(PersonListItem list)
 	{
 		cout << list.GetValue()->GetDescription();
+		//TODO: Зачем это здесь?
 		/*cout << " Surname: " << list.GetValue()->GetSurname() << endl;
 		cout << " Name: " << list.GetValue()->GetName() << endl;
 		cout << " Age: " << list.GetValue()->GetAge() << endl;
@@ -223,6 +224,7 @@ namespace Lab6
 		this->Add(new Person(tempName, tempSurname, tempAge, tempSex));
 	}
 
+	//TODO: Пустой конструктор!
 	PersonList::PersonList()
 	{
 

@@ -14,6 +14,7 @@ namespace Lab6
 		Lab6::PersonList* tempList = new Lab6::PersonList();
 		int menuNumber;
 		int index;
+		//TODO: Именование!
 		bool menu = true;
 		while (menu)
 		{

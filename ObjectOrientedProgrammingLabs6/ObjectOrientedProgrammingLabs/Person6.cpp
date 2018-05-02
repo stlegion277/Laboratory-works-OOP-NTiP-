@@ -22,7 +22,8 @@ namespace Lab6
 	void Person::SetName(char nameTemp[arraySize])
 	{
 		//TODO:Проверять входные параметры
-		//исправил
+		//исправил (кого исправили, вы же не показывали мне лабу?)
+		//TODO: Проверка дублируется ниже!
 		for (int i = 0; i < strlen(nameTemp); i++)
 		{
 			if (!isdigit(nameTemp[i]) && !isspace(nameTemp[i]))
@@ -45,7 +46,7 @@ namespace Lab6
 		}
 
 	}
-
+	//TODO: Входной тип данных
 	void Person::SetAge(int age)
 	{
 		if (age >= 0)

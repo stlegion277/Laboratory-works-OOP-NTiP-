@@ -9,6 +9,7 @@ namespace Lab6
 	class Adult : public Person
 	{
 	public:
+		//TODO: Зачем пустой конструктор?
 		Adult();
 		~Adult();
 		Adult(char name[Person::arraySize], char surname[Person::arraySize], int age,
