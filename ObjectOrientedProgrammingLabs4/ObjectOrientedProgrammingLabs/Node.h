@@ -6,8 +6,9 @@ namespace Lab4
 	struct Node
 	{//TODO: Именование не по RSDN //тут тоже вроде все правильно или Node с маленькой?
 		//TODO: Как именуются поля структуры?
-		Person data;	
-		Node* next = NULL; 
-		Node* prev = NULL; 
+		// с большой я понял) сделал
+		Person Data;	
+		Node* Next = NULL; 
+		Node* Prev = NULL; 
 	};
 }

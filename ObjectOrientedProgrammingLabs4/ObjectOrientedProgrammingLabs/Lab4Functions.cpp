@@ -36,49 +36,49 @@ namespace Lab4
 	void AddHead(List* list)
 	{
 		Node* tempList = new Node;
-		tempList->data = MakeRandomPerson();
-		if (list->head != NULL)
+		tempList->Data = MakeRandomPerson();
+		if (list->Head != NULL)
 		{
-			list->head->prev = tempList;
-			tempList->next = list->head;
-			tempList->prev = NULL;
+			list->Head->Prev = tempList;
+			tempList->Next = list->Head;
+			tempList->Prev = NULL;
 		}
-		if (list->head == NULL)
+		if (list->Head == NULL)
 		{
-			list->head = list->tail = tempList;
+			list->Head = list->Tail = tempList;
 		}
 	}
 
 	void AddInEnd(List* list)
 	{
 		Node *tempList = new Node;
-		tempList->data = MakeRandomPerson();
-		if (list->head == NULL)
+		tempList->Data = MakeRandomPerson();
+		if (list->Head == NULL)
 		{
-			list->head = list->tail = tempList;
+			list->Head = list->Tail = tempList;
 		}
 		else
 		{
-			tempList->prev = list->tail;
-			list->tail->next = tempList;
-			list->tail = tempList;
+			tempList->Prev = list->Tail;
+			list->Tail->Next = tempList;
+			list->Tail = tempList;
 		}
 	}
 
 	void Show(List* list, Node* node)
 	{
-		Node *tempList = list->tail;
-		tempList = list->head;
-		if (list->head == NULL && list->tail == NULL)
+		Node *tempList = list->Tail;
+		tempList = list->Head;
+		if (list->Head == NULL && list->Tail == NULL)
 		{
 			cout << "List is empty!\n";
 			return;
 		}
 		while (tempList != NULL)
 		{
-			cout << "Name = " << tempList->data.Name << "\n";
-			cout << "Surname = " << tempList->data.Surname << "\n";
-			switch (tempList->data.Sex)
+			cout << "Name = " << tempList->Data.Name << "\n";
+			cout << "Surname = " << tempList->Data.Surname << "\n";
+			switch (tempList->Data.Sex)
 			{
 			case Female:
 				cout << "Sex = Female \n";
@@ -89,14 +89,14 @@ namespace Lab4
 				cout << "-----------------------------------------------\n";
 				break;
 			}
-			tempList = tempList->next;
+			tempList = tempList->Next;
 		}
 	}
 
 	Node* GetIndex(int index, List* list)
 	{
-		Node* tempList = list->head;
-		if (list->head == NULL)
+		Node* tempList = list->Head;
+		if (list->Head == NULL)
 		{
 			cout << "List is empty!\n" << endl;
 			return NULL;
@@ -112,7 +112,7 @@ namespace Lab4
 			{
 				return tempList;
 			}
-			tempList = tempList->next;
+			tempList = tempList->Next;
 		}
 		cout << "Index = " << index;
 
@@ -120,8 +120,8 @@ namespace Lab4
 
 	void Remove(int index, List*& list)
 	{
-		Node* tempList = list->head;
-		if ((list->head == NULL) || (list->tail == NULL))
+		Node* tempList = list->Head;
+		if ((list->Head == NULL) || (list->Tail == NULL))
 		{
 			cout << "List is empty! \n" << endl;
 			return;
@@ -132,26 +132,26 @@ namespace Lab4
 		}
 		for (int i = 0; i < index; i++)
 		{
-			tempList = tempList->next;
+			tempList = tempList->Next;
 		}
-		if (tempList == list->head)
+		if (tempList == list->Head)
 		{
-			list->head = list->head->next;
-			list->head->prev = NULL;
+			list->Head = list->Head->Next;
+			list->Head->Prev = NULL;
 			delete tempList;
 			return;
 		}
-		if (tempList == list->tail)
+		if (tempList == list->Tail)
 		{
-			list->tail = list->tail->prev;
-			list->tail->next = NULL;
+			list->Tail = list->Tail->Prev;
+			list->Tail->Next = NULL;
 			delete tempList;
 			return;
 		}
 		if (tempList != NULL)
 		{
-			tempList->prev->next = tempList->next;
-			tempList->next->prev = tempList->prev;
+			tempList->Prev->Next = tempList->Next;
+			tempList->Next->Prev = tempList->Prev;
 			delete tempList;
 		}
 
@@ -159,7 +159,7 @@ namespace Lab4
 
 	void Insert(int index, List* list, Person & person)
 	{
-		if ((index == 0) && (list->head == NULL))
+		if ((index == 0) && (list->Head == NULL))
 		{
 			AddInEnd(list);
 			return;
@@ -172,15 +172,15 @@ namespace Lab4
 		Node* tempPrev = new Node();
 		Node* tempCurrent = new Node();
 		Node* newNode = new Node();
-		newNode->data = person;
+		newNode->Data = person;
 		int tempPosition = 0;
-		tempCurrent = list->head;
-		if (list->head != NULL)
+		tempCurrent = list->Head;
+		if (list->Head != NULL)
 		{
-			while ((tempCurrent->next != NULL) && (tempPosition != index))
+			while ((tempCurrent->Next != NULL) && (tempPosition != index))
 			{
 				tempPrev = tempCurrent;
-				tempCurrent = tempCurrent->next;
+				tempCurrent = tempCurrent->Next;
 				tempPosition++;
 			}
 			if (index == 0)
@@ -188,7 +188,7 @@ namespace Lab4
 				cout << "Adding at head " << endl;
 				AddHead(list);
 			}
-			else if (tempCurrent->next == NULL && index == tempPosition + 1)
+			else if (tempCurrent->Next == NULL && index == tempPosition + 1)
 			{
 				cout << "Adding at tail " << endl;
 				AddInEnd(list);
@@ -199,8 +199,8 @@ namespace Lab4
 			}
 			else
 			{
-				tempPrev->next = newNode;
-				newNode->next = tempCurrent;
+				tempPrev->Next = newNode;
+				newNode->Next = tempCurrent;
 				cout << "Element added at position: " << index << endl;
 			}
 		}
@@ -211,12 +211,12 @@ namespace Lab4
 		Node* tempList = new Node;
 		while (tempList != NULL)
 		{
-			Node* tempNextList = tempList->next;
+			Node* tempNextList = tempList->Next;
 			delete tempList;
 			tempList = tempNextList;
 		}
-		list->head = NULL;
-		list->tail = NULL;
-		list->head = list->tail;
+		list->Head = NULL;
+		list->Tail = NULL;
+		list->Head = list->Tail;
 	}
 }
