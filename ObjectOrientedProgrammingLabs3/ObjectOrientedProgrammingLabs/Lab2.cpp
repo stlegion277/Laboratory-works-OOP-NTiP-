@@ -272,15 +272,6 @@ namespace Lab2
 				}
 				case 8:
 				{
-					//TODO: RSDN!!!//исправил (если это именование)
-					//TODO: Да, именование, нет не исправили
-					//Почему есть rows и rows1, а где rows0? Это же первая и вторая матрица и её строки и столбцы, поэтому
-					//firstMatrixRowsCount
-					//secondMatrixRowsCount и т.д.
-					//исправил
-					//TODO: Нет, не исправили. Во-первых - нахрена ниже комментарии с таким описанием?
-					//TODO: Во-вторых - 12 строк ниже и опять, arr и arr1... Ну какого?...
-					//сделал
 					int firstMatrixRowsCount; 
 					int firstMatrixColumnsCount; 
 					int secondMatrixRowsCount;  
