@@ -350,10 +350,6 @@ namespace Lab3
 				}
 				case SplitFileNameEnum:
 				{
-					//TODO: Добавьте в проверку следующие варианты
-					// "d:\\f old er\\file.exe"
-					// "d:\\f old er\\file.exe.txt.cmd"
-					//исправил косяк с двумя разрешениями
 					char source[50] = { "d:\\f old er\\file.txt.cmd" };
 					char path[30];
 					char extension[5];

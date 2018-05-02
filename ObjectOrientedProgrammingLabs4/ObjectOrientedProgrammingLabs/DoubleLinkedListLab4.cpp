@@ -21,9 +21,8 @@ namespace Lab4
 		};
 		int menuNumber;
 		int index;
-		//TODO: Плохое именование переменной//исправил (не знал как назвать)
+
 		bool menuExit = true;
-		//TODO: Можно не писать//сделал
 		while (menuExit)
 		{
 			system("color f1");
@@ -86,7 +85,7 @@ namespace Lab4
 					break;
 			}
 		}
-		system("pause");//TODO: Форматирование!//Сделал!
+		system("pause");
 		return 0;
 	}
 }
