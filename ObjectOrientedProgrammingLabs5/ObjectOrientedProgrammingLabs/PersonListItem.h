@@ -11,7 +11,12 @@ namespace Lab5
 			PersonListItem(Person* person)
 			{
 				//TODO: Проерка на входные данные
-				_value = person;
+				//сделал
+				if (_value != nullptr)
+				{
+					_value = person;
+				}
+				
 			}
 
 			Person* GetValue();

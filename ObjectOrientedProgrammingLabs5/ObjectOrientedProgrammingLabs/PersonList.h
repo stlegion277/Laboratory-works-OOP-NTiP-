@@ -14,6 +14,7 @@ namespace Lab5
 			//TODO: Почему CheckPerson?
 			//TODO: Именование входного параметра не по RSDN
 			//TODO: Зачем это публично?
+			//сделал
 			
 			void ReadPerson();
 			void Add(Person* person);
@@ -25,7 +26,7 @@ namespace Lab5
 			void Show();
 			Person* Find(unsigned int index);
 		private:
-			bool CheckPersonNameSurname(char Name[Person::arraySize]);
+			bool CheckPersonNameSurname(char _name[Person::arraySize]);
 			int _count;
 			PersonListItem* _head = nullptr;
 			PersonListItem* _tail = nullptr;

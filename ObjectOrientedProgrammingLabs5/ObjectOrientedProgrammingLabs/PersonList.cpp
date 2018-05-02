@@ -21,6 +21,7 @@ namespace Lab5
 		}
 	}
 	//TODO: Зачем столько пустых строк?
+	//сделал
 	void PersonList::Remove(Person* person)
 	{
 			PersonListItem* tempList = _head;
