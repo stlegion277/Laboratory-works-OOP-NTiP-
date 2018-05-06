@@ -10,7 +10,7 @@ namespace Lab5
 	{
 		public:
 			//TODO: Зачем пустой конструктор?
-			PersonList() {};
+			//сделал
 			~PersonList();
 			void ReadPerson();
 			void Add(Person* person);
@@ -22,7 +22,8 @@ namespace Lab5
 			void Show();
 			Person* Find(unsigned int index);
 		private:
-			bool CheckPersonNameSurname(char _name[Person::arraySize]);
+			bool CheckForKirillica(char _name[Person::arraySize]);
+			bool CheckFirstSymbol(char _name[Person::arraySize]);
 			int _count;
 			PersonListItem* _head = nullptr;
 			PersonListItem* _tail = nullptr;

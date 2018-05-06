@@ -21,6 +21,6 @@ namespace Lab5
 			PersonListItem* Next = nullptr;
 			PersonListItem* Prev = nullptr;
 		private:
-			Person* _value;
+			Person* _value = nullptr;
 	};
 }

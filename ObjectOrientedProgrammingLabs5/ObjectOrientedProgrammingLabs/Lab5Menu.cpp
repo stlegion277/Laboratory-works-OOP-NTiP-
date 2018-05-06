@@ -92,6 +92,7 @@ namespace Lab5
 					//TODO: Косячно обрабатывает ввод.
 					//исправил
 					//TODO: Падает сразу же при вводе строки "епкуыцкпфы"
+					//сделал
 					cout << "Add your own person to the list" << endl;
 					tempList->ReadPerson();
 

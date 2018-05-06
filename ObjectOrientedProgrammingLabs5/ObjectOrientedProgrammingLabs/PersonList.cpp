@@ -109,7 +109,7 @@ namespace Lab5
 
 	void PersonList::Show()
 	{
-		cout << endl;
+		
 		PersonListItem* tempList = _head;
 		while (tempList != nullptr)
 		{
@@ -161,7 +161,6 @@ namespace Lab5
 			cout << "Male";
 		}
 		cout << endl << endl;
-
 	}
 
 	void PersonList::ReadPerson()
@@ -177,14 +176,16 @@ namespace Lab5
 		{
 			cout << "Enter person's name" << endl;
 			cin >> tempName;
-			phraseCheckFlag = !CheckPersonNameSurname(tempName);
+			phraseCheckFlag = !CheckFirstSymbol(tempName);
+			
 		}
 		phraseCheckFlag = true;
 		while (phraseCheckFlag)
 		{
 			cout << "Enter person's surname" << endl;
 			cin >> tempSurname;
-			phraseCheckFlag = !CheckPersonNameSurname(tempSurname);
+			phraseCheckFlag = !CheckFirstSymbol(tempSurname);
+			
 		}
 		do
 		{
@@ -200,13 +201,14 @@ namespace Lab5
 			cout << "0 - Female, 1 - Male" << endl;
 			sexChoice = CheckSymbol();
 		} //TODO: Комментарий к коду ниже - вроде и перечисления есть, а используете как раньше цифры...
+		//сделал
 		while ((sexChoice < 0) && (sexChoice > 1));
 		switch (sexChoice)
 		{
-			case 0:
+			case Female:
 				tempSex = Female;
 				break;
-			case 1:
+			case Male:
 				tempSex = Male;
 				break;
 			default:
@@ -219,15 +221,35 @@ namespace Lab5
 	{
 		Clear();
 	}
+
+	bool PersonList::CheckForKirillica(char tempName[Person::arraySize])
+	{
+		bool checkForKirillica = true;
+		for (int i = 0; i < strlen(tempName); i++)
+		{
+			if (tempName[i] >= 192 && tempName[i] <= 255)
+			{
+				checkForKirillica = false;
+				break;
+			}
+		}
+		return checkForKirillica;
+	}
 	//TODO: Почему CheckPerson?
 	//сделал
 	//TODO: Всё ещё с именованием вопросы - думайте абстрактнее. 
 	//TODO: Это метод проверки строки на заглавную букву в начале, а не на имя/фамилию
-	bool PersonList::CheckPersonNameSurname(char tempName[Person::arraySize])
+	//сделал
+	bool PersonList::CheckFirstSymbol(char tempName[Person::arraySize])
 	{
 		bool checkNameSurname = true;
 		for (int i = 0; i < strlen(tempName); i++)
 		{
+			if (tempName[i] >= 'А' && tempName[i] <= 'я')
+			{
+				checkNameSurname = false;
+				break;
+			}
 			if ((isdigit(tempName[i])) || (isspace(tempName[i])))
 			{
 				checkNameSurname = false;
