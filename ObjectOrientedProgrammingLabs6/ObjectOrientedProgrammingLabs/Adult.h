@@ -10,7 +10,7 @@ namespace Lab6
 	{
 	public:
 		//TODO: Зачем пустой конструктор?
-		Adult();
+		//сделал
 		~Adult();
 		Adult(char name[Person::arraySize], char surname[Person::arraySize], int age,
 			enum Sex sex, Person* marriage, char* workPlace);

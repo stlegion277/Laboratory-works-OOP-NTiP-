@@ -4,12 +4,8 @@
 namespace Lab6
 {
 	Adult::Adult(char name[Person::arraySize], char surname[Person::arraySize],
-		int age, enum Sex sex, Person* marriage, char* workPlace)
+		int age, enum Sex sex, Person* marriage, char* workPlace) : Person(name,surname,age, sex)
 	{
-		SetName(name);
-		SetSurname(surname);
-		SetAge(age);          //TODO Дублирование вызывать конструктор базового класса 
-		SetSex(sex);
 		SetWorkPlace(workPlace);
 		SetMarriage(marriage);
 	};
@@ -18,7 +14,7 @@ namespace Lab6
 	{
 		if (age >= 18)
 		{
-			Age = age;
+			_age = age;
 		}
 		else
 		{
@@ -38,30 +34,6 @@ namespace Lab6
 
 	string Adult::GetDescription()
 	{
-		/*char* descriptionAdult = new char[150];
-		*descriptionAdult = '\0';
-		strcpy_s(descriptionAdult, 255, Name);
-		strcpy_s(descriptionAdult, 255, Surname);
-		strcpy_s(descriptionAdult, 255, "");
-		char* descriptionAge = new char[20];
-		_itoa_s(Age, descriptionAge, 20, 20);
-		strcpy_s(descriptionAdult, 255, descriptionAge);
-		if (_marriage == nullptr)
-		{
-			strcpy_s(descriptionAdult, 255, "Not married");
-		}
-		else
-		{
-			strcpy_s(descriptionAdult, 255, "Married on\n");
-			strcpy_s(descriptionAdult, 255, _marriage->GetName());
-			strcpy_s(descriptionAdult, 255, _marriage->GetSurname());
-		}
-		if (_workPlace == nullptr)
-		{
-			strcpy_s(descriptionAdult, 255, "Working in company named: \n");
-			strcpy_s(descriptionAdult, 255, _workPlace);
-		}
-		return descriptionAdult;*/
 		string descriptionAdult = Person::GetDescription();
 		descriptionAdult += "\nWorks in = " + string(this->GetWorkPlace());
 		if (_marriage != nullptr)
@@ -82,14 +54,10 @@ namespace Lab6
 		return _workPlace;
 	}
 
-	Adult::Adult()
-	{
-
-	}
-
 	Adult::~Adult()
 	{
-
+		delete _marriage;
+		delete _workPlace;
 	}
 
 	Adult* Adult::GetRandomAdult()
@@ -116,7 +84,7 @@ namespace Lab6
 		};
 		const char* workPlaces[] =
 		{
-			"Mikran", "Elesi", "50OM" //TODO: Какой позор, учите наизусть 50ohm Tech
+			"Mikran", "Elesi", "50OHM Tech" //TODO: Какой позор, учите наизусть 50ohm Tech //сделал) не бейте
 			, "TUSUR",
 			"TSU", "TPU", "Rostelekom", "Unemployeed"
 		};
@@ -135,8 +103,8 @@ namespace Lab6
 		if (rand() % 5)
 		{
 			strcpy_s(tempworkPlace, workPlaces[rand() % 9]);
-		}//TODO: Используете int вместо перечисления
-		if (tempSex == 0)
+		}//TODO: Используете int вместо перечисления //сделал
+		if (tempSex == Female)
 		{
 			strcpy_s(tempName, femaleNames[rand() % initialsRand]);
 			strcpy_s(tempSurname, femaleSurnames[rand() % initialsRand]);

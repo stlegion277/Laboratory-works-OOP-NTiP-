@@ -11,24 +11,27 @@ namespace Lab6
 
 	}
 	//TODO:RSDN
-	Person::Person(char Name[arraySize], char Surname[arraySize], int Age, enum Sex Sex)
+	//сделал
+	Person::Person(char name[arraySize], char surname[arraySize], int age, enum Sex sex)
 	{
-		SetName(Name);
-		SetSurname(Surname);
-		SetAge(Age);
-		SetSex(Sex);
+		SetName(name);
+		SetSurname(surname);
+		SetAge(age);
+		SetSex(sex);
 	}
 
 	void Person::SetName(char nameTemp[arraySize])
 	{
 		//TODO:Проверять входные параметры
 		//исправил (кого исправили, вы же не показывали мне лабу?)
+		//старая TODO которая осталась тут когда лабу переносил
 		//TODO: Проверка дублируется ниже!
+		//в функцию вынести?
 		for (int i = 0; i < strlen(nameTemp); i++)
 		{
 			if (!isdigit(nameTemp[i]) && !isspace(nameTemp[i]))
 			{
-				strcpy_s(Name, arraySize, nameTemp);
+				strcpy_s(_name, arraySize, nameTemp);
 			}
 
 		}
@@ -41,23 +44,24 @@ namespace Lab6
 		{
 			if (!isdigit(surnameTemp[i]) || !isspace(surnameTemp[i]))
 			{
-				strcpy_s(Surname, arraySize, surnameTemp);
+				strcpy_s(_surname, arraySize, surnameTemp);
 			}
 		}
 
 	}
 	//TODO: Входной тип данных
+	//сделал
 	void Person::SetAge(int age)
 	{
 		if (age >= 0)
 		{
-			Age = age;
+			_age = age;
 		}
 	}
 
 	void Person::SetSex(enum Sex sex)
 	{
-		Sex = sex;
+		_sex = sex;
 	}
 
 	string Person::GetDescription()
@@ -83,28 +87,28 @@ namespace Lab6
 
 	char* Person::GetName()
 	{
-		return Name;
+		return _name;
 	}
 
 	char* Person::GetSurname()
 	{
-		return Surname;
+		return _surname;
 	}
 
 	int Person::GetAge()
 	{
-		return Age;
+		return _age;
 	}
 
 	Sex Person::GetSex()
 	{
-		return Sex;
+		return _sex;
 	}
 
 	bool Person::operator==(const Person& right)
 	{
-		return(!strcmp(Name, right.Name) &&
-			!strcmp(Surname, right.Surname) &&
-			Age == right.Age && Sex == right.Sex);
+		return(!strcmp(_name, right._name) &&
+			!strcmp(_surname, right._surname) &&
+			_age == right._age && _sex == right._sex);
 	}
 }

@@ -156,19 +156,7 @@ namespace Lab6
 	{
 		cout << list.GetValue()->GetDescription();
 		//TODO: Зачем это здесь?
-		/*cout << " Surname: " << list.GetValue()->GetSurname() << endl;
-		cout << " Name: " << list.GetValue()->GetName() << endl;
-		cout << " Age: " << list.GetValue()->GetAge() << endl;
-		cout << " Sex: ";
-		if (list.GetValue()->GetSex())
-		{
-			cout << "Male";
-		}
-		else
-		{
-			cout << "Female";
-		}
-		cout << endl << endl;*/
+		//сделал
 
 	}
 

@@ -15,8 +15,8 @@ namespace Lab6
 		int menuNumber;
 		int index;
 		//TODO: Именование!
-		bool menu = true;
-		while (menu)
+		bool menuExit = true;
+		while (menuExit)
 		{
 			cout << "1. Add RANDOM person in double linked list\n";
 			cout << "2. Show double linked list\n";
@@ -33,11 +33,10 @@ namespace Lab6
 			switch (menuNumber)
 			{
 			case 0:
-				menu = 0;
+				menuExit = 0;
 				break;
 			case 1:
 			{
-				//TODO: Добавить ручной ввод
 				tempList->Add(Lab6::PersonTools::MakeRandomPerson());
 				tempList->Show();
 				break;

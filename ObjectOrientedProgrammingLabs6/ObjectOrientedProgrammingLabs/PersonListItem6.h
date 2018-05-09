@@ -12,6 +12,7 @@ namespace Lab6
 				PersonListItem(Person* person)
 				{
 					//TODO: Проерка на входные данные
+					//добавил проверку, прога крашится поэтому убрал в общем вопрос тут у меня
 					_value = person;
 				}
 

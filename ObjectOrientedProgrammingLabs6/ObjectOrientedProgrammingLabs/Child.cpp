@@ -5,42 +5,51 @@ namespace Lab6
 {
 	
 	//TODO: Пустой деструктор, т.к. некорректно сделали все строки в программе (статическими)
+	//сделал
 	Child::~Child()
 	{
-
+		delete _school;
+		delete _mother;
+		delete _father;
 	}
 
 	Child::Child(char name[Person::arraySize], char surname[Person::arraySize], int age,
-		enum Sex sex, Person * Mother, Person * Father, char school[arraySize])
+		enum Sex sex, Person * mother, Person * father, char school[arraySize]) : Person(name,surname,age,sex)
 	{
 		//TODO: Много дублирования
-		SetName(name);
-		SetSurname(surname);
-		SetAge(age);
-		SetSex(sex);
-		SetMother(Mother);
-		SetFather(Father);
+		//сделал
+		SetMother(mother);
+		SetFather(father);
 	}
 	//TODO: RSDN!
-	void Child::SetMother(Person * Mother)
+	//сделал
+	void Child::SetMother(Person* mother)
 	{
-		_mother = Mother;
+		if (_mother != nullptr)
+		{
+			_mother = mother;
+		}
+		
 	}
 
-	void Child::SetFather(Person * Father)
+	void Child::SetFather(Person * father)
 	{
-		_father = Father;
+		if (_father != nullptr)
+		{
+			_father = father;
+		}
+		
 	}
 
 	void Child::SetAge(int age)
 	{
 		if (age < 18)
 		{
-			Age = age;
+			_age = age;
 		}
 		else
 		{
-			Age = rand() % 17;
+			_age = rand() % 17;
 		}
 		
 	}
@@ -112,9 +121,6 @@ namespace Lab6
 		};
 		const int initialsRand = 8;
 		const int ageRand = 90;
-		const int schoolsRand = 3;
-		//TODO: Вынести магические числа в константы
-		//исправил (Вроде)
 		int name = rand() % initialsRand;
 		int surname = rand() % initialsRand;
 		int tempAge = rand() % ageRand;
@@ -124,6 +130,10 @@ namespace Lab6
 		char tempName[Person::arraySize];
 		char tempSurname[Person::arraySize];
 		enum Sex tempSex = enum Sex(rand() % 2);
+		if (rand() % 3)
+		{
+			strcpy_s(tempChildSchools, childSchools[rand() % 3]);
+		}
 		if (rand() % 2)
 		{
 			tempMother = PersonTools::MakeRandomPerson((enum Sex)0);
@@ -141,7 +151,8 @@ namespace Lab6
 			tempFather = nullptr;
 		}
 		//TODO: Используете int вместо перечисления - не правильно.
-		if (tempSex == 0)
+		//сделал
+		if (tempSex == Female)
 		{
 			strcpy_s(tempName, femaleChildNames[rand() % initialsRand]);
 			strcpy_s(tempSurname, femaleChildSurnames[rand() % initialsRand]);
