@@ -5,17 +5,19 @@ using namespace std;
 namespace Lab6
 {
 	//TODO: Сейчас не имеет смысла создавать экземпляр класса персона, а у вас это возможно.
+	//TODO: ?
 	class Person
 	{
 		public:
-			 //TODO Переделать (полностью согласен!) //сделал
 			Person() {};
 			~Person();
 			static const int arraySize = 255;
+			//TODO: Нет такого конструктора (отличается сигнатура)
 			Person(char name[arraySize], char surname[arraySize], int age, Sex sex);
 			void SetName(char nameTemp[arraySize]);
 			void SetSurname(char surnameTemp[arraySize]);
 			void SetAge(int age);
+			//TODO: Нет такого метода (отличается сигнатура)
 			void SetSex(Sex sex);
 
 			virtual string GetDescription();

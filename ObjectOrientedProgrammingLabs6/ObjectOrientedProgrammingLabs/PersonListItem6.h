@@ -1,7 +1,6 @@
 #pragma once
 #include "CheckSymbol.h"
 #include "Person6.h"
-//#include "PersonList6.h"
 using namespace std;
 
 namespace Lab6

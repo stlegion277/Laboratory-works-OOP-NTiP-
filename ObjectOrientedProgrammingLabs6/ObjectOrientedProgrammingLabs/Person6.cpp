@@ -10,8 +10,7 @@ namespace Lab6
 	{
 
 	}
-	//TODO:RSDN
-	//сделал
+
 	Person::Person(char name[arraySize], char surname[arraySize], int age, enum Sex sex)
 	{
 		SetName(name);
@@ -27,6 +26,7 @@ namespace Lab6
 		//старая TODO которая осталась тут когда лабу переносил
 		//TODO: Проверка дублируется ниже!
 		//в функцию вынести?
+		//TODO: Да
 		for (int i = 0; i < strlen(nameTemp); i++)
 		{
 			if (!isdigit(nameTemp[i]) && !isspace(nameTemp[i]))
@@ -51,6 +51,7 @@ namespace Lab6
 	}
 	//TODO: Входной тип данных
 	//сделал
+	//TODO: Чё сделали-то, почему int знаковый?
 	void Person::SetAge(int age)
 	{
 		if (age >= 0)

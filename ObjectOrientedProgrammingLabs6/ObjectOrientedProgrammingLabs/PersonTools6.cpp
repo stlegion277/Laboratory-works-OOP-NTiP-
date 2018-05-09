@@ -50,7 +50,7 @@ namespace Lab6
 		}
 		return new Person(tempName, tempSurname, tempAge, tempSex);
 	}
-
+	//TODO: Сигнатура отличается от заголовочного файла
 	Person * PersonTools::MakeRandomPerson(Sex tempSex)
 	{
 		const char* femaleNames[] =

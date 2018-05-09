@@ -85,6 +85,7 @@ namespace Lab6
 		const char* workPlaces[] =
 		{
 			"Mikran", "Elesi", "50OHM Tech" //TODO: Какой позор, учите наизусть 50ohm Tech //сделал) не бейте
+			//TODO: Буду бить...50ohm Tech - сравните со своим вариантом
 			, "TUSUR",
 			"TSU", "TPU", "Rostelekom", "Unemployeed"
 		};
@@ -103,7 +104,7 @@ namespace Lab6
 		if (rand() % 5)
 		{
 			strcpy_s(tempworkPlace, workPlaces[rand() % 9]);
-		}//TODO: Используете int вместо перечисления //сделал
+		}
 		if (tempSex == Female)
 		{
 			strcpy_s(tempName, femaleNames[rand() % initialsRand]);

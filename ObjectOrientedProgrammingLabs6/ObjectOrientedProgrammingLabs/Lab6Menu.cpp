@@ -14,7 +14,7 @@ namespace Lab6
 		Lab6::PersonList* tempList = new Lab6::PersonList();
 		int menuNumber;
 		int index;
-		//TODO: Именование!
+
 		bool menuExit = true;
 		while (menuExit)
 		{
@@ -33,6 +33,7 @@ namespace Lab6
 			switch (menuNumber)
 			{
 			case 0:
+				//TODO: Присвоение 0 - какого хрена?
 				menuExit = 0;
 				break;
 			case 1:
@@ -99,7 +100,7 @@ namespace Lab6
 
 			}
 			case 8:
-			{
+			{//TODO: Падает после добавления нескольких персон
 				cout << "Add child to the list" << endl;
 				tempList->Add(Child::GetRandomChild());
 				

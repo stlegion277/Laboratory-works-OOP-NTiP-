@@ -155,9 +155,6 @@ namespace Lab6
 	void PersonList::ShowNodeInConsole(PersonListItem list)
 	{
 		cout << list.GetValue()->GetDescription();
-		//TODO: Зачем это здесь?
-		//сделал
-
 	}
 
 	void PersonList::ReadPerson()
@@ -213,6 +210,7 @@ namespace Lab6
 	}
 
 	//TODO: Пустой конструктор!
+	//TODO: ?
 	PersonList::PersonList()
 	{
 

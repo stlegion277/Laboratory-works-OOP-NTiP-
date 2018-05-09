@@ -3,9 +3,6 @@
 
 namespace Lab6
 {
-	
-	//TODO: Пустой деструктор, т.к. некорректно сделали все строки в программе (статическими)
-	//сделал
 	Child::~Child()
 	{
 		delete _school;
@@ -14,15 +11,12 @@ namespace Lab6
 	}
 
 	Child::Child(char name[Person::arraySize], char surname[Person::arraySize], int age,
-		enum Sex sex, Person * mother, Person * father, char school[arraySize]) : Person(name,surname,age,sex)
+		enum Sex sex, Person * mother, Person * father, char school[arraySize]) : Person(name, surname, age, sex)
 	{
-		//TODO: Много дублирования
-		//сделал
 		SetMother(mother);
 		SetFather(father);
 	}
-	//TODO: RSDN!
-	//сделал
+
 	void Child::SetMother(Person* mother)
 	{
 		if (_mother != nullptr)
@@ -40,7 +34,7 @@ namespace Lab6
 		}
 		
 	}
-
+	//TODO: Беззнаковый
 	void Child::SetAge(int age)
 	{
 		if (age < 18)
@@ -150,8 +144,6 @@ namespace Lab6
 		{
 			tempFather = nullptr;
 		}
-		//TODO: Используете int вместо перечисления - не правильно.
-		//сделал
 		if (tempSex == Female)
 		{
 			strcpy_s(tempName, femaleChildNames[rand() % initialsRand]);

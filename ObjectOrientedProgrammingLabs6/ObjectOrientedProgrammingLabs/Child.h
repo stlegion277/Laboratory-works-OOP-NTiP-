@@ -9,11 +9,9 @@ namespace Lab6
 	class Child : public Person
 	{
 	public:
-		//TODO: Зачем пустой конструктор?
-		//сделал
 		~Child();
 		Child(char name[Person::arraySize], char surname[Person::arraySize], int age,
-		enum Sex sex, Person* mother, Person* father, char school[Person::arraySize]);
+			enum Sex sex, Person* mother, Person* father, char school[Person::arraySize]);
 		static Child* GetRandomChild();
 	
 		void SetMother(Person* mother);

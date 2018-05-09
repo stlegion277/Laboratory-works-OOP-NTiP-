@@ -9,13 +9,10 @@ namespace Lab6
 	class Adult : public Person
 	{
 	public:
-		//TODO: Зачем пустой конструктор?
-		//сделал
 		~Adult();
 		Adult(char name[Person::arraySize], char surname[Person::arraySize], int age,
 			enum Sex sex, Person* marriage, char* workPlace);
 		static Adult* GetRandomAdult();
-		//char* Adult* GetDescription();
 
 		void SetAge(int age);
 		void SetMarriage(Person* marriage);
