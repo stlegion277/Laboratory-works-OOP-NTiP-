@@ -9,7 +9,8 @@ namespace Lab5
 		public:
 			static const int arraySize = 255;
 			//TODO: RSDN!
-			Person(char Name[arraySize], char Surname[arraySize], int Age, Sex Sex);
+			//сделал
+			Person(char name[arraySize], char surname[arraySize], int age, Sex sex);
 			void SetName(char nameTemp[arraySize]);
 			void SetSurname(char surnameTemp[arraySize]);
 			void SetAge(int age);

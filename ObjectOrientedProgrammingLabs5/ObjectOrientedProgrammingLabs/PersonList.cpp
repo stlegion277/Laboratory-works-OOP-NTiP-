@@ -172,20 +172,16 @@ namespace Lab5
 		int sexChoice;
 		bool phraseCheckFlag = true;
 		//TODO: Ниже два дубля. Исправьте.
-		while (phraseCheckFlag)
-		{
-			cout << "Enter person's name" << endl;
-			cin >> tempName;
-			phraseCheckFlag = !CheckFirstSymbol(tempName);
-			
-		}
+		//сделал
 		phraseCheckFlag = true;
 		while (phraseCheckFlag)
 		{
 			cout << "Enter person's surname" << endl;
 			cin >> tempSurname;
 			phraseCheckFlag = !CheckFirstSymbol(tempSurname);
-			
+			cout << "Enter person's name" << endl;
+			cin >> tempName;
+			phraseCheckFlag = !CheckFirstSymbol(tempName);
 		}
 		do
 		{
