@@ -113,19 +113,24 @@ namespace Lab6
 	{
 		cout << endl;
 		PersonListItem* tempList = _head;
+		int elementCounter = 0;
 		while (tempList != nullptr)
 		{
 			ShowNodeInConsole(*tempList);
 			tempList = tempList->Next;
+			elementCounter++;
+			cout << "\nElement = " << elementCounter << endl;
 		}
-		if (_head != nullptr)
-		{
-			cout << "HEAD ELEMENT =\n";
+		/*if (_head != nullptr)
+		{	
+			cout << "\nHead element\n";
+			cout << "_____________\n";
 			ShowNodeInConsole(*_head);
-			cout << "TAIL ELEMENT =\n";
+			cout << "\nTail element\n";
+			cout << "___________\n";
 			ShowNodeInConsole(*_tail);
-		}
-		else
+		}*/
+		if (_head == nullptr || _tail == nullptr )
 		{
 			cout << "Head and Tail elements are NULL! List is empty!" << endl;
 
@@ -157,82 +162,11 @@ namespace Lab6
 		cout << list.GetValue()->GetDescription();
 	}
 
-	void PersonList::ReadPerson()
-	{
-		char tempName[Person::arraySize];
-		char tempSurname[Person::arraySize];
-		int tempAge = 0;
-		Sex tempSex;
-		int sexChoice;
-		bool phrase = true;
-
-		while (phrase)
-		{
-			cout << "Enter person's name" << endl;
-			cin >> tempName;
-			phrase = !CheckPerson(tempName);
-		}
-		phrase = true;
-
-		while (phrase)
-		{
-			cout << "Enter person's surname" << endl;
-			cin >> tempSurname;
-			phrase = !CheckPerson(tempSurname);
-		}
-
-
-		do
-		{
-			cout << "Enter person's age" << endl;
-			cout << "Your person can't be older than 130 years or younger than 0" << endl;
-			tempAge = CheckSymbol();
-		} while (tempAge <= 0 || tempAge > 130);
-
-		do
-		{
-			cout << "Please enter person's sex" << endl;
-			cout << "0 - Female, 1 - Male" << endl;
-			sexChoice = CheckSymbol();
-		} while ((sexChoice < 0) && (sexChoice > 1));
-		switch (sexChoice)
-		{
-		case 1:
-			tempSex = Male;
-			break;
-		case 0:
-			tempSex = Female;
-			break;
-		default:
-			break;
-		}
-		this->Add(new Person(tempName, tempSurname, tempAge, tempSex));
-	}
-
 	//TODO: Пустой конструктор!
 	//TODO: ?
-	PersonList::PersonList()
-	{
-
-	}
-
+	//сделал
 	PersonList::~PersonList()
 	{
 		Clear();
-	}
-
-	char* PersonList::CheckPerson(char tempName[Person::arraySize])
-	{
-		bool checkName = true;
-		for (int i = 0; i < strlen(tempName); i++)
-		{
-			if (isdigit(tempName[i]) || isspace(tempName[i]))
-			{
-				ReadPerson();
-				break;
-			}
-		}
-		return tempName;
-
 	}
 }

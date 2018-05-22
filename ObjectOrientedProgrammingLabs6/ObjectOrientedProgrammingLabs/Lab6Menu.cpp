@@ -1,10 +1,5 @@
 #pragma once
-#include "CheckSymbol.h"
-#include "PersonList6.h"
-#include "PersonTools6.h"
-#include "Person6.h"
-#include "Adult.h"
-#include "Child.h"
+#include "Lab6Menu.h"
 using namespace std;
 
 namespace Lab6
@@ -18,15 +13,13 @@ namespace Lab6
 		bool menuExit = true;
 		while (menuExit)
 		{
-			cout << "1. Add RANDOM person in double linked list\n";
+			cout << "\n1. Add child to the list\n";
 			cout << "2. Show double linked list\n";
 			cout << "3. Get element by index\n";
 			cout << "4. Remove element by index\n";
 			cout << "5. Clear the list\n";
 			cout << "6. Count all elements\n";
-			cout << "7. Enter your person to list\n";
-			cout << "8. Add child to the list\n";
-			cout << "9. Add adult to the lit\n";
+			cout << "7. Add adult to the lit\n";
 			cout << "0 Exit\n ";
 			cout << "Enter number of a function to start\n ";
 			menuNumber = CheckSymbol();
@@ -34,12 +27,14 @@ namespace Lab6
 			{
 			case 0:
 				//TODO: ѕрисвоение 0 - какого хрена?
-				menuExit = 0;
+				//сделал
+				menuExit = false;
 				break;
 			case 1:
 			{
-				tempList->Add(Lab6::PersonTools::MakeRandomPerson());
-				tempList->Show();
+				//TODO: ѕадает после добавлени€ нескольких персон
+				cout << "Add child to the list" << endl;
+				tempList->Add(PersonTools::MakeRandomChild());
 				break;
 			}
 			case 2:
@@ -69,7 +64,6 @@ namespace Lab6
 					cout << "Person not found" << endl;
 				}
 				break;
-
 				break;
 			}
 			case 4:
@@ -95,29 +89,13 @@ namespace Lab6
 			}
 			case 7:
 			{
-				cout << "Add your own person to the list" << endl;
-				tempList->ReadPerson();
-
-			}
-			case 8:
-			{//TODO: ѕадает после добавлени€ нескольких персон
-				cout << "Add child to the list" << endl;
-				tempList->Add(Child::GetRandomChild());
 				
-			}
-			case 9:
-			{
-				Adult* adult1 = Lab6::Adult::GetRandomAdult();
-				/*cout << "Add adult to the list" << endl;
-				tempList->Add(Adult::GetRandomAdult());*/
-				tempList->Add(adult1);
-				
+				tempList->Add(PersonTools::MakingMarriage());
 			}
 			default: 
 				cout << "Enter number of function to start ";
 				break;
 			}
-
 		}
 		system("pause");
 		return 0;

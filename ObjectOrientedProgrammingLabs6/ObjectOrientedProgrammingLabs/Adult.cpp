@@ -4,10 +4,11 @@
 namespace Lab6
 {
 	Adult::Adult(char name[Person::arraySize], char surname[Person::arraySize],
-		int age, enum Sex sex, Person* marriage, char* workPlace) : Person(name,surname,age, sex)
+		int age, enum Sex sex, char* workPlace) : Person(name,surname, age, sex)
 	{
 		SetWorkPlace(workPlace);
-		SetMarriage(marriage);
+		//SetMarriage(marriage);
+		SetAge(age);
 	};
 
 	void Adult::SetAge(int age)
@@ -22,10 +23,10 @@ namespace Lab6
 		}
 	}
 
-	void Adult::SetMarriage(Person* marriage)
-	{
-		_marriage = marriage;
-	}
+	//void Adult::SetMarriage(Person* marriage)
+	//{
+	//	_marriage = marriage;
+	//}
 
 	void Adult::SetWorkPlace(char* workPlace)
 	{
@@ -35,86 +36,34 @@ namespace Lab6
 	string Adult::GetDescription()
 	{
 		string descriptionAdult = Person::GetDescription();
-		descriptionAdult += "\nWorks in = " + string(this->GetWorkPlace());
+		descriptionAdult += "Works in = " + string(this->GetWorkPlace());
+		descriptionAdult += "\nAge = " + to_string(this->GetAge());
 		if (_marriage != nullptr)
 		{
-			descriptionAdult += "\nMarried with " + string(this->GetMarriage()->GetName()) + " "
-				+ string(this->GetMarriage()->GetSurname());
+			descriptionAdult += "\nMarried with " + string(this->_marriage->GetName()) + " "
+				+ string(this->_marriage->GetSurname());
 		}
 		return descriptionAdult;
 	}
 
-	Person* Adult::GetMarriage()
+	/*Person* Adult::GetMarriage()
 	{
 		return _marriage;
-	}
+	}*/
 
 	char* Adult::GetWorkPlace()
 	{
 		return _workPlace;
 	}
 
+	int Adult::GetAge()
+	{
+		return _age;
+	}
+
 	Adult::~Adult()
 	{
 		delete _marriage;
 		delete _workPlace;
-	}
-
-	Adult* Adult::GetRandomAdult()
-	{
-		const char* femaleNames[] =
-		{
-			"Elisa", "Athena", "Anya", "Mariya",
-			"Elena", "Skarlett", "Emma", "Alisa"
-		};
-		const char* femaleSurnames[] =
-		{
-			"Morozova", "Makarova", "Semenova", "Pakhomova",
-			"Grigoryeva", "Avdeeva", "Guryeva", "Vikander"
-		};
-		const char* names[] =
-		{
-			"Mark", "Ben", "Bob", "Kurt",
-			"Stewart" ,"John", "Frank" ,"Bryan","Kek"
-		};
-		const char* surnames[] =
-		{
-			"Rothwell", "Jenson", "White", "Shraider",
-			"Cranston", "Gray", "Zimmer", "Clinton", "Cheburek"
-		};
-		const char* workPlaces[] =
-		{
-			"Mikran", "Elesi", "50OHM Tech" //TODO:  акой позор, учите наизусть 50ohm Tech //сделал) не бейте
-			//TODO: Ѕуду бить...50ohm Tech - сравните со своим вариантом
-			, "TUSUR",
-			"TSU", "TPU", "Rostelekom", "Unemployeed"
-		};
-		const int initialsRand = 8;
-		const int ageRand = 130;
-		const int workPlacesRand = 7;
-		int name = rand() % initialsRand;
-		int surname = rand() % initialsRand;
-		int tempAge = 18 + rand() % ageRand;
-		char tempworkPlace[Person::arraySize];
-		char tempName[Person::arraySize];
-		char tempSurname[Person::arraySize];
-		enum Sex tempSex = enum Sex(rand() % 2);
-		Person* tempMarriage = PersonTools::MakeRandomPerson((enum Sex)!tempSex);
-		strcpy_s(tempworkPlace, workPlaces[rand() % workPlacesRand]);
-		if (rand() % 5)
-		{
-			strcpy_s(tempworkPlace, workPlaces[rand() % 9]);
-		}
-		if (tempSex == Female)
-		{
-			strcpy_s(tempName, femaleNames[rand() % initialsRand]);
-			strcpy_s(tempSurname, femaleSurnames[rand() % initialsRand]);
-		}
-		else
-		{
-			strcpy_s(tempName, names[rand() % initialsRand]);
-			strcpy_s(tempSurname, surnames[rand() % initialsRand]);
-		}
-		return new Adult(tempName, tempSurname, tempAge, tempSex, tempMarriage, tempworkPlace);
 	}
 }

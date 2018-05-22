@@ -9,10 +9,9 @@ namespace Lab6
 	class PersonList
 	{
 	public:
-		PersonList();
+		PersonList() {};
 		~PersonList();
 		char* CheckPerson(char Name[Person::arraySize]);
-		void ReadPerson();
 		void Add(Person* person);
 		void Remove(Person* person);
 		int IndexOf(Person* person);

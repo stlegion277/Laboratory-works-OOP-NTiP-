@@ -11,7 +11,7 @@ namespace Lab6
 
 	}
 
-	Person::Person(char name[arraySize], char surname[arraySize], int age, enum Sex sex)
+	Person::Person(char name[arraySize], char surname[arraySize], unsigned int age, Sex sex)
 	{
 		SetName(name);
 		SetSurname(surname);
@@ -27,32 +27,28 @@ namespace Lab6
 		//TODO: Проверка дублируется ниже!
 		//в функцию вынести?
 		//TODO: Да
-		for (int i = 0; i < strlen(nameTemp); i++)
+		//сделал
+		if (!CheckFirstDigit(nameTemp))
 		{
-			if (!isdigit(nameTemp[i]) && !isspace(nameTemp[i]))
-			{
-				strcpy_s(_name, arraySize, nameTemp);
-			}
-
+			throw new exception("name");
 		}
-
+		strcpy_s(_name, arraySize, nameTemp);
 	}
 
 	void Person::SetSurname(char surnameTemp[arraySize])
 	{
-		for (int i = 0; i < strlen(surnameTemp); i++)
+		if (!CheckFirstDigit(surnameTemp))
 		{
-			if (!isdigit(surnameTemp[i]) || !isspace(surnameTemp[i]))
-			{
-				strcpy_s(_surname, arraySize, surnameTemp);
-			}
+			throw new exception("surnname");
 		}
+		strcpy_s(_surname, arraySize, surnameTemp);
 
 	}
 	//TODO: Входной тип данных
 	//сделал
 	//TODO: Чё сделали-то, почему int знаковый?
-	void Person::SetAge(int age)
+	//я думал вы про то что Age с большой
+	void Person::SetAge(unsigned int age)
 	{
 		if (age >= 0)
 		{
@@ -60,15 +56,27 @@ namespace Lab6
 		}
 	}
 
-	void Person::SetSex(enum Sex sex)
+	void Person::SetSex(Sex sex)
 	{
 		_sex = sex;
 	}
 
+	bool Person::CheckFirstDigit(char nameTemp[arraySize])
+	{
+		for (int i = 0; i < strlen(nameTemp); i++)
+		{
+			if (isdigit(nameTemp[i]) && isspace(nameTemp[i]))
+			{
+				return false;
+			}
+		}
+		return true;
+	}
+
 	string Person::GetDescription()
 	{
-		string description = "\nName = " + string(this->GetName()) + "\nSurname = " + string(this->GetSurname()) 
-			+ "\nAge = " + to_string(this->GetAge());
+		string description = "\nName = " + string(this->GetName()) + "\nSurname = " + string(this->GetSurname());
+			
 		enum Sex tempSexKey = this->GetSex();
 		switch (tempSexKey)
 		{
@@ -96,11 +104,7 @@ namespace Lab6
 		return _surname;
 	}
 
-	int Person::GetAge()
-	{
-		return _age;
-	}
-
+	
 	Sex Person::GetSex()
 	{
 		return _sex;
