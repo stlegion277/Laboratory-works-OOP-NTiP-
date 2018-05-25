@@ -5,7 +5,7 @@ using namespace std;
 
 namespace Lab6
 {
-	Person* PersonListItem::GetValue()
+	PersonBase* PersonListItem::GetValue()
 	{
 		return _value;
 	}

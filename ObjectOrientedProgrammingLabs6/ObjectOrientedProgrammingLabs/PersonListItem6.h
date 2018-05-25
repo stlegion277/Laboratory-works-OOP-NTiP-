@@ -1,24 +1,25 @@
 #pragma once
 #include "CheckSymbol.h"
 #include "Person6.h"
+#pragma once
+#include "CheckSymbol.h"
+#include "Person6.h"
 using namespace std;
 
 namespace Lab6
 {
 	class PersonListItem
 	{
-		public:
-				PersonListItem(Person* person)
-				{
-					//TODO: Проерка на входные данные
-					//добавил проверку, прога крашится поэтому убрал в общем вопрос тут у меня
-					_value = person;
-				}
+	public:
+		PersonListItem(PersonBase* person)
+		{
+			_value = person;
+		}
 
-				Person* GetValue();
-				PersonListItem* Next = nullptr;
-				PersonListItem* Prev = nullptr;
-		private:
-				Person * _value;
+		PersonBase* GetValue();
+		PersonListItem* Next = nullptr;
+		PersonListItem* Prev = nullptr;
+	private:
+		PersonBase * _value;
 	};
 }

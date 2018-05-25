@@ -4,25 +4,21 @@
 
 namespace Lab6
 {
-	class Adult : public Person
+	class Adult : public PersonBase
 	{
 	public:
 		~Adult();
-		Adult(char name[Person::arraySize], char surname[Person::arraySize], int age,
+		Adult(char name[PersonBase::arraySize], char surname[PersonBase::arraySize], int age,
 			enum Sex sex, char* workPlace);
-		void SetAge(int age);
-		//void SetMarriage(Person* marriage);
+		void SetAge(unsigned int age);
 		void SetWorkPlace(char* workPlace);
-		Person* _marriage = nullptr;
+		PersonBase* _marriage = nullptr;
 		virtual string GetDescription() override;
-		//Person* GetMarriage();
 		char* GetWorkPlace();
 	private:
-		
-		char _workPlace[Person::arraySize];
-	
+		char _workPlace[PersonBase::arraySize];
 		// Унаследовано через Person
-		virtual int GetAge() override;
+		virtual unsigned int GetAge() override;
 	};
 
 }

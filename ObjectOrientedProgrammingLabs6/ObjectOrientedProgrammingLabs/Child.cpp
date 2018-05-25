@@ -10,24 +10,24 @@ namespace Lab6
 		delete _father;
 	}
 
-	Child::Child(char name[Person::arraySize], char surname[Person::arraySize], unsigned int age,
-		enum Sex sex, Person * mother, Person * father, char school[arraySize]) : Person(name, surname, age, sex)
+	Child::Child(char name[PersonBase::arraySize], char surname[PersonBase::arraySize], unsigned int age,
+		enum Sex sex, PersonBase * mother, PersonBase * father, char school[arraySize]) : PersonBase(name, surname, age, sex)
 	{
 		SetMother(mother);
 		SetFather(father);
 	}
 
-	void Child::SetMother(Person* mother)
-	{	
-		_mother = mother;	
+	void Child::SetMother(PersonBase* mother)
+	{
+		//TODO: Проверка на входные данные (ниже тоже)
+		_mother = mother;
 	}
 
-	void Child::SetFather(Person * father)
+	void Child::SetFather(PersonBase * father)
 	{
-		_father = father;	
+		_father = father;
 	}
-	//TODO: Беззнаковый
-	//сделал
+
 	void Child::SetAge(unsigned int age)
 	{
 		if (age < 18)
@@ -39,7 +39,7 @@ namespace Lab6
 			_age = rand() % 17;
 			_age = age;
 		}
-		
+
 	}
 
 	void Child::SetSchool(char* school)
@@ -49,7 +49,7 @@ namespace Lab6
 
 	string Child::GetDescription()
 	{
-		string descriptionChild = Person::GetDescription();
+		string descriptionChild = PersonBase::GetDescription();
 		descriptionChild += "Studies in = " + string(this->GetSchool());
 		descriptionChild += "\nAge = " + to_string(this->GetAge());
 		if (_father != nullptr)
@@ -72,17 +72,19 @@ namespace Lab6
 		return _school;
 	}
 
-	Person* Child::GetMother()
+	PersonBase* Child::GetMother()
 	{
 		return _mother;
 	}
 
-	Person* Child::GetFather()
+	PersonBase* Child::GetFather()
 	{
 		return _father;
 	}
 
-	int Child::GetAge()
+	//TODO: unsigned
+	//сделал
+	unsigned int Child::GetAge()
 	{
 		return _age;
 	}

@@ -26,8 +26,6 @@ namespace Lab6
 			switch (menuNumber)
 			{
 			case 0:
-				//TODO: Присвоение 0 - какого хрена?
-				//сделал
 				menuExit = false;
 				break;
 			case 1:
@@ -45,7 +43,7 @@ namespace Lab6
 			case 3:
 			{
 				cout << "\n Enter index of a person: \n";
-				Person* person = tempList->Find(CheckSymbol());
+				PersonBase* person = tempList->Find(CheckSymbol());
 				if (person != nullptr)
 				{
 					cout << "Found person: " << endl;
@@ -89,10 +87,10 @@ namespace Lab6
 			}
 			case 7:
 			{
-				
+
 				tempList->Add(PersonTools::MakingMarriage());
 			}
-			default: 
+			default:
 				cout << "Enter number of function to start ";
 				break;
 			}

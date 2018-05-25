@@ -3,15 +3,15 @@
 
 namespace Lab6
 {
-	Adult::Adult(char name[Person::arraySize], char surname[Person::arraySize],
-		int age, enum Sex sex, char* workPlace) : Person(name,surname, age, sex)
+	Adult::Adult(char name[PersonBase::arraySize], char surname[PersonBase::arraySize],
+		int age, enum Sex sex, char* workPlace) : PersonBase(name, surname, age, sex)
 	{
 		SetWorkPlace(workPlace);
-		//SetMarriage(marriage);
 		SetAge(age);
 	};
-
-	void Adult::SetAge(int age)
+	//TODO Unsigned
+	//сделал
+	void Adult::SetAge(unsigned int age)
 	{
 		if (age >= 18)
 		{
@@ -23,19 +23,20 @@ namespace Lab6
 		}
 	}
 
-	//void Adult::SetMarriage(Person* marriage)
-	//{
-	//	_marriage = marriage;
-	//}
-
 	void Adult::SetWorkPlace(char* workPlace)
 	{
-		strcpy_s(_workPlace, arraySize, workPlace);
+		//TODO: Проверка?
+		//сделал
+		if (_workPlace != nullptr)
+		{
+			strcpy_s(_workPlace, arraySize, workPlace);
+		}
+
 	}
 
 	string Adult::GetDescription()
 	{
-		string descriptionAdult = Person::GetDescription();
+		string descriptionAdult = PersonBase::GetDescription();
 		descriptionAdult += "Works in = " + string(this->GetWorkPlace());
 		descriptionAdult += "\nAge = " + to_string(this->GetAge());
 		if (_marriage != nullptr)
@@ -46,17 +47,12 @@ namespace Lab6
 		return descriptionAdult;
 	}
 
-	/*Person* Adult::GetMarriage()
-	{
-		return _marriage;
-	}*/
-
 	char* Adult::GetWorkPlace()
 	{
 		return _workPlace;
 	}
 
-	int Adult::GetAge()
+	unsigned int Adult::GetAge()
 	{
 		return _age;
 	}

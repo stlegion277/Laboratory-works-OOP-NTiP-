@@ -6,7 +6,7 @@ using namespace std;
 
 namespace Lab6
 {
-	void PersonList::Add(Person* person)
+	void PersonList::Add(PersonBase* person)
 	{
 		PersonListItem* tempList = new PersonListItem(person);
 		if (_head != nullptr)
@@ -21,7 +21,7 @@ namespace Lab6
 		}
 	}
 
-	void PersonList::Remove(Person* person)
+	void PersonList::Remove(PersonBase* person)
 	{
 		PersonListItem* tempList = _head;
 		while (tempList != nullptr)
@@ -61,11 +61,11 @@ namespace Lab6
 
 	void PersonList::RemoveByIndex(int index)
 	{
-		Person* person = Find(index);
+		PersonBase* person = Find(index);
 		Remove(person);
 	}
 
-	int PersonList::IndexOf(Person* person)
+	int PersonList::IndexOf(PersonBase* person)
 	{
 		PersonListItem* tempList = _head;
 		int index = 0;
@@ -122,22 +122,22 @@ namespace Lab6
 			cout << "\nElement = " << elementCounter << endl;
 		}
 		/*if (_head != nullptr)
-		{	
-			cout << "\nHead element\n";
-			cout << "_____________\n";
-			ShowNodeInConsole(*_head);
-			cout << "\nTail element\n";
-			cout << "___________\n";
-			ShowNodeInConsole(*_tail);
+		{
+		cout << "\nHead element\n";
+		cout << "_____________\n";
+		ShowNodeInConsole(*_head);
+		cout << "\nTail element\n";
+		cout << "___________\n";
+		ShowNodeInConsole(*_tail);
 		}*/
-		if (_head == nullptr || _tail == nullptr )
+		if (_head == nullptr || _tail == nullptr)
 		{
 			cout << "Head and Tail elements are NULL! List is empty!" << endl;
 
 		}
 	}
 
-	Person* PersonList::Find(int index)
+	PersonBase* PersonList::Find(int index)
 	{
 		if (index < 0)
 		{
@@ -162,9 +162,6 @@ namespace Lab6
 		cout << list.GetValue()->GetDescription();
 	}
 
-	//TODO: Пустой конструктор!
-	//TODO: ?
-	//сделал
 	PersonList::~PersonList()
 	{
 		Clear();

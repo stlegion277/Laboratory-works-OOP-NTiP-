@@ -4,27 +4,28 @@
 
 namespace Lab6
 {
-	class Child : public Person
+	class Child : public PersonBase
 	{
 	public:
 		~Child();
-		Child(char name[Person::arraySize], char surname[Person::arraySize], unsigned int age,
-			enum Sex sex, Person* mother, Person* father, char school[Person::arraySize]);
-		void SetMother(Person* mother);
-		void SetFather(Person* father);
+		Child(char name[PersonBase::arraySize], char surname[PersonBase::arraySize], unsigned int age,
+			enum Sex sex, PersonBase* mother, PersonBase* father, char school[PersonBase::arraySize]);
+		void SetMother(PersonBase* mother);
+		void SetFather(PersonBase* father);
 		void SetAge(unsigned int age);
 		void SetSchool(char* school);
 
 		virtual string GetDescription()override;
 		char* GetSchool();
-		Person* GetMother();
-		Person* GetFather();
-		
+		PersonBase* GetMother();
+		PersonBase* GetFather();
+
 	private:
-		char _school[Person::arraySize];
-		Person * _mother;
-		Person* _father;
+		char _school[PersonBase::arraySize];
+		PersonBase* _mother;
+		PersonBase* _father;
 		// Унаследовано через Person
-		virtual int GetAge() override;
+		virtual unsigned int GetAge() override;
 	};
 }
+

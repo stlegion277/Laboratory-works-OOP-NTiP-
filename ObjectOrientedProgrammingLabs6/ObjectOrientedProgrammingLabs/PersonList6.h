@@ -7,26 +7,24 @@ using namespace std;
 namespace Lab6
 {
 	class PersonList
-	{
+	{//TODO: Отступы.
+	 //сделал
 	public:
-		PersonList() {};
 		~PersonList();
-		char* CheckPerson(char Name[Person::arraySize]);
-		void Add(Person* person);
-		void Remove(Person* person);
-		int IndexOf(Person* person);
+		char* CheckPerson(char Name[PersonBase::arraySize]);
+		void Add(PersonBase* person);
+		void Remove(PersonBase* person);
+		int IndexOf(PersonBase* person);
 		void RemoveByIndex(int index);
 		void Clear();
 		int GetCount();
 		void Show();
-		Person* Find(int index);
-
+		PersonBase* Find(int index);
 
 	private:
 		int _count;
 		PersonListItem* _head = nullptr;
 		PersonListItem* _tail = nullptr;
 		void ShowNodeInConsole(PersonListItem list);
-		
 	};
 }

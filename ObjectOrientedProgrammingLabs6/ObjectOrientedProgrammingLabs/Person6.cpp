@@ -5,13 +5,13 @@ using namespace std;
 
 namespace Lab6
 {
-	
-	Person::~Person()
+
+	PersonBase::~PersonBase()
 	{
 
 	}
 
-	Person::Person(char name[arraySize], char surname[arraySize], unsigned int age, Sex sex)
+	PersonBase::PersonBase(char name[arraySize], char surname[arraySize], unsigned int age, Sex sex)
 	{
 		SetName(name);
 		SetSurname(surname);
@@ -19,15 +19,8 @@ namespace Lab6
 		SetSex(sex);
 	}
 
-	void Person::SetName(char nameTemp[arraySize])
+	void PersonBase::SetName(char nameTemp[arraySize])
 	{
-		//TODO:Проверять входные параметры
-		//исправил (кого исправили, вы же не показывали мне лабу?)
-		//старая TODO которая осталась тут когда лабу переносил
-		//TODO: Проверка дублируется ниже!
-		//в функцию вынести?
-		//TODO: Да
-		//сделал
 		if (!CheckFirstDigit(nameTemp))
 		{
 			throw new exception("name");
@@ -35,7 +28,7 @@ namespace Lab6
 		strcpy_s(_name, arraySize, nameTemp);
 	}
 
-	void Person::SetSurname(char surnameTemp[arraySize])
+	void PersonBase::SetSurname(char surnameTemp[arraySize])
 	{
 		if (!CheckFirstDigit(surnameTemp))
 		{
@@ -44,11 +37,8 @@ namespace Lab6
 		strcpy_s(_surname, arraySize, surnameTemp);
 
 	}
-	//TODO: Входной тип данных
-	//сделал
-	//TODO: Чё сделали-то, почему int знаковый?
-	//я думал вы про то что Age с большой
-	void Person::SetAge(unsigned int age)
+
+	void PersonBase::SetAge(unsigned int age)
 	{
 		if (age >= 0)
 		{
@@ -56,12 +46,12 @@ namespace Lab6
 		}
 	}
 
-	void Person::SetSex(Sex sex)
+	void PersonBase::SetSex(Sex sex)
 	{
 		_sex = sex;
 	}
 
-	bool Person::CheckFirstDigit(char nameTemp[arraySize])
+	bool PersonBase::CheckFirstDigit(char nameTemp[arraySize])
 	{
 		for (int i = 0; i < strlen(nameTemp); i++)
 		{
@@ -73,13 +63,15 @@ namespace Lab6
 		return true;
 	}
 
-	string Person::GetDescription()
+	string PersonBase::GetDescription()
 	{
-		string description = "\nName = " + string(this->GetName()) + "\nSurname = " + string(this->GetSurname());
-			
+		string description = "\nName = " + string(this->GetName()) +
+			"\nSurname = " + string(this->GetSurname());
+
 		enum Sex tempSexKey = this->GetSex();
 		switch (tempSexKey)
-		{
+		{//TODO: Отступы!
+		 //сделал
 		case Male:
 		{
 			description += "\nSex = Male\n";
@@ -94,23 +86,23 @@ namespace Lab6
 		return description;
 	}
 
-	char* Person::GetName()
+	char* PersonBase::GetName()
 	{
 		return _name;
 	}
 
-	char* Person::GetSurname()
+	char* PersonBase::GetSurname()
 	{
 		return _surname;
 	}
 
-	
-	Sex Person::GetSex()
+
+	Sex PersonBase::GetSex()
 	{
 		return _sex;
 	}
 
-	bool Person::operator==(const Person& right)
+	bool PersonBase::operator==(const PersonBase& right)
 	{
 		return(!strcmp(_name, right._name) &&
 			!strcmp(_surname, right._surname) &&
