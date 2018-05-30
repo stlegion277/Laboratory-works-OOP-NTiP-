@@ -6,6 +6,7 @@
 #include "DoubleLinkedListLab4.h"
 #include "Lab5Menu.h"
 #include "Lab6Menu.h"
+#include "TemplateMenu.h"
 
 int main()
 {
@@ -21,6 +22,7 @@ int main()
 		<< "4 Lab 4" << endl
 		<< "5 Lab 5" << endl
 		<< "6 Lab 6" << endl
+		<<" 7 Lab 7" <<endl
 		<< "0 Exit" << endl
 		<< "Choose wisely: ";
 		menuNumber = CheckSymbol();
@@ -44,6 +46,8 @@ int main()
 				break;
 			case 6:
 				Lab6::Lab6();
+			case 7:
+				MenuForMenu();
 			case 0:
 				return 0;
 			default:

@@ -1,19 +1,18 @@
 #pragma once
-#include "TemplateListItem.h"
-#include "PersonLab5.h"
+#include "Lab7Menu.h"
 using namespace std;
 
-template <class Type T>
+template <class T>
 class TempList
 {
 	private:
 		int _count;
-		TemplateListItem* _head = nullptr;
-		TemplateListItem* _tail = nullptr;
+		TemplateListItem<T>* _head = nullptr;
+		TemplateListItem<T>* _tail = nullptr;
 	public:
-		void Add(Type T element)
+		void Add(T element)
 		{
-			TemplateListItem<Type T>* tempList = new templateListItem(element);
+			TemplateListItem<T>* tempList = new TemplateListItem<T>(element);
 			if (_head != nullptr)
 			{
 				tempList->_prev = _tail;
@@ -26,9 +25,9 @@ class TempList
 			}
 		}
 
-		void Remove(Type T element)
+		void Remove(T element)
 		{
-			TemplateListItem<Type T>* tempList = _head;
+			TemplateListItem<T>* tempList = _head;
 			while (tempList != nullptr)
 			{
 				if (tempList->GetValue() == element)
@@ -66,13 +65,14 @@ class TempList
 
 		void RemoveByIndex(int index)
 		{
-			Type T* person = Find(index);
-			Remove(element);
+			
+			T* tempElement = Find(index);
+			Remove(*tempElement);
 		}
 
-		int IndexOf(Type T element)
+		int IndexOf(T element)
 		{
-			TemplateListItem<Type T>* tempList = _head;
+			TemplateListItem<T>* tempList = _head;
 			int index = 0;
 			while (tempList != nullptr)
 			{
@@ -90,10 +90,10 @@ class TempList
 
 		void Clear()
 		{
-			TemplateListItem<Type T>* tempList = _head;
+			TemplateListItem<T>* tempList = _head;
 			while (tempList != nullptr)
 			{
-				TemplateListItem<Type T>* tempNextList = tempList->_next;
+				TemplateListItem<T>* tempNextList = tempList->_next;
 				delete tempList;
 				tempList = tempNextList;
 			}
@@ -105,7 +105,7 @@ class TempList
 		int GetCount()
 		{
 			int counter = 0;
-			TemplateListItem<Type T>* tempList = _head;
+			TemplateListItem<T>* tempList = _head;
 			while (tempList != nullptr)
 			{
 				tempList = tempList->_next;
@@ -117,12 +117,12 @@ class TempList
 		void Show()
 		{
 			cout << endl;
-			TemplatelistItem* tempList = _head;
+			TemplateListItem<T>* tempList = _head;
 			int elementCounter = 0;
 			while (tempList != nullptr)
 			{
-				ShowNodeInConsole(*tempList);
-				tempList = tempList->Next;
+				ShowNodeInConsole(tempList);
+				tempList = tempList->_next;
 				elementCounter++;
 				cout << "\nElement = " << elementCounter << endl;
 			}
@@ -142,38 +142,59 @@ class TempList
 			}
 		}
 
-		Person* Find(int index)
+		T* Find(int index)
 		{
 			if (index < 0)
 			{
-				return nullptr;
+				cout << "Wrong index";
+				Find(index);
 			}
-			TemplateListItem<Type T>* tempList = _head;
+			TemplateListItem<T>* tempList = _head;
 			int counter = 0;
 			while (counter < index)
 			{
 				if (tempList == nullptr)
 				{
-					return nullptr;
+					cout << "Empty List";
 				}
 				tempList = tempList->_next;
 				counter++;
 			}
-			return tempList->GetValue();
+			return &tempList->_value;
 		}
 
-		void ShowNodeInConsole(TemplateListItem list)
+		void ShowNodeInConsole(TemplateListItem<T>* list)
 		{
-			cout << list.GetValue()->GetDescription();
+			cout << list->_value;
 		}
 
-		TempLateList()
-		{
-
-		}
-
-		~TemplateList()
+		TempList::~TempList()
 		{
 			Clear();
 		}
+
+		friend std::ostream& operator<<(std::ostream& os, TempList* list)
+		{
+			TemplateListItem<T>* tempList = list->_head;
+			int i = 0;
+			cout << "Подсписок: ";
+			while (tempList != nullptr)
+			{
+				cout << tempList->GetValue() << "  ";
+				tempList = tempList->_next;
+			}
+			return os;
+		}		
 };
+
+	static std::ostream& operator << (std::ostream &os, Lab6::Adult* person)
+	{
+		os << person->GetDescription();
+		return os;
+	}
+
+	static std::ostream& operator << (std::ostream & os, double* d)
+	{
+		os << d[0];
+		return os;
+	}

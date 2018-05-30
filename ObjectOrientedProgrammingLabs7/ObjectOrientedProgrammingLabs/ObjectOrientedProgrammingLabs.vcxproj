@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{ECD04CE6-00A2-4264-9230-F85D4EB1200A}</ProjectGuid>
     <RootNamespace>ObjectOrientedProgrammingLabs</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -129,6 +129,7 @@
     <ClCompile Include="PersonTools.cpp" />
     <ClCompile Include="PersonTools6.cpp" />
     <ClCompile Include="SourceMenu.cpp" />
+    <ClCompile Include="TemplateMenu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Adult.h" />
@@ -155,6 +156,7 @@
     <ClInclude Include="PersonTools6.h" />
     <ClInclude Include="Sex.h" />
     <ClInclude Include="TemplateListItem.h" />
+    <ClInclude Include="TemplateMenu.h" />
     <ClInclude Include="TempList.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

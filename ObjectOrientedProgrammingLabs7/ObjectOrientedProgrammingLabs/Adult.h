@@ -7,6 +7,7 @@ namespace Lab6
 	class Adult : public PersonBase
 	{
 	public:
+		Adult() {};
 		~Adult();
 		Adult(char name[PersonBase::arraySize], char surname[PersonBase::arraySize], int age,
 			enum Sex sex, char* workPlace);

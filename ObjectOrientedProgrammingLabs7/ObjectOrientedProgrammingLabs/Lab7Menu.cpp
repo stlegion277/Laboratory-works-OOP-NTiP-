@@ -1,25 +1,22 @@
 #pragma once
 #include "Lab7Menu.h"
 using namespace std;
-using namespace Lab5;
+using namespace Lab6;
 
-int ListMenu()
+void ListMenu()
 {
-	TempList<TempList<double>*> *tempList = new TempList<TempList<double>*>();
+	TempList<TempList<double>*>* tempList = new TempList<TempList<double>*>();
 	int menuNumber;
 	int index;
 	bool menu = true;
 	while (menu)
 	{
-		cout << "1. Add RANDOM person in double linked list\n";
+		cout << "1. Add element\n";
 		cout << "2. Show double linked list\n";
 		cout << "3. Get element by index\n";
 		cout << "4. Remove element by index\n";
 		cout << "5. Clear the list\n";
 		cout << "6. Count all elements\n";
-		cout << "7. Enter your person to list\n";
-		cout << "8. Add child to the list\n";
-		cout << "9. Add adult to the lit\n";
 		cout << "0 Exit\n ";
 		cout << "Enter number of a function to start\n ";
 		menuNumber = CheckSymbol();
@@ -42,10 +39,11 @@ int ListMenu()
 			}
 			case 3:
 			{
+
 				cout << "Enter index of element you want to get" << endl;
-				index = CheckSymbol();
-				tempList->IndexOf();
-				cout << &tempList << endl;
+				int index = CheckSymbol();
+				tempList->Find(index);
+				DoubleListMenu(*tempList->Find(index), index);
 				break;
 			}
 			case 4:
@@ -64,7 +62,7 @@ int ListMenu()
 			}
 			case 6:
 			{
-				cout << "Number of persons in list == ";
+				cout << "Number of elements in list == ";
 				cout << tempList->GetCount() << endl;
 				break;
 
@@ -73,7 +71,7 @@ int ListMenu()
 	}
 }
 
-int DoubleListMenu(TempList<double>* tempList, int element)
+void DoubleListMenu(TempList<double>* tempList, int element)
 {
 
 	int menuNumber;
@@ -81,15 +79,12 @@ int DoubleListMenu(TempList<double>* tempList, int element)
 	bool menu = true;
 	while (menu)
 	{
-		cout << "1. Add RANDOM person in double linked list\n";
+		cout << "1. Add element in double linked list\n";
 		cout << "2. Show double linked list\n";
 		cout << "3. Get element by index\n";
 		cout << "4. Remove element by index\n";
 		cout << "5. Clear the list\n";
 		cout << "6. Count all elements\n";
-		cout << "7. Enter your person to list\n";
-		cout << "8. Add child to the list\n";
-		cout << "9. Add adult to the lit\n";
 		cout << "0 Exit\n ";
 		cout << "Enter number of a function to start\n ";
 		menuNumber = CheckSymbol();
@@ -102,8 +97,8 @@ int DoubleListMenu(TempList<double>* tempList, int element)
 			}
 			case 1:
 			{
-
-				tempList->Add(new TempList<double*>*);
+				double* tempElement = new double(CheckSymbol());
+				tempList->Add(*tempElement);
 				tempList->Show();
 				break;
 			}
@@ -115,7 +110,7 @@ int DoubleListMenu(TempList<double>* tempList, int element)
 			case 3:
 			{
 				cout << "\n Enter index of a person: \n";
-				Person* person = tempList->Find(CheckSymbol());
+				/*Person* person = tempList->Find(CheckSymbol());
 				if (person != nullptr)
 				{
 					cout << "Found person: " << endl;
@@ -132,7 +127,11 @@ int DoubleListMenu(TempList<double>* tempList, int element)
 				else
 				{
 					cout << "Person not found" << endl;
-				}
+				}*/
+				int index;
+				index = CheckSymbol();
+				tempList->Find(index);
+				double* tempElement = tempList->Find(index);
 				break;
 			}
 			case 4:
@@ -158,14 +157,14 @@ int DoubleListMenu(TempList<double>* tempList, int element)
 			}
 		}
 
-	}     
+	}  
 }
 
 
 
-int PersonMenu()
+void PersonMenu()
 {
-	TempList<Person*>* tempList = new TempList<Lab5::Person*>();
+	TempList<Lab6::Adult*>* tempList = new TempList<Lab6::Adult*>();
 	int menuNumber;
 	int index;
 	bool menu = true;
@@ -189,7 +188,8 @@ int PersonMenu()
 			}
 			case 1:
 			{
-				tempList->Add(Lab5::PersonTools::MakeRandomPerson());
+				tempList->Add(Lab6::PersonTools::MakeRandomAdult(Male));
+				tempList->Add(Lab6::PersonTools::MakeRandomAdult(Female));
 				tempList->Show();
 				break;
 			}
@@ -201,13 +201,13 @@ int PersonMenu()
 			case 3:
 			{
 				cout << "\n Enter index of a person: \n";
-				Person* person = tempList->Find(CheckSymbol());
+				Adult* person = *tempList->Find(CheckSymbol());
 				if (person != nullptr)
 				{
 					cout << "Found person: " << endl;
 					cout << " Surname: " << person->GetSurname() << endl;
 					cout << " Name: " << person->GetName() << endl;
-					cout << " Age: " << person->GetAge() << endl;
+				/*	cout << " Age: " << person->GetAge() << endl;*/
 					cout << " Sex: ";
 					if (person->GetSex() == Male)
 					{
@@ -222,6 +222,10 @@ int PersonMenu()
 				break;
 
 				break;
+				/*int index;
+				tempList->Find(index);
+				Person* tempElement = tempList->Find(index);*/
+
 			}
 			case 4:
 			{
@@ -251,10 +255,7 @@ int PersonMenu()
 			}
 		}
 	}
-
 	system("pause");
-	return 0;
-
 }
 
 

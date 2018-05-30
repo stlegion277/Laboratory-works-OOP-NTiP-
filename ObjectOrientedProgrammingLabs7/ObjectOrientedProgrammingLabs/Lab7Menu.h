@@ -1,12 +1,10 @@
 #pragma once
 #include "TemplateListItem.h"
 #include "TempList.h"
-//#include "Person6.h"
-#include "PersonLab5.h"
-#include "PersonTools.h"
+#include "PersonTools6.h"
 
-using namespace Lab5;
+using namespace Lab6;
 
-int PersonMenu();
-int ListMenu();
-int DoubleListMenu(TempList<double>* tempList, int element);
+void PersonMenu();
+void ListMenu();
+void DoubleListMenu(TempList<double>* tempList, int element);

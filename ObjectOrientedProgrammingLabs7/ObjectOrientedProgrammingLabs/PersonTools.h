@@ -1,5 +1,5 @@
 #pragma once
-#include "CheckSymbol.h"
+//#include "CheckSymbol.h"
 
 
 namespace Lab5

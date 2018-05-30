@@ -99,6 +99,9 @@
     <ClCompile Include="Lab7Menu.cpp">
       <Filter>Lab7</Filter>
     </ClCompile>
+    <ClCompile Include="TemplateMenu.cpp">
+      <Filter>Lab7</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CheckSymbol.h">
@@ -174,6 +177,9 @@
       <Filter>Lab7</Filter>
     </ClInclude>
     <ClInclude Include="TempList.h">
+      <Filter>Lab7</Filter>
+    </ClInclude>
+    <ClInclude Include="TemplateMenu.h">
       <Filter>Lab7</Filter>
     </ClInclude>
   </ItemGroup>
