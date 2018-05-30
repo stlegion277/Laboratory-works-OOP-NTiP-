@@ -66,8 +66,8 @@ class TempList
 		void RemoveByIndex(int index)
 		{
 			
-			T* tempElement = Find(index);
-			Remove(*tempElement);
+			T tempElement = Find(index);
+			Remove(tempElement);
 		}
 
 		int IndexOf(T element)
@@ -142,7 +142,7 @@ class TempList
 			}
 		}
 
-		T* Find(int index)
+		T Find(int index)
 		{
 			if (index < 0)
 			{
@@ -160,7 +160,7 @@ class TempList
 				tempList = tempList->_next;
 				counter++;
 			}
-			return &tempList->_value;
+			return tempList->_value;
 		}
 
 		void ShowNodeInConsole(TemplateListItem<T>* list)
@@ -177,7 +177,7 @@ class TempList
 		{
 			TemplateListItem<T>* tempList = list->_head;
 			int i = 0;
-			cout << "Подсписок: ";
+			cout << "SubList : ";
 			while (tempList != nullptr)
 			{
 				cout << tempList->GetValue() << "  ";

@@ -43,7 +43,7 @@ void ListMenu()
 				cout << "Enter index of element you want to get" << endl;
 				int index = CheckSymbol();
 				tempList->Find(index);
-				DoubleListMenu(*tempList->Find(index), index);
+				DoubleListMenu(tempList->Find(index), index);
 				break;
 			}
 			case 4:
@@ -131,7 +131,8 @@ void DoubleListMenu(TempList<double>* tempList, int element)
 				int index;
 				index = CheckSymbol();
 				tempList->Find(index);
-				double* tempElement = tempList->Find(index);
+				double tempSearchedElement = tempList->Find(index);
+				double* tempElement = &tempSearchedElement;
 				break;
 			}
 			case 4:
@@ -201,7 +202,7 @@ void PersonMenu()
 			case 3:
 			{
 				cout << "\n Enter index of a person: \n";
-				Adult* person = *tempList->Find(CheckSymbol());
+				Adult* person = tempList->Find(CheckSymbol());
 				if (person != nullptr)
 				{
 					cout << "Found person: " << endl;
