@@ -33,8 +33,6 @@ namespace Lab6
 		};
 		const int initialsRand = 8;
 		const int ageRand = 90;
-		/*int name = rand() % initialsRand;
-		int surname = rand() % initialsRand;*/
 		int tempAge = rand() % ageRand;
 		PersonBase* tempMother;
 		PersonBase* tempFather;
@@ -116,7 +114,6 @@ namespace Lab6
 		char tempName[PersonBase::arraySize];
 		char tempSurname[PersonBase::arraySize];
 		Sex tempSex = Sex(rand() % 2);
-		//Adult* tempMarriage = PersonTools::MakeRandomAdult((enum Sex)!tempSex);
 		strcpy_s(tempworkPlace, workPlaces[rand() % workPlacesRand]);
 		if (rand() % 5)
 		{
@@ -165,21 +162,14 @@ namespace Lab6
 		};
 		const int initialsRand = 8;
 		const int ageRand = 130;
-		const int workPlacesRand = 7;
+		const int workPlacesRand = 8;
 		int adultCounter = 2;
-		/*int name = rand() % initialsRand;
-		int surname = rand() % initialsRand;*/
 		int tempAge = 18 + rand() % ageRand;
 		char tempworkPlace[PersonBase::arraySize];
 		char tempName[PersonBase::arraySize];
 		char tempSurname[PersonBase::arraySize];
 		Sex tempSex = Sex(rand() % 2);
-	//	Adult* tempMarriage = MakeRandomAdult((enum Sex)!sexTemp);
 		strcpy_s(tempworkPlace, workPlaces[rand() % workPlacesRand]);
-		if (rand() % 5)
-		{
-			strcpy_s(tempworkPlace, workPlaces[rand() % 9]);
-		}
 		if (tempSex == Female)
 		{
 			strcpy_s(tempName, femaleNames[rand() % initialsRand]);
