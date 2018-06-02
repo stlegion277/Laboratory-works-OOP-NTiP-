@@ -23,112 +23,68 @@ int main()
 	printf("0 Exit\n ");
 	printf("Enter number of function to start\n ");
 	m = CheckSymbol();
-
 	while (menu == 1)
-	{ 
+	{	printf("Enter number of function to start\n ");
 		switch (m)
 		{
 		case 0:
 			menu = 0; 
 			break;
-
 		case 1:
-		
 			HelloWorld();
-			printf("Enter number of function to start ");
 			m = CheckSymbol();
 			break;
-		
 		case 2:
-		
 			NumbersSumm();
-			printf("Enter number of function to start ");
 			m = CheckSymbol();
 			break;
-		
 		case 3:
-		
-			NumbersDivision();
-			printf("Enter number of function to start");
+			NumbersDivision();			
 			m = CheckSymbol();
 			break;
-		
 		case 4:
-		
 			ReadingInput();
-			printf("Enter number of function to start");
 			m = CheckSymbol();
 			break;
-		
 		case 5:
-		
 			PointerExample();
-			printf("Enter number of function to start");
 			m = CheckSymbol();
 			break;
-		
 		case 6:
-		
-			ExampleIf();
-			printf("Enter number of function to start ");
+			ExampleIf();		
 			m = CheckSymbol();
 			break;
-		
 		case 7:
-		
 			ExampleElseIf();
-			printf("Enter number of function to start");
 			m = CheckSymbol();
 			break;
-		
 		case 8:
-		
 			ExampleElseIf();
-			printf("Enter number of function to start ");
 			m = CheckSymbol();
 			break;
-		
 		case 9:
-		
 			PredfixCycle();
-			printf("Enter number of function to start ");
 			m = CheckSymbol();
 			break;
-		
 		case 10:
-		
 			PostfixCycle();
-			printf("Enter number of function to start ");
 			m = CheckSymbol();
 			break;
-		
 		case 11:
-		
 			IterativeCycle();
-			printf("Enter number of function to start ");
 			m = CheckSymbol();
 			break;
-		
 		case 12:
-		
 			ConvertingTypes();
-			printf("Enter number of function to start ");
 			m = CheckSymbol();
 			break;
-		
 		case 13:
-		
 			BreakExample();
-			printf("Enter number of function to start ");
 			m = CheckSymbol();
 			break;
-		
-
-		
 		default: cout << "Enter number of function to start ";
 			m = CheckSymbol();
 			break;
-		
 			}
 		}
 }
