@@ -45,7 +45,8 @@ namespace Lab6
 		}
 		if (rand() % 2)
 		{ //TODO: Зачем int подавать?
-			tempMother = PersonTools::MakeRandomAdult((enum Sex)0); //getrandomadult
+			//сделал
+			tempMother = PersonTools::MakeRandomAdult((enum Sex)Female); //getrandomadult
 		}
 		else
 		{
@@ -53,7 +54,8 @@ namespace Lab6
 		}
 		if (rand() % 2)
 		{//TODO: Зачем int подавать?
-			tempFather = PersonTools::MakeRandomAdult((enum Sex)1);//getrandomadult
+			//сделал
+			tempFather = PersonTools::MakeRandomAdult((enum Sex)Male);//getrandomadult
 		}
 		else
 		{

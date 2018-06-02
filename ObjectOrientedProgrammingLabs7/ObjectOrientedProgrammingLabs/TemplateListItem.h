@@ -19,7 +19,5 @@ class TemplateListItem
 		TemplateListItem<T>* _prev = nullptr;
 		T _value;
 		//TODO: Зачем это здесь?
-	private:
-		
-
+		//сделал
 };

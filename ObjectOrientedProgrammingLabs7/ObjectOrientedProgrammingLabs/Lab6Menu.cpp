@@ -25,74 +25,76 @@ namespace Lab6
 			menuNumber = CheckSymbol();
 			switch (menuNumber)
 			{//TODO: Косяк c RSDN
-			case 0:
-				menuExit = false;
-				break;
-			case 1:
-			{
-				//TODO: Падает после добавления нескольких персон
-				cout << "Add child to the list" << endl;
-				tempList->Add(PersonTools::MakeRandomChild());
-				break;
-			}
-			case 2:
-			{
-				tempList->Show();
-				break;
-			}
-			case 3:
-			{
-				cout << "\n Enter index of a person: \n";
-				PersonBase* person = tempList->Find(CheckSymbol());
-				if (person != nullptr)
+				//сделал
+				case 0:
+					menuExit = false;
+					break;
+				case 1:
 				{
-					cout << "Found person: " << endl;
-					cout << " Surname: " << person->GetSurname() << endl;
-					cout << " Name: " << person->GetName() << endl;
-					cout << " Age: " << person->GetAge() << endl;
-					cout << " Sex: ";
-					if (person->GetSex() == Male)
+					//TODO: Падает после добавления нескольких персон
+					//сделал
+					cout << "Add child to the list" << endl;
+					tempList->Add(PersonTools::MakeRandomChild());
+					break;
+				}
+				case 2:
+				{
+					tempList->Show();
+					break;
+				}
+				case 3:
+				{
+					cout << "\n Enter index of a person: \n";
+					PersonBase* person = tempList->Find(CheckSymbol());
+					if (person != nullptr)
 					{
-						cout << "Male";
+						cout << "Found person: " << endl;
+						cout << " Surname: " << person->GetSurname() << endl;
+						cout << " Name: " << person->GetName() << endl;
+						cout << " Age: " << person->GetAge() << endl;
+						cout << " Sex: ";
+						if (person->GetSex() == Male)
+						{
+							cout << "Male";
+						}
+						cout << endl << endl;
 					}
-					cout << endl << endl;
+					else
+					{
+						cout << "Person not found" << endl;
+					}
+					break;
+					break;
 				}
-				else
+				case 4:
 				{
-					cout << "Person not found" << endl;
+					cout << "Enter an index of element you want to remove " << endl;
+					index = CheckSymbol();
+					tempList->RemoveByIndex(index);
+					tempList->Show();
+					break;
 				}
-				break;
-				break;
-			}
-			case 4:
-			{
-				cout << "Enter an index of element you want to remove " << endl;
-				index = CheckSymbol();
-				tempList->RemoveByIndex(index);
-				tempList->Show();
-				break;
-			}
-			case 5:
-			{
-				tempList->Clear();
-				cout << "List is empty now!" << endl;
-				break;
-			}
-			case 6:
-			{
-				cout << "Number of persons in list == ";
-				cout << tempList->GetCount() << endl;
-				break;
+				case 5:
+				{
+					tempList->Clear();
+					cout << "List is empty now!" << endl;
+					break;
+				}
+				case 6:
+				{
+					cout << "Number of persons in list == ";
+					cout << tempList->GetCount() << endl;
+					break;
 
-			}
-			case 7:
-			{
+				}
+				case 7:
+				{
 				
-				tempList->Add(PersonTools::MakingMarriage());
-			}
-			default: 
-				cout << "Enter number of function to start ";
-				break;
+					tempList->Add(PersonTools::MakingMarriage());
+				}
+				default: 
+					cout << "Enter number of function to start ";
+					break;
 			}
 		}
 		system("pause");

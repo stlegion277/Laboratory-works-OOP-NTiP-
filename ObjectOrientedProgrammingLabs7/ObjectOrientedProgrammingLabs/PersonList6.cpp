@@ -121,15 +121,7 @@ namespace Lab6
 			elementCounter++;
 			cout << "\nElement = " << elementCounter << endl;
 		}//TODO: Зачем это здесь?
-		/*if (_head != nullptr)
-		{	
-			cout << "\nHead element\n";
-			cout << "_____________\n";
-			ShowNodeInConsole(*_head);
-			cout << "\nTail element\n";
-			cout << "___________\n";
-			ShowNodeInConsole(*_tail);
-		}*/
+		//сделал
 		if (_head == nullptr || _tail == nullptr )
 		{
 			cout << "Head and Tail elements are NULL! List is empty!" << endl;

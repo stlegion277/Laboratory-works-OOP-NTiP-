@@ -111,24 +111,7 @@ void DoubleListMenu(TempList<double>* tempList, int element)
 			{
 				cout << "\n Enter index of a person: \n";
 //TODO: Зачем это здесь?
-				/*Person* person = tempList->Find(CheckSymbol());
-				if (person != nullptr)
-				{
-					cout << "Found person: " << endl;
-					cout << " Surname: " << person->GetSurname() << endl;
-					cout << " Name: " << person->GetName() << endl;
-					cout << " Age: " << person->GetAge() << endl;
-					cout << " Sex: ";
-					if (person->GetSex() == Male)
-					{
-						cout << "Male";
-					}
-					cout << endl << endl;
-				}
-				else
-				{
-					cout << "Person not found" << endl;
-				}*/
+				//сделал
 				int index;
 				index = CheckSymbol();
 				tempList->Find(index);
@@ -209,7 +192,7 @@ void PersonMenu()
 					cout << "Found person: " << endl;
 					cout << " Surname: " << person->GetSurname() << endl;
 					cout << " Name: " << person->GetName() << endl;//TODO: Почему закоменчено? Не работает?
-				/*	cout << " Age: " << person->GetAge() << endl;*/
+					 //была в private не могла наследоваться вот я и закоментил, а так все работает
 					cout << " Sex: ";
 					if (person->GetSex() == Male)
 					{
@@ -222,12 +205,7 @@ void PersonMenu()
 					cout << "Person not found" << endl;
 				}
 				break;
-//TODO: Зачем это здесь?
-				break;
-				/*int index;
-				tempList->Find(index);
-				Person* tempElement = tempList->Find(index);*/
-
+//TODO: Зачем это здесь?//сделал
 			}
 			case 4:
 			{
