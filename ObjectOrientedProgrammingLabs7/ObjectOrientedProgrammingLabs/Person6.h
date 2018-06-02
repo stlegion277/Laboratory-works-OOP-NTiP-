@@ -4,8 +4,6 @@
 using namespace std;
 namespace Lab6
 {
-	//TODO: Именование базового класса RSDN
-	//Сделал
 	class PersonBase
 	{
 		public:

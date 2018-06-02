@@ -19,7 +19,7 @@ namespace Lab6
 
 	void Child::SetMother(PersonBase* mother)
 	{	
-		//TODO: Проверка на входные данные (ниже тоже)
+		//TODO: Проверка на входные данные (ниже тоже)!!!
 		_mother = mother;	
 	}
 
@@ -82,8 +82,6 @@ namespace Lab6
 		return _father;
 	}
 
-	//TODO: unsigned
-	//сделал
 	unsigned int Child::GetAge()
 	{
 		return _age;

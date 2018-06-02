@@ -24,7 +24,7 @@ namespace Lab6
 			cout << "Enter number of a function to start\n ";
 			menuNumber = CheckSymbol();
 			switch (menuNumber)
-			{
+			{//TODO: Косяк c RSDN
 			case 0:
 				menuExit = false;
 				break;

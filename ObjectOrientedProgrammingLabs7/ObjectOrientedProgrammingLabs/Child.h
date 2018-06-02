@@ -5,7 +5,7 @@
 namespace Lab6
 {
 	class Child : public PersonBase
-	{
+	{//TODO: Косяк c RSDN
 	public:
 		~Child();
 		Child(char name[PersonBase::arraySize], char surname[PersonBase::arraySize], unsigned int age,

@@ -3,8 +3,7 @@
 #include "PersonTools6.h"
 
 namespace Lab6
-{//TODO: Отступы!
-	//сделал
+{
 	Child* PersonTools::MakeRandomChild()
 	{
 		const char* femaleChildNames[] =
@@ -45,7 +44,7 @@ namespace Lab6
 			strcpy_s(tempChildSchools, childSchools[rand() % 3]);
 		}
 		if (rand() % 2)
-		{ 
+		{ //TODO: Зачем int подавать?
 			tempMother = PersonTools::MakeRandomAdult((enum Sex)0); //getrandomadult
 		}
 		else
@@ -53,7 +52,7 @@ namespace Lab6
 			tempMother = nullptr;
 		}
 		if (rand() % 2)
-		{
+		{//TODO: Зачем int подавать?
 			tempFather = PersonTools::MakeRandomAdult((enum Sex)1);//getrandomadult
 		}
 		else
@@ -72,8 +71,7 @@ namespace Lab6
 		}
 		return new Child(tempName, tempSurname, tempAge, tempSex, tempMother, tempFather, tempChildSchools);
 	}
-	//TODO: Отступы!
-	//сделал
+
 	Adult * PersonTools::MakeRandomAdult()
 	{
 		const char* femaleNames[] =
@@ -185,8 +183,6 @@ namespace Lab6
 
 	Adult* PersonTools::MakingMarriage()
 	{
-		//TODO: Позорный отстой!
-		//сделал
 		Adult* adult1 = MakeRandomAdult((enum Sex)!Male);
 		Adult* adult2 = MakeRandomAdult((enum Sex)!Female);
 		adult1->_marriage = adult2;

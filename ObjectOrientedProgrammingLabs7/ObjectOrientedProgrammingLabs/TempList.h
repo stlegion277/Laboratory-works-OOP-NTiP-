@@ -125,7 +125,7 @@ class TempList
 				tempList = tempList->_next;
 				elementCounter++;
 				cout << "\nElement = " << elementCounter << endl;
-			}
+			}//TODO: Зачем это здесь?
 			/*if (_head != nullptr)
 			{
 			cout << "\nHead element\n";

@@ -120,7 +120,7 @@ namespace Lab6
 			tempList = tempList->Next;
 			elementCounter++;
 			cout << "\nElement = " << elementCounter << endl;
-		}
+		}//TODO: Зачем это здесь?
 		/*if (_head != nullptr)
 		{	
 			cout << "\nHead element\n";

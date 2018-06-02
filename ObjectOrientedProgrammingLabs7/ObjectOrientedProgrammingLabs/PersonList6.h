@@ -7,8 +7,7 @@ using namespace std;
 namespace Lab6
 {
 	class PersonList
-	{//TODO: Отступы.
-		//сделал
+	{
 		public:
 			~PersonList();
 			char* CheckPerson(char Name[PersonBase::arraySize]);
@@ -26,5 +25,5 @@ namespace Lab6
 			PersonListItem* _head = nullptr;
 			PersonListItem* _tail = nullptr;
 			void ShowNodeInConsole(PersonListItem list);		
-		};
+	};
 }

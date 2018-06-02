@@ -9,8 +9,7 @@ namespace Lab6
 		SetWorkPlace(workPlace);
 		SetAge(age);
 	};
-	//TODO Unsigned
-	//сделал
+
 	void Adult::SetAge(unsigned int age)
 	{
 		if (age >= 18)
@@ -25,8 +24,6 @@ namespace Lab6
 
 	void Adult::SetWorkPlace(char* workPlace)
 	{
-		//TODO: Проверка?
-		//сделал
 		if (_workPlace != nullptr)
 		{
 			strcpy_s(_workPlace, arraySize, workPlace);
