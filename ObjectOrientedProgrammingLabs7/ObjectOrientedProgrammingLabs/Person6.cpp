@@ -70,8 +70,7 @@ namespace Lab6
 			
 		enum Sex tempSexKey = this->GetSex();
 		switch (tempSexKey)
-		{//TODO: Отступы!
-			//сделал
+		{
 			case Male:
 			{
 				description += "\nSex = Male\n";

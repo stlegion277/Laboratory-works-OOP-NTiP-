@@ -24,15 +24,12 @@ namespace Lab6
 			cout << "Enter number of a function to start\n ";
 			menuNumber = CheckSymbol();
 			switch (menuNumber)
-			{//TODO: Косяк c RSDN
-				//сделал
+			{
 				case 0:
 					menuExit = false;
 					break;
 				case 1:
 				{
-					//TODO: Падает после добавления нескольких персон
-					//сделал
 					cout << "Add child to the list" << endl;
 					tempList->Add(PersonTools::MakeRandomChild());
 					break;

@@ -110,8 +110,7 @@ void DoubleListMenu(TempList<double>* tempList, int element)
 			case 3:
 			{
 				cout << "\n Enter index of a person: \n";
-//TODO: Зачем это здесь?
-				//сделал
+				//TODO: Почему инициализация с объявлением разделены?
 				int index;
 				index = CheckSymbol();
 				tempList->Find(index);
@@ -191,8 +190,7 @@ void PersonMenu()
 				{
 					cout << "Found person: " << endl;
 					cout << " Surname: " << person->GetSurname() << endl;
-					cout << " Name: " << person->GetName() << endl;//TODO: Почему закоменчено? Не работает?
-					 //была в private не могла наследоваться вот я и закоментил, а так все работает
+					cout << " Name: " << person->GetName() << endl;
 					cout << " Sex: ";
 					if (person->GetSex() == Male)
 					{
@@ -205,7 +203,6 @@ void PersonMenu()
 					cout << "Person not found" << endl;
 				}
 				break;
-//TODO: Зачем это здесь?//сделал
 			}
 			case 4:
 			{

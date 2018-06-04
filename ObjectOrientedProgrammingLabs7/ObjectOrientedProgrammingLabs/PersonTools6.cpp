@@ -44,8 +44,7 @@ namespace Lab6
 			strcpy_s(tempChildSchools, childSchools[rand() % 3]);
 		}
 		if (rand() % 2)
-		{ //TODO: Зачем int подавать?
-			//сделал
+		{ 
 			tempMother = PersonTools::MakeRandomAdult((enum Sex)Female); //getrandomadult
 		}
 		else
@@ -53,8 +52,7 @@ namespace Lab6
 			tempMother = nullptr;
 		}
 		if (rand() % 2)
-		{//TODO: Зачем int подавать?
-			//сделал
+		{
 			tempFather = PersonTools::MakeRandomAdult((enum Sex)Male);//getrandomadult
 		}
 		else

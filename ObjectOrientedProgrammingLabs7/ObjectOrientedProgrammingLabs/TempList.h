@@ -125,8 +125,7 @@ class TempList
 				tempList = tempList->_next;
 				elementCounter++;
 				cout << "\nElement = " << elementCounter << endl;
-			}//TODO: Зачем это здесь?
-			 //сделал
+			}
 			if (_head == nullptr || _tail == nullptr)
 			{
 				cout << "Head and Tail elements are NULL! List is empty!" << endl;
