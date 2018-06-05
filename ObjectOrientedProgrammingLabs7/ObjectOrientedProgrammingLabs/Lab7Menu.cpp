@@ -111,8 +111,8 @@ void DoubleListMenu(TempList<double>* tempList, int element)
 			{
 				cout << "\n Enter index of a person: \n";
 				//TODO: Почему инициализация с объявлением разделены?
-				int index;
-				index = CheckSymbol();
+				//сделал
+				int index = CheckSymbol();
 				tempList->Find(index);
 				double tempSearchedElement = tempList->Find(index);
 				double* tempElement = &tempSearchedElement;
